@@ -1,1 +1,3 @@
 # env
+
+my terminal configurations
