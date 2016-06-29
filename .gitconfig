@@ -2,16 +2,16 @@
         excludesfile = /Users/CulloFiles/.gitignore_global
         editor = vim
 [web]
-	      browser = google-chrome
+	browser = google-chrome
 [user]
         name = cullo7
         email = culloaiden3@gmail.com
 [color]
-	      ui = auto
+	ui = auto
 [color "branch"]
-	      current = yellow bold
-	      local = green bold
-	       remote = cyan bold
+	current = yellow bold
+	local = green bold
+	remote = cyan bold
 [color "diff"]
       	meta = yellow bold
       	frag = magenta bold
