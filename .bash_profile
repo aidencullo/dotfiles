@@ -1,12 +1,22 @@
+# Aliases
+
 alias c='cd /Users/CulloFiles/Documents/Code'
-alias gs='git status'
 alias gpu='git push origin master'
 alias gpl='git pull origin master'
-alias ga='git add .'
+alias ga='git add . && git status'
 alias gc='git commit -m '
 alias la='ls -AF'
+alias srv='sudo postfix start'
+alias stp='sudo postfix stop'
 
-PS1='\h \u™ \W\n>> ' 
+# header
 
-LS_COLORS=$LS_COLORS:'di=0;35:'
-export LS_COLORS
+PS1="[\d \t \u@\h:\w ] $"
+
+# shortcuts
+
+cs() { cd "$@" && ls; }
+
+# Start
+
+cd ~/Documents/Code
