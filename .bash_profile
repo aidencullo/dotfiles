@@ -16,7 +16,3 @@ PS1="[\d \t \u@\h:\w ] $"
 # shortcuts
 
 cs() { cd "$@" && ls; }
-
-# Start
-
-cd ~/Documents/Code

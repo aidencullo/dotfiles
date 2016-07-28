@@ -31,7 +31,3 @@ plugins=(git)
 	alias srv='sudo postfix start'
 	alias stp='sudo postfix stop'
 	cs() { cd "$@" && ls; } # cs changes directory then lists contents of directory
-
-# Start
-
-cd ~/Documents/Code
