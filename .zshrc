@@ -26,6 +26,7 @@ autoload -Uz colors && colors
 PROMPT="%{$fg[red]%}%n%{$reset_color%}@%{$fg[blue]%}%m %{$fg_no_bold[yellow]%}%1~ %{$reset_color%}%# "
 
 cs() { cd "$@" && ls; } # cs changes directory then lists contents of directory
+
 ### Aliases ###
 
 alias g='cd /Users/CulloFiles/Documents/Code/Github'
@@ -38,6 +39,7 @@ alias gc='git commit -m '
 alias gap="git add . && git status && git commit -m 'updating files' && git push origin master"
 alias gl="git log"
 alias gd="git diff HEAD"
+alias gs="git status"
 
 # start mac email server
 alias srv='sudo postfix start'
@@ -47,3 +49,7 @@ alias stp='sudo postfix stop'
 alias la='ls -AF'
 alias sf='sudo find / -name'
 alias view='/usr/local/Cellar/pcl/1.8.0/pcl_viewer.app/Contents/MacOS/pcl_viewer'
+alias python='ipython'
+alias ev='vim ~/.vimrc'
+alias bru='brew update && brew upgrade && brew cleanup'
+alias ez='vim ~/.zshrc && source ~/.zshrc'
