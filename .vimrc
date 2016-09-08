@@ -66,56 +66,56 @@ set showtabline=2 " Always display the tabline, even if there is only one tab
 set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
 set viminfo^=%
 
-" Plugins
-call plug#begin()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 " Git
-Plug 'tpope/vim-fugitive'
+Plugin 'tpope/vim-fugitive'
 
 " Completion
-Plug 'benekastah/neomake'
-Plug 'rdnetto/YCM-Generator', {'branch': 'stable'}
-Plug 'valloric/YouCompleteMe'
-Plug 'scrooloose/syntastic', {'for': ['ocaml', 'clojure', 'lua']}
+Plugin 'benekastah/neomake'
+Plugin 'rdnetto/YCM-Generator', {'branch': 'stable'}
+Plugin 'valloric/YouCompleteMe'
+Plugin 'scrooloose/syntastic', {'for': ['ocaml', 'clojure', 'lua']}
 
 " Pandoc/Markdown
-Plug 'vim-pandoc/vim-pandoc', {'for': 'markdown'}
-Plug 'vim-pandoc/vim-pandoc-syntax', {'for': 'markdown'}
-Plug 'vim-pandoc/vim-pandoc-after', {'for': 'markdown'}
+Plugin 'vim-pandoc/vim-pandoc', {'for': 'markdown'}
+Plugin 'vim-pandoc/vim-pandoc-syntax', {'for': 'markdown'}
+Plugin 'vim-pandoc/vim-pandoc-after', {'for': 'markdown'}
 
 " Utilities
-Plug 'SirVer/ultisnips'
-Plug 'airblade/vim-rooter'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'easymotion/vim-easymotion'
-Plug 'honza/vim-snippets'
-Plug 'jiangmiao/auto-pairs'
-Plug 'kien/ctrlp.vim'
-Plug 'kien/rainbow_parentheses.vim'
-Plug 'nathanaelkane/vim-indent-guides'
-Plug 'rking/ag.vim'
-Plug 'scrooloose/nerdcommenter'
-Plug 'scrooloose/nerdtree'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-surround'
-Plug 'whatyouhide/vim-gotham'
-Plug 'xuyuanp/nerdtree-git-plugin'
-Plug 'yggdroot/indentLine'
-Plug 'Shougo/unite.vim'
+Plugin 'SirVer/ultisnips'
+Plugin 'airblade/vim-rooter'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'easymotion/vim-easymotion'
+Plugin 'honza/vim-snippets'
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'kien/ctrlp.vim'
+Plugin 'kien/rainbow_parentheses.vim'
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'rking/ag.vim'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/nerdtree'
+Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-surround'
+Plugin 'whatyouhide/vim-gotham'
+Plugin 'xuyuanp/nerdtree-git-plugin'
+Plugin 'yggdroot/indentLine'
+Plugin 'Shougo/unite.vim'
 
 " Coffeescript
-Plug 'kchmck/vim-coffee-script', {'for': 'coffeescript'}
+Plugin 'kchmck/vim-coffee-script', {'for': 'coffeescript'}
 
 " LaTeX
-Plug 'lervag/vimtex', {'for': 'tex'}
+Plugin 'lervag/vimtex', {'for': 'tex'}
 
-Plug 'flazz/vim-colorschemes'
+Plugin 'flazz/vim-colorschemes'
 
-call plug#end()
-
-filetype plugin indent on
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
 
 " Custom sequence bindings
 let mapleader = "\<space>"
@@ -230,3 +230,6 @@ let g:UltiSnipsJumpBackwardTrigger = '<c-a>'
 let g:syntastic_ocaml_checkers=['merlin','caml4po']
 
 colorscheme badwolf
+highlight LineNr ctermfg=green
+highlight LineNr ctermbg=blue
+

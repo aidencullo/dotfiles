@@ -1,3 +1,9 @@
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
+
+export TERM='xterm-256color'
+
 ZSH_THEME="agnoster"
 # Uncomment the following line to use case-sensitive completion.
 CASE_SENSITIVE="true"
@@ -10,8 +16,13 @@ ENABLE_CORRECTION="true"
 # Uncomment the following line to display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
 
-# disable marking untracked files under VCS as dirty.
-DISABLE_UNTRACKED_FILES_DIRTY="true"
+HISTFILE="${HOME}/.zsh_history"
+
+HISTSIZE=2000
+SAVEHIST=2000
+
+# each line is added to the history in this way as it is executed
+setopt INC_APPEND_HISTORY
 
 plugins=(git)
 
@@ -22,8 +33,8 @@ plugins=(git)
 
 # Prompt 
 
-autoload -Uz colors && colors
-PROMPT="%{$fg[red]%}%n%{$reset_color%}@%{$fg[blue]%}%m %{$fg_no_bold[yellow]%}%1~ %{$reset_color%}%# "
+#autoload -Uz colors && colors
+#PROMPT="%{$fg[red]%}%n%{$reset_color%}@%{$fg[blue]%}%m %{$fg_no_bold[yellow]%}%1~ %{$reset_color%}%# "
 
 cs() { cd "$@" && ls; } # cs changes directory then lists contents of directory
 
@@ -48,8 +59,10 @@ alias stp='sudo postfix stop'
 # other
 alias la='ls -AF'
 alias sf='sudo find / -name'
-alias view='/usr/local/Cellar/pcl/1.8.0/pcl_viewer.app/Contents/MacOS/pcl_viewer'
-alias python='ipython'
+alias view='/usr/local/Cellar/pcl/1.8.0_1/pcl_viewer.app/Contents/MacOS/pcl_viewer'
+alias py='ipython'
+alias rpy='python'
 alias ev='vim ~/.vimrc'
 alias bru='brew update && brew upgrade && brew cleanup'
 alias ez='vim ~/.zshrc && source ~/.zshrc'
+alias hist='history 1'
