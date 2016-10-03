@@ -11,6 +11,7 @@
 *.out
 *.app
 *.pyc
+*.gch
 
 # Temporary files #
 ###################
@@ -23,13 +24,10 @@
 ############
 *.7z
 *.dmg
-*.gz
 *.iso
 *.jar
 *.rar
-*.tar
 *.zip
-*.tar
 
 # Logs and databases #
 ######################
