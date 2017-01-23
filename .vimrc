@@ -1,4 +1,4 @@
-" GENERAL
+" General
 
 set showmatch       " show matching parenthesis
 set showmode                    " Show current mode down the bottom
@@ -15,9 +15,10 @@ syntax on " syntax highlighting
 " INDENTATION
 
 set autoindent
+set cindent   " This turns on C style indentation. Each new line will be automatically indented the correct amount according to the C indentation standard.
 set smartindent " automatically inserts one extra level of indentation in some cases
 set smarttab " affects how <TAB> key presses are interpreted depending on where the cursor is
-set shiftwidth=2 "affects what happens when you press >>, << or ==
+set shiftwidth=4 "affects what happens when you press >>, << or ==
 set softtabstop=4 " affects what happens when you press the <TAB> or <BS> keys
 set tabstop=4 " changes the width of the TAB character
 
@@ -27,7 +28,7 @@ set linebreak " Wrap lines at convenient points
 " SCROLLING
 
 set scrolloff=8 " Start scrolling at 10 lines away from margins
-set sidescrolloff=15 " Same thing horizontally
+set sidescrolloff=10 " Same thing horizontally
 set sidescroll=1
 
 " SEARCH
@@ -39,12 +40,12 @@ set smartcase " ...unless we type a capitial
 set paste " makes pasting cleaner --correct indentation
 
 set nocompatible
-filetype off
+filetype on
 
 " General settings
 set title
 set wildmenu
-set tw=80
+set tw=100
 set formatoptions+=t
 set so=7
 set wildignore=*.o,*~,*.pyc
@@ -55,7 +56,6 @@ set magic
 set noerrorbells
 set novisualbell
 set background=dark
-set expandtab
 set relativenumber
 set ai
 set si
@@ -72,17 +72,9 @@ Plugin 'tpope/vim-fugitive'
 
 " Completion
 Plugin 'benekastah/neomake'
-Plugin 'rdnetto/YCM-Generator', {'branch': 'stable'}
-Plugin 'valloric/YouCompleteMe'
 Plugin 'scrooloose/syntastic', {'for': ['ocaml', 'clojure', 'lua']}
 
-" Pandoc/Markdown
-Plugin 'vim-pandoc/vim-pandoc', {'for': 'markdown'}
-Plugin 'vim-pandoc/vim-pandoc-syntax', {'for': 'markdown'}
-Plugin 'vim-pandoc/vim-pandoc-after', {'for': 'markdown'}
-
-" Utilities
-Plugin 'SirVer/ultisnips'
+" Plugin 'SirVer/ultisnips'
 Plugin 'airblade/vim-rooter'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
@@ -110,6 +102,16 @@ Plugin 'kchmck/vim-coffee-script', {'for': 'coffeescript'}
 Plugin 'lervag/vimtex', {'for': 'tex'}
 
 Plugin 'flazz/vim-colorschemes'
+
+if v:version > 704
+    Plugin 'sirver/UltiSnips'
+    Plugin 'Valloric/YouCompleteMe'
+	Plugin 'rdnetto/YCM-Generator', {'branch': 'stable'}
+	" Pandoc/Markdown
+	Plugin 'vim-pandoc/vim-pandoc', {'for': 'markdown'}
+	Plugin 'vim-pandoc/vim-pandoc-syntax', {'for': 'markdown'}
+	Plugin 'vim-pandoc/vim-pandoc-after', {'for': 'markdown'}
+ endif
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
