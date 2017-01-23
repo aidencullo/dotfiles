@@ -13,7 +13,6 @@ zstyle ':prezto:load' pmodule \
     'completion' \
     'node' \
     'git' \
-    'syntax-highlighting' \
     'history-substring-search' \
     'prompt'
 

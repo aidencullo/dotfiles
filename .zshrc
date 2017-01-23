@@ -40,7 +40,7 @@ cs() { cd "$@" && ls; } # cs changes directory then lists contents of directory
 
 ### Aliases ###
 
-alias g='cd /Users/CulloFiles/Documents/Code/Github'
+alias g='cd ~/Documents/Code/Github'
 
 # git shortcuts
 alias gpu='git push origin master'
@@ -66,3 +66,20 @@ alias ev='vim ~/.vimrc'
 alias bru='brew update && brew upgrade && brew cleanup'
 alias ez='vim ~/.zshrc && source ~/.zshrc'
 alias hist='history 1'
+alias m='make'
+alias p='python3'
+
+# ssh
+alias ssl='ssh acullo1@remote.cs.binghamton.edu'
+alias ssr='ssh aiden@tula.binghamton.edu'
+alias sg22='sftp -r acullo1@remote.cs.binghamton.edu:/import/linux/home/acullo1/CS220/ ~/Documents/Code'
+alias sg24='sftp -r acullo1@remote.cs.binghamton.edu:/import/linux/home/acullo1/CS240/ ~/Documents/Code'
+alias sp22'scp -r ~/Documents/Code/CS220  acullo1@remote.cs.binghamton.edu:/import/linux/home/acullo1'
+alias sp24='scp -r ~/Documents/Code/CS240  acullo1@remote.cs.binghamton.edu:/import/linux/home/acullo1'
+
+mkcd(){
+  mkdir "$1"
+  cd "$1"
+}
+
+alias c='cp ~/sample.cpp . && mv sample.cpp '
