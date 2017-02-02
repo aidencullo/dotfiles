@@ -101,6 +101,7 @@ Plugin 'kchmck/vim-coffee-script', {'for': 'coffeescript'}
 " LaTeX
 Plugin 'lervag/vimtex', {'for': 'tex'}
 
+" colorschemes
 Plugin 'flazz/vim-colorschemes'
 
 if v:version > 704
@@ -132,6 +133,10 @@ nnoremap <Leader>e :enew<CR>:CtrlP<CR>
 nnoremap <leader>f 1z=
 nnoremap <leader>s :set spell!
 
+" Move selected block up/down in Visual block mode
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+
 " Rainbow parens settings
 let g:rbpt_colorpairs = [
     \ ['brown',       'RoyalBlue3'],
@@ -158,12 +163,24 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 " Show just the filename
 let g:airline#extensions#tabline#fnamemod = ':t'
+" Ignore unneccesary warning in vimtex
+let g:vimtex_echo_ignore_wait = 1
 
 " IndentLine settings
 let g:indentLine_color_term = 239
 let g:indentLine_color_gui = '#09AA08'
 let g:indentLine_char = '│'
+let g:ycm_server_keep_logfiles = 1
+let g:ycm_server_log_level = 'debug'
+
+" Autosave to disk
+let g:auto_save = 1
 
 colorscheme badwolf
 highlight LineNr ctermfg=green
 highlight LineNr ctermbg=blue
+
+" gets rid of trailing whitespace
+:command Trsp :%s/\s\+$//
+
+set bg=light
