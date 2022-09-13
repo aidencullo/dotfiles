@@ -5,8 +5,6 @@ ZSH_THEME="amuse"
 # Uncomment the following line to use case-sensitive completion.
 CASE_SENSITIVE="true"
 
-DISABLE_AUTO_TITLE="true"
-
 # Uncomment the following line to enable command auto-correction.
 ENABLE_CORRECTION="true"
 
@@ -27,7 +25,6 @@ export GREP_COLOR='3;33'
 setopt INC_APPEND_HISTORY
 setopt clobber
 
-plugins=(git osx)
 plugins=(zsh-autosuggestions)
 
 	export LANG=en_US.UTF-8
@@ -42,7 +39,6 @@ alias gpu='git push origin master'
 alias gpl='git pull origin master'
 alias ga='git add . && git status'
 alias gc='git commit -m '
-alias gap="git add . && git status && git commit -m 'updating files' && git push origin master"
 alias gra='git remote add origin'
 alias gl='git log'
 alias gd='git diff HEAD'
@@ -55,30 +51,17 @@ alias i='ipython'
 alias ev='vim ~/.vimrc'
 alias ez='vim ~/.zshrc && source ~/.zshrc'
 alias eb='vim ~/.bashrc'
-alias bru='brew update && brew upgrade && brew cleanup'
 alias hist='history 1'
 alias m='make'
 alias p='python3'
-alias cl='echo "" > '
-
-# template
-alias tp='cp ~/.template' 
 
 # homebrew
+alias bru='brew update && brew upgrade && brew cleanup'
 alias bup='brew update'
 alias bug='brew upgrade'
 alias bc='brew clean'
 alias bp='brew prune'
 alias bd='brew doctor'
 alias bm='brew missing'
-alias b="awk '\$0 == \"# homebrew\" {i=1;next};i && i++ <= 6' ~/.zshrc"
-
-# ssh
-alias ssl='ssh acullo1@remote.cs.binghamton.edu'
-alias ssr='ssh aiden@tula.binghamton.edu'
-alias ssn='ssh acullo@m.ndc.nasa.gov'
-
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=red'
 
 source $ZSH/oh-my-zsh.sh
