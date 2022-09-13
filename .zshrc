@@ -1,4 +1,8 @@
 export ZSH=/Users/CulloFiles/.oh-my-zsh
+<<<<<<< HEAD
+=======
+#testbranch
+>>>>>>> 5bde805... still playing around with rebasing
 
 ZSH_THEME="amuse"
 
