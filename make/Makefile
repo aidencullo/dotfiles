@@ -2,7 +2,7 @@ target	:= output
 objs	:= main.o file.o
 
 CPP	:= g++ -std=c++17
-CFLGAS	:= -Wall -Werror
+CFLGAS	:= -Wall -Werror -Wformat
 
 all: $(target)
 
