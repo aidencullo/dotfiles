@@ -97,10 +97,11 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 
 # aliases
-alias zshcon="emacs ~/.zshrc"
+alias zshrc="emacs ~/.zshrc"
 alias ohmyzsh="emacs ~/.oh-my-zsh/ph-my-zsh.sh"
-alias vimcon="vim ~/.vimrc"
+alias vimrc="vim ~/.vimrc"
 alias gitig="emacs ~/.gitignore_global"
+alias emac="emacs ~/.emacs"
 
 # alias suffixes
 # i would like to just make this global for all files
@@ -111,3 +112,5 @@ alias -s git="git clone"
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/local/opt/openjdk/bin:$PATH"
+# don't open less if it is less than a page
+export LESS="-F -X $LESS"

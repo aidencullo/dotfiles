@@ -10,3 +10,9 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+(global-linum-mode)
+(setq-default display-line-numbers 'relative)
+
+;; exit without saving
+(global-set-key "\C-x\C-c" 'kill-emacs)
