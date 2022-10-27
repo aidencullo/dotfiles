@@ -1,8 +1,9 @@
 target	:= output
-objs	:= main.o file.o
+objs	:= main.o solution.o
 
+CC	:= gcc
 CPP	:= g++ -std=c++17
-CFLGAS	:= -Wall -Werror -Wformat
+CFLAGS	:= -Wall -Werror
 
 all: $(target)
 
@@ -11,10 +12,13 @@ dep	:= $(pathsub %.o,%.d,$(objs))
 DEPFLAGS = -MMD -MF $(@:.o=.d)
 
 output: $(objs)
-	$(CPP) $(CFKAGS) -o $@ $^
+	$(CC) $(CFLAGS) -o $@ $^
 
 %.o: %.cpp
-	$(CPP) $(CFKAGS) -c $< $(DEPFLAGS)
+	$(CPP) $(CFLAGS) -c $< $(DEPFLAGS)
+
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< $(DEPFLAGS)
 
 clean:
-	rm $(target) $(objs) *~ \#*\# a.out
+	rm $(target) $(objs) *~ \#*\#
