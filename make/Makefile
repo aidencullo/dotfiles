@@ -17,4 +17,4 @@ output: $(objs)
 	$(CPP) $(CFKAGS) -c $< $(DEPFLAGS)
 
 clean:
-	rm $(target) $(objs) *~ \#*\#
+	rm $(target) $(objs) *~ \#*\# a.out
