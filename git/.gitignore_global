@@ -19,7 +19,6 @@
 *.swo
 *~
 *.cam
-\#(.*)\#
 
 # Packages #
 ############
@@ -46,3 +45,8 @@
 ehthumbs.db
 Thumbs.db
 *.dYSM
+
+# Executables #
+###############
+a.out
+output
