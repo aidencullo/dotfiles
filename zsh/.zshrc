@@ -71,6 +71,7 @@ ZSH_THEME="random"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git)
+plugins=(command-time)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -97,11 +98,11 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 
 # aliases
-alias zshrc="emacs ~/.zshrc"
-alias ohmyzsh="emacs ~/.oh-my-zsh/ph-my-zsh.sh"
-alias vimrc="vim ~/.vimrc"
-alias gitig="emacs ~/.gitignore_global"
-alias emac="emacs ~/.emacs"
+alias zshrc="emacs ~/.zshrc&"
+alias ohmyzsh="emacs ~/.oh-my-zsh/oh-my-zsh.sh&"
+alias vimrc="vim ~/.vimrc&"
+alias gitig="emacs ~/.gitignore_global&"
+alias emac="emacs ~/.emacs&"
 
 # alias suffixes
 # i would like to just make this global for all files
@@ -114,3 +115,40 @@ export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/local/opt/openjdk/bin:$PATH"
 # don't open less if it is less than a page
 export LESS="-F -X $LESS"
+
+export LANG=en_US.UTF-8
+
+# displaying execution time
+
+# If command execution time above min. time, plugins will not output time.
+ZSH_COMMAND_TIME_MIN_SECONDS=3
+
+# Message to display (set to "" for disable).
+ZSH_COMMAND_TIME_MSG="Execution time: %s sec"
+
+# Message color.
+ZSH_COMMAND_TIME_COLOR="cyan"
+
+# Exclude some commands
+ZSH_COMMAND_TIME_EXCLUDE=(vim mcedit)
+
+zsh_command_time() {
+    if [ -n "$ZSH_COMMAND_TIME" ]; then
+        hours=$(($ZSH_COMMAND_TIME/3600))
+        min=$(($ZSH_COMMAND_TIME/60))
+        sec=$(($ZSH_COMMAND_TIME%60))
+        if [ "$ZSH_COMMAND_TIME" -le 60 ]; then
+            timer_show="$fg[green]$ZSH_COMMAND_TIME s."
+        elif [ "$ZSH_COMMAND_TIME" -gt 60 ] && [ "$ZSH_COMMAND_TIME" -le 180 ]; then
+            timer_show="$fg[yellow]$min min. $sec s."
+        else
+            if [ "$hours" -gt 0 ]; then
+                min=$(($min%60))
+                timer_show="$fg[red]$hours h. $min min. $sec s."
+            else
+                timer_show="$fg[red]$min min. $sec s."
+            fi
+        fi
+        printf "${ZSH_COMMAND_TIME_MSG}\n" "$timer_show"
+    fi
+}
