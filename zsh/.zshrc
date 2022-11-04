@@ -103,6 +103,8 @@ alias ohmyzsh="emacs ~/.oh-my-zsh/oh-my-zsh.sh&"
 alias vimrc="vim ~/.vimrc&"
 alias gitig="emacs ~/.gitignore_global&"
 alias emac="emacs ~/.emacs&"
+alias python="/usr/bin/python3"
+alias python2="/usr/bin/python"
 
 # alias suffixes
 # i would like to just make this global for all files
@@ -124,7 +126,7 @@ export LANG=en_US.UTF-8
 ZSH_COMMAND_TIME_MIN_SECONDS=0
 
 # Message to display (set to "" for disable).
-ZSH_COMMAND_TIME_MSG="Execution time: %s sec"
+ZSH_COMMAND_TIME_MSG="%s s"
 
 # Message color.
 ZSH_COMMAND_TIME_COLOR="cyan"
@@ -138,15 +140,15 @@ zsh_command_time() {
         min=$(($ZSH_COMMAND_TIME/60))
         sec=$(($ZSH_COMMAND_TIME%60))
         if [ "$ZSH_COMMAND_TIME" -le 60 ]; then
-            timer_show="$fg[green]$ZSH_COMMAND_TIME s."
+            timer_show="$fg[green]$ZSH_COMMAND_TIME "
         elif [ "$ZSH_COMMAND_TIME" -gt 60 ] && [ "$ZSH_COMMAND_TIME" -le 180 ]; then
-            timer_show="$fg[yellow]$min min. $sec s."
+            timer_show="$fg[yellow]$min $sec"
         else
             if [ "$hours" -gt 0 ]; then
                 min=$(($min%60))
-                timer_show="$fg[red]$hours h. $min min. $sec s."
+                timer_show="$fg[red]$hours $min  $sec"
             else
-                timer_show="$fg[red]$min min. $sec s."
+                timer_show="$fg[red]$min  $sec "
             fi
         fi
         printf "${ZSH_COMMAND_TIME_MSG}\n" "$timer_show"
