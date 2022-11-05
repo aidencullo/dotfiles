@@ -11,8 +11,21 @@
  ;; If there is more than one, they won't work right.
  )
 
+;;
+;; Setting Values
+;;
+
+;; adding absolute line numbers
 (global-linum-mode)
+;; adding relative line numbers
 (setq-default display-line-numbers 'relative)
+
+;;
+;; Key Mappings
+;;
 
 ;; exit without saving
 (global-set-key "\C-x\C-c" 'kill-emacs)
+
+;; inhibit tutorial screen upon opening emacs
+(setq inhibit-startup-screen t)
