@@ -29,3 +29,9 @@
 
 ;; inhibit tutorial screen upon opening emacs
 (setq inhibit-startup-screen t)
+
+
+;; store backups and autosaves in .emacs.d
+;; ~/.emacs.d/.autosaves needs to exist
+(setq backup-directory-alist `(("." . "~/.emacs.d/.backups"))
+      auto-save-file-name-transforms `((".*", "~/.emacs.d/.autosaves/\\1" t)))
