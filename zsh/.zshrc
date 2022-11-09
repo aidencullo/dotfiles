@@ -70,8 +70,8 @@ ZSH_THEME="random"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
 plugins=(command-time)
+plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -98,13 +98,22 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 
 # aliases
-alias zshrc="emacs ~/.zshrc&"
+alias zshrc="emacs ~/.zshrc && source ~/.zshrc"
 alias ohmyzsh="emacs ~/.oh-my-zsh/oh-my-zsh.sh&"
 alias vimrc="vim ~/.vimrc&"
 alias gitig="emacs ~/.gitignore_global&"
 alias emac="emacs ~/.emacs&"
-alias python="/usr/bin/python3"
-alias python2="/usr/bin/python"
+alias cpz="cp ~/.zshrc ~/Code/Github/dotfiles/zsh && cd ~/Code/Github/dotfiles && git add -A && git status"
+alias cpe="cp ~/.emacs ~/Code/Github/dotfiles/emacs && cd ~/Code/Github/dotfiles add -A && git status"
+alias cpg="cp ~/.gitignore_global ~/Code/Github/dotfiles/git && cd ~/Code/Github/dotfiles && git add -A && git status"
+alias gd="git diff"
+alias gaa="git add -A"
+alias gs="git status"
+alias gc="git commit -m "
+alias gp="git push origin main"
+alias ga="gd && gaa && gs"
+alias src="source ~/.zshrc"
+alias pypro="mkdir -p src/\<modules\> && mkdir src/test && touch src/\<modules\>/__init__.py"
 
 # alias suffixes
 # i would like to just make this global for all files
@@ -118,6 +127,7 @@ export PATH="/usr/local/opt/openjdk/bin:$PATH"
 # don't open less if it is less than a page
 export LESS="-F -X $LESS"
 
+# setting lang to english
 export LANG=en_US.UTF-8
 
 # displaying execution time
