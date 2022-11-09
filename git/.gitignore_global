@@ -12,6 +12,7 @@
 *.app
 *.pyc
 *.gch
+*.aux
 
 # Temporary files #
 ###################
