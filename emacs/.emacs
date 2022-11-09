@@ -40,3 +40,5 @@
 (setq backup-directory-alist `(("." . "~/.emacs.d/.backups"))
       auto-save-file-name-transforms `((".*", "~/.emacs.d/.autosaves/\\1" t)))
 
+;; pretty startup screen
+(fancy-startup-screen)
