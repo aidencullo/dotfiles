@@ -1,3 +1,9 @@
+(package-initialize)
+
+(require 'grep-a-lot)
+(grep-a-lot-setup-keys)
+
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -8,7 +14,7 @@
    '(("gnu" . "https://elpa.gnu.org/packages/")
      ("nongnu" . "https://elpa.nongnu.org/nongnu/")
      ("melpa" . "https://melpa.org/packages/")))
- '(package-selected-packages '(paredit magit company ##))
+ '(package-selected-packages '(grep-a-lot paredit magit company ##))
  '(uniquify-buffer-name-style 'post-forward nil (uniquify)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -42,3 +48,6 @@
 ;; pretty startup screen
 (fancy-startup-screen)
 (put 'erase-buffer 'disabled nil)
+
+;; floobits
+(load "~/.emacs.d/floobits/floobits.el") ;; not working i don't think

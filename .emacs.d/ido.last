@@ -1,0 +1,157 @@
+;;; -*- coding: utf-8 -*-
+
+;; ----- ido-last-directory-list -----
+(
+ ("/Users/aidencullo/Code/Github/MessingAround/C++/" . "datatypes/")
+ ("/Users/aidencullo/Code/Github/MessingAround/Java/" . "inheritance/")
+ ("/Users/aidencullo/Code/Github/MessingAround/" . "C++/")
+ ("/Users/aidencullo/Code/Github/todo_list/firstproj/resources/" . "public/")
+ ("/Users/aidencullo/Code/Github/todo_list/firstproj/src/" . "firstproj/")
+ ("/Users/aidencullo/Code/Github/todo_list/firstproj/" . "resources/")
+ ("/Users/aidencullo/Code/Github/todo_list/" . "firstproj/")
+ ("/Users/aidencullo/Code/Github/problem_solutions/leetcode/23/src/" . "LLMerge/")
+ ("/Users/aidencullo/Code/Github/problem_solutions/leetcode/23/" . "src/")
+ ("/Users/aidencullo/Code/Github/problem_solutions/leetcode/" . "23/")
+ ("/Users/aidencullo/Code/Github/" . "MessingAround/")
+ ("/Users/aidencullo/Code/Github/problem_solutions/CCI/" . "chapter3/")
+ ("/Users/aidencullo/Code/Github/problem_solutions/" . "leetcode/")
+ ("/" . "System/")
+ ("/Users/aidencullo/" . "Applications/")
+)
+
+;; ----- ido-work-directory-list -----
+(
+ "/Users/aidencullo/"
+ "/Users/aidencullo/Code/Github/problem_solutions/CCI/chapter8/"
+ "/Users/aidencullo/Code/Github/MessingAround/C++/binding/"
+ "/Users/aidencullo/Code/Github/MessingAround/Java/inheritance/"
+ "/Users/aidencullo/Code/Github/MessingAround/Java/references/"
+ "/Users/aidencullo/Code/Github/problem_solutions/leetcode/23/src/LLMerge/"
+ "/Users/aidencullo/Code/Github/problem_solutions/leetcode/23/"
+ "/Users/aidencullo/Code/Github/problem_solutions/CCI/chapter10/"
+ "/etc/"
+ "/Users/aidencullo/Code/Github/pipenv_workspace/"
+ "/Users/aidencullo/Code/Github/todo_list/firstproj/src/firstproj/"
+ "/Users/aidencullo/Code/Github/todo_list/firstproj/resources/public/"
+ "/Users/aidencullo/Code/Github/problem_solutions/leetcode/44/"
+ "/Users/aidencullo/Code/Github/todo_list/"
+ "/Users/aidencullo/Code/Github/todo_list/firstproj/"
+ "/Users/aidencullo/Code/Github/todo_list/test/src/test/"
+ "/Users/aidencullo/Code/Github/problem_solutions/leetcode/23/src/"
+ "/Users/aidencullo/Code/Github/problem_solutions/CCI/chapter3/3.4/"
+ "/Users/aidencullo/Code/Github/todo_list/test_proj/"
+ "/Users/aidencullo/Code/Github/MessingAround/Java/nested_class/"
+ "/Users/aidencullo/dir1/"
+ "/Users/aidencullo/dir2/"
+ "/"
+)
+
+;; ----- ido-work-file-list -----
+(
+ ".emacs"
+ "newfile"
+ "stones.py"
+ "8.12.py"
+ "virtual.cpp"
+ "Binding.java"
+ "Main.java"
+ "ListNode.java"
+ "TestSuite.java"
+ "TestCase.java"
+)
+
+;; ----- ido-dir-file-cache -----
+(
+ ("/Users/aidencullo/.emacs.d/" (25487 26135 322980 10000) "games/" "elpa/" ".backups/" "floobits/" "packages/" ".autosaves/" "url/" "auto-save-list/" "transient/" "eshell/" "tutorial/" "ido.last" "../" "./")
+
+ ("/Users/aidencullo/.emacs.d/packages/" (25487 26162 340743 630000) "iy-go-to-char.el" "../" "./")
+
+ ("/Users/aidencullo/" (25487 24851 83703 346000) ".viminfo" ".bash_history" ".gitconfig" ".cache/" ".python_history" "Downloads/" ".oh-my-zsh/" ".m2/" "newfile" ".vscode/" "stones.py" "Documents/" ".npm/" ".#newfile" ".jupyter/" ".zcompdump-MacBook Pro de Aiden-5.7.1" ".Trash/" ".zshrc.omz-uninstalled-2022-11-03_15-30-32" ".emacs~" "Applications/" ".emacs" ".vimrc" "Movies/" "package.json" "package-lock.json" "Public/" ".lein/" ".zcompdump-MacBook Pro de Aiden-5.7.1.zwc" ".bash_sessions/" ".gitignore_global" ".emacs.d/" ".floorc.json" ".lesshst" "Library/" "Desktop/" ".ipython/" ".zsh_history" "Code/" "node_modules/" ".atom/" "Pictures/" ".zshrc.omz-uninstalled-2022-11-02_17-30-13" "Creative Cloud Files/" ".local/" ".zshrc" ".CFUserTextEncoding" ".yarnrc" ".tmux.conf" ".DS_Store" ".vim/" ".clojure/" ".yarn/" "Music/" ".config/" "../" "./")
+
+ ("/Users/aidencullo/Code/Github/MessingAround/C++/binding/" (25486 13783 87573 487000) "../" "./")
+
+ ("/Users/aidencullo/Code/Github/MessingAround/C++/datatypes/" (25416 29362 701116 779000) "static.cpp" "../" "./")
+
+ ("/Users/aidencullo/Code/Github/MessingAround/C++/" (25454 29475 768425 241000) "makefile_test/" "datatypes/" "references/" "vect/" "../" "./")
+
+ ("/Users/aidencullo/Code/Github/MessingAround/Java/inheritance/" (25486 13722 664491 16000) "Binding$subclass.class" "A.java" "Binding.java" "A.class" "TestMain.class" "B.class" "ExampleMinNumber.class" "TestMain.java" "ExampleMinNumber.java" "Binding$superclass.class" "Binding.class" "B.java" "../" "./")
+
+ ("/Users/aidencullo/Code/Github/pipenv_workspace/" (25478 19215 943683 165000) "Pipfile.lock" ".git/" "Pipfile" "README.md" "../" "./")
+
+ ("/Users/aidencullo/Code/Github/problem_solutions/leetcode/23/src/LLMerge/" (25481 9219 296864 330000) "TestSuite.java" "TestCase.java" "ListNode.java" "Main.java" "ReadFile.java" "Algorithm.java" "Solution.java" "../" "./")
+
+ ("/Users/aidencullo/Code/Github/MessingAround/Java/references/" (25479 27066 729898 949000) "Main.class" "Main.java" "Main$Node.class" "Reference.java" "../" "./")
+
+ ("/Users/aidencullo/Code/Github/MessingAround/Java/" (25473 17502 962623 204000) "nested_class/" "structure/" "inheritance/" "references/" "abstract/" "ant/" "../" "./")
+
+ ("/Users/aidencullo/Code/Github/problem_solutions/CCI/chapter10/" (25476 61009 843401 283000) "10.3.py" "../" "./")
+
+ ("/Users/aidencullo/Code/Github/problem_solutions/CCI/" (25470 10751 665470 854000) "chapter3/" "linked_lists/" "trees_graphs/" "space_compelexity/" "chapter8/" "../" "./")
+
+ ("/Users/aidencullo/Code/Github/MessingAround/" (25462 17917 454554 210000) "git/" "C/" ".git/" "README.md" ".gitmodules" "html/" "Java/" "latex/" "clojure/" "Python/" "C++/" "../" "./")
+
+ ("/Users/aidencullo/Code/Github/problem_solutions/leetcode/" (25463 35860 445934 427000) "3/" "23/" "24/" "322/" "44/" "976/" "45/" "7/" "../" "./")
+
+ ("/Users/aidencullo/Code/Github/problem_solutions/leetcode/23/src/" (25473 11206 418198 97000) "LLMerge/" "../" "./")
+
+ ("/Users/aidencullo/Code/Github/problem_solutions/CCI/chapter8/" (25470 27924 379605 459000) "8.9.py" "8.9.2.py" "../" "./")
+
+ ("/Users/aidencullo/Code/Github/problem_solutions/leetcode/23/" (25473 11350 62074 826000) "src/" "build/" "build.xml" "test1.txt" "../" "./")
+
+ ("/etc/" (25397 60364 189414 558000) "notify.conf" "mail.rc" "newsyslog.conf" "afpovertcp.cfg" "zprofile" "passwd" "services" "man.conf" "cups/" "protocols" "wfs/" "com.apple.screensharing.agent.launchd" "aliases" "openldap/" "fstab.hd" "master.passwd" "rpc" "ntp.conf" "pf.anchors/" "pf.os" "postfix/" "hosts" "rc.netboot" "asl.conf" "sudo_lecture" "nfs.conf" "resolv.conf" "locate.rc" "ntp_opendirectory.conf" "csh.cshrc" "profile" "ftpusers" "ssh/" "autofs.conf" "apache2/" "find.codes" "networks" "hosts.equiv" "defaults/" "zshrc" "pam.d/" "irbrc" "newsyslog.d/" "bashrc" "sudoers" "pf.conf" "localtime" "php.ini.default" "xtab" "rmtab" "paths" "php-fpm.conf.default" "php-fpm.d/" "ttys" "shells" "ppp/" "manpaths.d/" "auto_home" "group" "security/" "rtadvd.conf" "asl/" "paths.d/" "kern_loader.conf" "gettytab" "zshrc_Apple_Terminal" "snmp/" "racoon/" "bashrc_Apple_Terminal" "aliases.db" "csh.logout" "nanorc" "ssl/" "sudoers.d/" "krb5.keytab" "syslog.conf" "csh.login" "auto_master" "rc.common" "manpaths" "periodic/" "emond.d/" "../" "./")
+
+ ("/Users/aidencullo/Code/Github/todo_list/firstproj/resources/public/" (25463 57705 639768 629000) "app.css" "js/" "index.html" "../" "./")
+
+ ("/Users/aidencullo/Code/Github/todo_list/firstproj/src/firstproj/" (25463 58090 303854 934000) "core.cljs" "events.cljs" "db.cljs" "subs.cljs" "views.cljs" "config.cljs" "../" "./")
+
+ ("/Users/aidencullo/Code/Github/" (25463 62267 925440 365000) "MessingAround/" "fb_messenger_but_better/" "resume/" "todo_list/" "pipenv_workspace/" "dotfiles/" "problem_solutions/" "pipenv/" "cullo7.github.io/" "../" "./")
+
+ ("/Users/aidencullo/Code/Github/todo_list/firstproj/resources/" (25462 31721 583302 752000) "public/" "../" "./")
+
+ ("/Users/aidencullo/Code/Github/problem_solutions/leetcode/44/" (25463 49331 271837 480000) "a.out" "solution_recursive.cpp" "test.cpp" "solution.cpp" "../" "./")
+
+ ("/Users/aidencullo/Code/Github/todo_list/" (25462 34511 335975 862000) ".git/" "firstproj/" "README.md" "../" "./")
+
+ ("/Users/aidencullo/Code/" (25449 20505 307118 969000) "Github/" "Testing/" "../" "./")
+
+ ("/Users/aidencullo/Code/Github/todo_list/firstproj/src/" (25462 31721 584209 680000) "firstproj/" "../" "./")
+
+ ("/Users/aidencullo/Code/Github/todo_list/firstproj/" (25462 32038 328436 515000) "src/" "dev/" ".shadow-cljs/" "karma.conf.js" "package.json" "package-lock.json" ".gitignore" "README.md" "node_modules/" "resources/" "target/" "shadow-cljs.edn" "../" "./")
+
+ ("/Users/aidencullo/Code/Github/todo_list/test/src/test/" (25462 28210 468743 465000) "core.cljs" "events.cljs" "db.cljs" "subs.cljs" "views.cljs" "config.cljs" "../" "./")
+
+ ("/Users/aidencullo/Code/Github/MessingAround/Java/ant/" (25461 44242 671890 18000) "somename.xml" ".#somename.xml" "newDirectory/" "../" "./")
+
+ ("/Users/aidencullo/Code/Github/problem_solutions/CCI/chapter3/3.4/" (25461 23297 99690 348000) "QueueFromStack.java" "../" "./")
+
+ ("/Users/aidencullo/Code/Github/problem_solutions/CCI/chapter3/" (25460 58981 262112 326000) "3.4/" "../" "./")
+
+ ("/Users/aidencullo/.emacs.d/elpa/" (25461 24969 827597 706000) "transient-20221028.1430/" "grep-a-lot-20210618.1420/" "dash-20221013.836/" "magit-3.3.0/" "with-editor-20220810.1159/" "archives/" "paredit-20220709.916/" "compat-28.1.2.2/" "git-commit-20221106.1128/" "company-0.9.13/" "magit-section-20220929.1014/" "../" "./")
+
+ ("/Users/aidencullo/.emacs.d/elpa/grep-a-lot-20210618.1420/" (25461 25191 560024 534000) "grep-a-lot-autoloads.el" "grep-a-lot-pkg.el" "grep-a-lot.elc" "grep-a-lot.el" "../" "./")
+
+ ("/Users/aidencullo/Code/Github/problem_solutions/" (25450 50870 90183 988000) "CCI/" ".git/" "README.md" "leetcode/" "../" "./")
+
+ ("/Users/aidencullo/Code/Github/todo_list/test_proj/" (25459 64328 564650 414000) "src/" "dev/" "karma.conf.js" "package.json" ".gitignore" "README.md" "resources/" "shadow-cljs.edn" "../" "./")
+
+ ("/Users/aidencullo/Code/Github/MessingAround/Java/nested_class/" (25459 59542 88557 526000) "OuterClass$StaticInnerClass.class" "OuterClass.java" "OuterClass$InnerClass.class" "OuterClass.class" "../" "./")
+
+ ("/usr/share/" (25370 44723 538183 400000) "thermald.bundle/" "uucp/" "icu/" "cups/" "dict/" "zsh/" "zoneinfo.default/" "firmlinks" "texinfo/" "doc/" "germantok/" "screen/" "examples/" "sandbox/" "kdrl.bundle/" "httpd/" "mecabra/" "terminfo/" "info/" "langid/" "php/" "kpep/" "ri/" "java/" "tabset/" "ucupdate/" "tokenizer/" "hiutil/" "CoreDuetDaemonConfig.bundle/" "cracklib/" "file/" "pmenergy/" "snmp/" "locale/" "calendar/" "CSI/" "skel/" "firmware/" "zoneinfo/" "groff/" "misc/" "vim/" "man/" "com.apple.languageassetd/" "../" "./")
+
+ ("/usr/share/info/" (24476 15166 0 0) "bash.info" "uucp.info-5" "uucp.info-2" "texinfo" "screen.info-1" "groff-1" "uucp.info-3" "uucp.info-4" "texinfo-3" "dir" "texinfo-2" "info.info" "uucp.info-1" "groff-3" "uucp.info-6" "screen.info-3" "uucp.info-8" "screen.info-4" "screen.info-5" "screen.info-2" "uucp.info-7" "groff-2" "screen.info" "uucp.info" "bc.info" "texinfo-1" "dc.info" "info-stnd.info" "groff" "diff.info" "../" "./")
+
+ ("/System/" (24476 14938 0 0) "DriverKit/" "Volumes/" "Applications/" "Library/" "iOSSupport/" ".localized" "../" "./")
+
+ ("/Users/aidencullo/dir2/" (25459 46319 96653 92000) "file" "../" "./")
+
+ ("/Users/aidencullo/dir1/" (25459 46286 243348 192000) "file" "../" "./")
+
+ ("/Applications/" (25458 64278 284022 435000) "Discord.app/" "Adobe Acrobat DC/" "Evernote.app/" "Emacs.app/" "Messenger.app/" "Skype.app/" "iTerm.app/" "Atom.app/" "WhatsApp.app/" "zoom.us.app/" "Utilities/" "Safari.app/" "Install macOS Monterey.app/" "Spotify.app/" "Adobe Creative Cloud/" ".localized" "Google Chrome.app/" ".DS_Store" "TeX/" "Visual Studio Code.app/" "Adobe Acrobat Reader.app/" "Tor Browser.app/" "../" "./")
+
+ ("/Users/aidencullo/Applications/" (25371 5379 766089 916000) ".localized" "../" "./")
+
+ ("/Users/" (24476 14740 0 0) "Shared/" "aidencullo/" ".localized" "../" "./")
+)
+
+;; ----- ido-unc-hosts-cache -----
+t

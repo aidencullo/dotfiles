@@ -1,0 +1,3 @@
+[submodule ".emacs.d/floobits"]
+	path = .emacs.d/floobits
+	url = https://github.com/Floobits/floobits-emacs.git
