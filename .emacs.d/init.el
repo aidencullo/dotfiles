@@ -49,5 +49,8 @@
 (fancy-startup-screen)
 (put 'erase-buffer 'disabled nil)
 
-;; floobits
-(load "~/.emacs.d/floobits/floobits.el") ;; not working i don't think
+;; f1 fullscreen toggle
+(global-set-key [f1] 'toggle-frame-fullscreen)
+
+;; autofill hool on text mode
+(add-hook 'text-mode-hook 'auto-fill-mode)

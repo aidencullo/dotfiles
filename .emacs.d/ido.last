@@ -2,6 +2,8 @@
 
 ;; ----- ido-last-directory-list -----
 (
+ ("/Users/aidencullo/.emacs.d/" . "auto-save-list/")
+ ("/Users/aidencullo/Code/" . "Github/")
  ("/Users/aidencullo/Code/Github/MessingAround/C++/" . "datatypes/")
  ("/Users/aidencullo/Code/Github/MessingAround/Java/" . "inheritance/")
  ("/Users/aidencullo/Code/Github/MessingAround/" . "C++/")
@@ -12,21 +14,22 @@
  ("/Users/aidencullo/Code/Github/problem_solutions/leetcode/23/src/" . "LLMerge/")
  ("/Users/aidencullo/Code/Github/problem_solutions/leetcode/23/" . "src/")
  ("/Users/aidencullo/Code/Github/problem_solutions/leetcode/" . "23/")
- ("/Users/aidencullo/Code/Github/" . "MessingAround/")
+ ("/Users/aidencullo/Code/Github/" . "dotfiles/")
  ("/Users/aidencullo/Code/Github/problem_solutions/CCI/" . "chapter3/")
  ("/Users/aidencullo/Code/Github/problem_solutions/" . "leetcode/")
  ("/" . "System/")
- ("/Users/aidencullo/" . "Applications/")
+ ("/Users/aidencullo/" . ".emacs.d/")
 )
 
 ;; ----- ido-work-directory-list -----
 (
+ "/Users/aidencullo/Code/Github/problem_solutions/leetcode/23/src/LLMerge/"
+ "/Users/aidencullo/.emacs.d/"
  "/Users/aidencullo/"
  "/Users/aidencullo/Code/Github/problem_solutions/CCI/chapter8/"
  "/Users/aidencullo/Code/Github/MessingAround/C++/binding/"
  "/Users/aidencullo/Code/Github/MessingAround/Java/inheritance/"
  "/Users/aidencullo/Code/Github/MessingAround/Java/references/"
- "/Users/aidencullo/Code/Github/problem_solutions/leetcode/23/src/LLMerge/"
  "/Users/aidencullo/Code/Github/problem_solutions/leetcode/23/"
  "/Users/aidencullo/Code/Github/problem_solutions/CCI/chapter10/"
  "/etc/"
@@ -48,6 +51,9 @@
 
 ;; ----- ido-work-file-list -----
 (
+ "TestCase.java"
+ "init.el"
+ "ido.last"
  ".emacs"
  "newfile"
  "stones.py"
@@ -55,20 +61,33 @@
  "virtual.cpp"
  "Binding.java"
  "Main.java"
- "ListNode.java"
- "TestSuite.java"
- "TestCase.java"
 )
 
 ;; ----- ido-dir-file-cache -----
 (
- ("/Users/aidencullo/.emacs.d/" (25487 26135 322980 10000) "games/" "elpa/" ".backups/" "floobits/" "packages/" ".autosaves/" "url/" "auto-save-list/" "transient/" "eshell/" "tutorial/" "ido.last" "../" "./")
+ ("/Users/aidencullo/testdir/" (25488 42875 378749 50000) "test" "../" "./")
+
+ ("/Users/aidencullo/" (25488 42854 246242 931000) ".viminfo" ".bash_history" ".gitconfig" ".cache/" ".python_history" "Downloads/" ".oh-my-zsh/" ".m2/" ".vscode/" "Documents/" ".npm/" ".jupyter/" ".zcompdump-MacBook Pro de Aiden-5.7.1" ".Trash/" ".zshrc.omz-uninstalled-2022-11-03_15-30-32" "Applications/" "testdir/" ".vimrc" "Movies/" "package.json" "package-lock.json" "Public/" ".lein/" ".zcompdump-MacBook Pro de Aiden-5.7.1.zwc" ".bash_sessions/" ".gitignore_global" ".emacs.d/" ".floorc.json" ".lesshst" "Library/" "Desktop/" ".ipython/" ".zsh_history" "Code/" "node_modules/" ".atom/" "Pictures/" ".zshrc.omz-uninstalled-2022-11-02_17-30-13" "Creative Cloud Files/" ".local/" ".zshrc" ".CFUserTextEncoding" ".yarnrc" ".tmux.conf" ".DS_Store" ".vim/" ".clojure/" ".yarn/" "Music/" ".config/" "../" "./")
+
+ ("/Users/aidencullo/Code/Github/problem_solutions/leetcode/23/src/LLMerge/" (25488 42758 846111 314000) "TestSuite.java" "TestCase.java" "ListNode.java" "Main.java" "ReadFile.java" "Algorithm.java" "Solution.java" "../" "./")
+
+ ("/Users/aidencullo/.emacs.d/" (25488 42632 65406 320000) "games/" "elpa/" ".backups/" "floobits/" "packages/" ".autosaves/" "init.el" "url/" "auto-save-list/" "transient/" "eshell/" "tutorial/" "init.el~" "ido.last" "../" "./")
+
+ ("/Users/aidencullo/.emacs.d/auto-save-list/" (25487 37173 383758 965000) ".saves-62666-192.168.10.4~" ".saves-28219-192.168.10.3~" ".saves-24879-192.168.10.4~" "../" "./")
+
+ ("/Users/aidencullo/.emacs.d/elpa/" (25487 36714 618665 373000) "transient-20221028.1430/" "monokai-theme-3.5.3/" "grep-a-lot-20210618.1420/" "dash-20221013.836/" "magit-3.3.0/" "with-editor-20220810.1159/" "archives/" "paredit-20220709.916/" "compat-28.1.2.2/" "git-commit-20221106.1128/" "company-0.9.13/" "magit-section-20220929.1014/" "../" "./")
+
+ ("/Users/aidencullo/.emacs.d/elpa/monokai-theme-3.5.3/" (25487 36714 684520 721000) "monokai-theme.el" "README.md" "monokai-theme-autoloads.el" "monokai-theme-pkg.el" "LICENSE.md" "../" "./")
+
+ ("/Users/aidencullo/Code/Github/MessingAround/C++/binding/" (25486 17411 918070 62000) "a.out" "virtual.cpp" "../" "./")
+
+ ("/Users/aidencullo/Code/Github/problem_solutions/CCI/chapter8/" (25486 20483 600854 424000) "8.12.py" "8.9.py" "8.9.2.py" "../" "./")
+
+ ("/Users/aidencullo/Code/Github/dotfiles/" (25487 36443 692332 534000) "git/" "zsh/" ".git/" "make/" "README.md" ".emacs.d/" ".gitmodules" ".DS_Store" "vim/" "../" "./")
+
+ ("/Applications/Emacs.app/Contents/Resources/info/" (25375 30625 0 0) "ido.info.gz" "htmlfontify.info.gz" "emacs-gnutls.info.gz" "ede.info.gz" "mairix-el.info.gz" "bovine.info.gz" "erc.info.gz" "ccmode.info.gz" "eintr.info.gz" "ediff.info.gz" "gnus.info.gz" "rcirc.info.gz" "cl.info.gz" "smtpmail.info.gz" "tramp.info.gz" "vip.info.gz" "pcl-cvs.info.gz" "ert.info.gz" "forms.info.gz" "remember.info.gz" "ebrowse.info.gz" "newsticker.info.gz" "dir" "mh-e.info.gz" "elisp.info.gz" "semantic.info.gz" "url.info.gz" "sc.info.gz" "srecode.info.gz" "ses.info.gz" "dired-x.info.gz" "dbus.info.gz" "woman.info.gz" "nxml-mode.info.gz" "org.info.gz" "info.info.gz" "emacs.info.gz" "calc.info.gz" "eieio.info.gz" "todo-mode.info.gz" "speedbar.info.gz" "eshell.info.gz" "eudc.info.gz" "octave-mode.info.gz" "wisent.info.gz" "auth.info.gz" "vhdl-mode.info.gz" "idlwave.info.gz" "widget.info.gz" "efaq.info.gz" "sieve.info.gz" "eww.info.gz" "pgg.info.gz" "emacs-mime.info.gz" "flymake.info.gz" "modus-themes.info.gz" "viper.info.gz" "edt.info.gz" "transient.info.gz" "sasl.info.gz" "autotype.info.gz" "epa.info.gz" "message.info.gz" "reftex.info.gz" "../" "./")
 
  ("/Users/aidencullo/.emacs.d/packages/" (25487 26162 340743 630000) "iy-go-to-char.el" "../" "./")
-
- ("/Users/aidencullo/" (25487 24851 83703 346000) ".viminfo" ".bash_history" ".gitconfig" ".cache/" ".python_history" "Downloads/" ".oh-my-zsh/" ".m2/" "newfile" ".vscode/" "stones.py" "Documents/" ".npm/" ".#newfile" ".jupyter/" ".zcompdump-MacBook Pro de Aiden-5.7.1" ".Trash/" ".zshrc.omz-uninstalled-2022-11-03_15-30-32" ".emacs~" "Applications/" ".emacs" ".vimrc" "Movies/" "package.json" "package-lock.json" "Public/" ".lein/" ".zcompdump-MacBook Pro de Aiden-5.7.1.zwc" ".bash_sessions/" ".gitignore_global" ".emacs.d/" ".floorc.json" ".lesshst" "Library/" "Desktop/" ".ipython/" ".zsh_history" "Code/" "node_modules/" ".atom/" "Pictures/" ".zshrc.omz-uninstalled-2022-11-02_17-30-13" "Creative Cloud Files/" ".local/" ".zshrc" ".CFUserTextEncoding" ".yarnrc" ".tmux.conf" ".DS_Store" ".vim/" ".clojure/" ".yarn/" "Music/" ".config/" "../" "./")
-
- ("/Users/aidencullo/Code/Github/MessingAround/C++/binding/" (25486 13783 87573 487000) "../" "./")
 
  ("/Users/aidencullo/Code/Github/MessingAround/C++/datatypes/" (25416 29362 701116 779000) "static.cpp" "../" "./")
 
@@ -77,8 +96,6 @@
  ("/Users/aidencullo/Code/Github/MessingAround/Java/inheritance/" (25486 13722 664491 16000) "Binding$subclass.class" "A.java" "Binding.java" "A.class" "TestMain.class" "B.class" "ExampleMinNumber.class" "TestMain.java" "ExampleMinNumber.java" "Binding$superclass.class" "Binding.class" "B.java" "../" "./")
 
  ("/Users/aidencullo/Code/Github/pipenv_workspace/" (25478 19215 943683 165000) "Pipfile.lock" ".git/" "Pipfile" "README.md" "../" "./")
-
- ("/Users/aidencullo/Code/Github/problem_solutions/leetcode/23/src/LLMerge/" (25481 9219 296864 330000) "TestSuite.java" "TestCase.java" "ListNode.java" "Main.java" "ReadFile.java" "Algorithm.java" "Solution.java" "../" "./")
 
  ("/Users/aidencullo/Code/Github/MessingAround/Java/references/" (25479 27066 729898 949000) "Main.class" "Main.java" "Main$Node.class" "Reference.java" "../" "./")
 
@@ -93,8 +110,6 @@
  ("/Users/aidencullo/Code/Github/problem_solutions/leetcode/" (25463 35860 445934 427000) "3/" "23/" "24/" "322/" "44/" "976/" "45/" "7/" "../" "./")
 
  ("/Users/aidencullo/Code/Github/problem_solutions/leetcode/23/src/" (25473 11206 418198 97000) "LLMerge/" "../" "./")
-
- ("/Users/aidencullo/Code/Github/problem_solutions/CCI/chapter8/" (25470 27924 379605 459000) "8.9.py" "8.9.2.py" "../" "./")
 
  ("/Users/aidencullo/Code/Github/problem_solutions/leetcode/23/" (25473 11350 62074 826000) "src/" "build/" "build.xml" "test1.txt" "../" "./")
 
@@ -125,8 +140,6 @@
  ("/Users/aidencullo/Code/Github/problem_solutions/CCI/chapter3/3.4/" (25461 23297 99690 348000) "QueueFromStack.java" "../" "./")
 
  ("/Users/aidencullo/Code/Github/problem_solutions/CCI/chapter3/" (25460 58981 262112 326000) "3.4/" "../" "./")
-
- ("/Users/aidencullo/.emacs.d/elpa/" (25461 24969 827597 706000) "transient-20221028.1430/" "grep-a-lot-20210618.1420/" "dash-20221013.836/" "magit-3.3.0/" "with-editor-20220810.1159/" "archives/" "paredit-20220709.916/" "compat-28.1.2.2/" "git-commit-20221106.1128/" "company-0.9.13/" "magit-section-20220929.1014/" "../" "./")
 
  ("/Users/aidencullo/.emacs.d/elpa/grep-a-lot-20210618.1420/" (25461 25191 560024 534000) "grep-a-lot-autoloads.el" "grep-a-lot-pkg.el" "grep-a-lot.elc" "grep-a-lot.el" "../" "./")
 
