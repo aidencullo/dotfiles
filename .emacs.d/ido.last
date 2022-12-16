@@ -84,11 +84,11 @@
 
 ;; ----- ido-dir-file-cache -----
 (
- ("/Users/aidencullo/.emacs.d/" (25500 48887 358203 24000) "games/" "elpa/" ".backups/" "packages/" ".autosaves/" "bookmarks" "init.el" "url/" "auto-save-list/" "transient/" "eshell/" "tutorial/" "ido.last" "snippets/" "../" "./")
+ ("/Users/aidencullo/.emacs.d/" (25500 51641 195184 439000) "games/" "elpa/" ".backups/" "floobits/" "packages/" ".autosaves/" "bookmarks" ".emacs.d/" "init.el" "url/" "auto-save-list/" "transient/" "eshell/" "tutorial/" "init.el~" "ido.last" "snippets/" "../" "./")
 
- ("/Users/aidencullo/" (25500 43975 646816 467000) ".viminfo" ".bash_history" ".gitconfig" ".cache/" ".python_history" "Downloads/" ".oh-my-zsh/" ".m2/" ".vscode/" "Documents/" ".npm/" ".jupyter/" "floobits/" ".zcompdump-MacBook Pro de Aiden-5.7.1" ".Trash/" ".zshrc.omz-uninstalled-2022-11-03_15-30-32" "Applications/" ".vimrc" "Movies/" "package.json" "package-lock.json" "Public/" ".lein/" ".zcompdump-MacBook Pro de Aiden-5.7.1.zwc" ".bash_sessions/" ".gitignore_global" ".emacs.d/" ".floorc.json" ".lesshst" "Library/" "Desktop/" ".ipython/" ".zsh_history" "Code/" "node_modules/" ".atom/" "Pictures/" ".zshrc.omz-uninstalled-2022-11-02_17-30-13" "Creative Cloud Files/" ".local/" ".zshrc" ".CFUserTextEncoding" ".yarnrc" ".tmux.conf" ".DS_Store" ".vim/" ".clojure/" ".yarn/" "Music/" ".config/" "../" "./")
+ ("/Users/aidencullo/Code/Github/p2pchess/" (25499 47328 387902 788000) ".git/" "package.json" "package-lock.json" "README.md" "index.js" "node_modules/" "index.html" "../" "./")
 
- ("/Users/aidencullo/Code/Github/p2pchess/" (25499 43299 88135 717000) ".git/" "package.json" "package-lock.json" "README.md" "index.js" "node_modules/" "index.html" "../" "./")
+ ("/Users/aidencullo/" (25500 51470 970897 696000) ".viminfo" ".bash_history" ".gitconfig" ".cache/" ".python_history" "Downloads/" ".oh-my-zsh/" ".m2/" ".vscode/" "Documents/" ".npm/" ".jupyter/" "floobits/" ".zcompdump-MacBook Pro de Aiden-5.7.1" ".Trash/" "Applications/" ".vimrc" "Movies/" "package.json" "package-lock.json" "Public/" ".lein/" ".zcompdump-MacBook Pro de Aiden-5.7.1.zwc" ".bash_sessions/" ".gitignore_global" ".emacs.d/" ".floorc.json" ".lesshst" "Library/" "Desktop/" ".ipython/" ".zsh_history" "Code/" "node_modules/" ".atom/" "Pictures/" "Creative Cloud Files/" ".local/" ".zshrc" "test/" ".CFUserTextEncoding" ".yarnrc" ".tmux.conf" ".DS_Store" ".vim/" ".clojure/" ".yarn/" "Music/" ".config/" "../" "./")
 
  ("/Users/aidencullo/Code/Github/cullo7.github.io/blog/" (25499 31132 843479 990000) "professional.html" "blog.html" "../" "./")
 

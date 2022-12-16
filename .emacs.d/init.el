@@ -73,3 +73,9 @@
 ;; loading snippets
 (require 'yasnippet)
 (yas-global-mode 1)
+
+;; open always in ~/Code/Github
+(setq initial-buffer-choice "~/Code/Github")
+
+;; open in fullscreen mode
+(toggle-frame-fullscreen)

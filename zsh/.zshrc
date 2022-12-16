@@ -118,6 +118,9 @@ alias ga="gd && gaa && gs"
 alias gad='(){gd && git add $1 && gs;}'
 alias gacp='(){gad $1 && gcp $2;}' # not working
 
+# ls commands
+alias lh="ls -ld .*"
+
 # python 
 alias pypro="mkdir -p src/module && mkdir src/test && touch src/modules/__init__.py"
 
