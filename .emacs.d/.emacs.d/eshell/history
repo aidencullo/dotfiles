@@ -1,0 +1,39 @@
+python3 __init__.py 
+exit
+ls
+mv main.java Main.java
+ls
+ls
+make
+ls
+ls
+make
+make
+make
+./output
+./output 
+javac
+whereis java
+whereis javac
+echo $PATH
+export PATH=/usr/local/opt/openjdk/bin
+javac QueueFromStack.java 
+echo $PATH
+whereis PROFILE
+env
+env
+export PATH="/usr/local/opt/openjdk/bin"
+env
+env
+export PATH=$PATH:/usr/local/opt/openjdk/bin
+$PHAT
+$PTH
+$PATH
+export PATH=$PATH:"/usr/local/opt/openjdk/bin"
+$PATH
+javac
+$PATH
+echo $PATH
+export PATH=$PATH:"/usr/local/opt/openjdk/bin"
+echo $PATH
+javac

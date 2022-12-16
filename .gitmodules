@@ -1,3 +1,9 @@
 [submodule ".emacs.d/floobits"]
 	path = .emacs.d/floobits
 	url = https://github.com/Floobits/floobits-emacs.git
+[submodule ".emacs.d/packages/yasnippet"]
+	path = .emacs.d/packages/yasnippet
+	url = https://github.com/joaotavora/yasnippet
+[submodule ".emacs.d/.emacs.d/packages/yasnippet"]
+	path = .emacs.d/.emacs.d/packages/yasnippet
+	url = https://github.com/joaotavora/yasnippet

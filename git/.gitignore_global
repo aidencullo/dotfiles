@@ -30,6 +30,7 @@
 *.jar
 *.rar
 *.zip
+node_modules
 
 # Logs and databases #
 ######################

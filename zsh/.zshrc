@@ -98,23 +98,28 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 
 # aliases
+
+# altering profiles
 alias zshrc="emacs ~/.zshrc && source ~/.zshrc"
 alias ohmyzsh="emacs ~/.oh-my-zsh/oh-my-zsh.sh&"
-alias vimrc="vim ~/.vimrc&"
+alias vimrc="emacs ~/.vimrc&"
 alias gitig="emacs ~/.gitignore_global&"
-alias emac="emacs ~/.emacs&"
-alias cpz="cp ~/.zshrc ~/Code/Github/dotfiles/zsh && cd ~/Code/Github/dotfiles && gad zsh"
-alias cpe="cp ~/.emacs ~/Code/Github/dotfiles/emacs && cd ~/Code/Github/dotfiles && gad emacs"
-alias cpg="cp ~/.gitignore_global ~/Code/Github/dotfiles/git && cd ~/Code/Github/dotfiles && gad git"
+alias emac="emacs ~/.emacs"
+alias src="source ~/.zshrc"
+
+# git
 alias gd="git diff"
 alias gaa="git add -A"
 alias gs="git status"
 alias gc="git commit -m "
+alias gcp='(){git commit -m $1 && gp;}'
 alias gp="git push origin main"
 alias ga="gd && gaa && gs"
 alias gad='(){gd && git add $1 && gs;}'
-alias src="source ~/.zshrc"
-alias pypro="mkdir -p src/\<modules\> && mkdir src/test && touch src/\<modules\>/__init__.py"
+alias gacp='(){gad $1 && gcp $2;}' # not working
+
+# python 
+alias pypro="mkdir -p src/module && mkdir src/test && touch src/modules/__init__.py"
 
 # alias suffixes
 # i would like to just make this global for all files
