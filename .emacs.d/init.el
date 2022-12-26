@@ -5,7 +5,7 @@
 
 
 (custom-set-variables
- ;; custom-set-variables was aded by Custom.
+ ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
@@ -15,7 +15,7 @@
      ("nongnu" . "https://elpa.nongnu.org/nongnu/")
      ("melpa" . "https://melpa.org/packages/")))
  '(package-selected-packages
-   '(floobits monokai-theme grep-a-lot paredit magit company ##))
+   '(yasnippet floobits monokai-theme grep-a-lot paredit magit company ##))
  '(uniquify-buffer-name-style 'post-forward nil (uniquify)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -72,10 +72,26 @@
 
 ;; loading snippets
 (require 'yasnippet)
+(setq yas-snipper-dirs '("~/.emacs.d/snippets"))
 (yas-global-mode 1)
 
 ;; open always in ~/Code/Github
-;; (setq initial-buffer-choice "~/Code/Github")
+;; set dir
+(setq initial-buffer-choice "~/Code/Github")
+
+;; on macOS, ls doesn't support the --dired 
+(when (string= system-type "darwin")       
+  (setq dired-use-ls-dired nil))
 
 ;; open in fullscreen mode
 (toggle-frame-fullscreen)
+
+;; binding list-packages to C-x p
+(global-set-key (kbd "C-x p") 'list-packages)
+
+;; Enable transient mark mode
+(transient-mark-mode 1)
+
+;;;;Org mode configuration
+;; Enable Org mode
+(require 'org)

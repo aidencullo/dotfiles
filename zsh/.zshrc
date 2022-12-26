@@ -173,3 +173,6 @@ zsh_command_time() {
         printf "${ZSH_COMMAND_TIME_MSG}\n" "$timer_show"
     fi
 }
+
+# setting home dir to ~/Code/Github
+cd Code/Github

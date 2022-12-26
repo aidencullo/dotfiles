@@ -2,13 +2,17 @@
 
 ;; ----- ido-last-directory-list -----
 (
+ ("/Users/aidencullo/Code/Github/p2pchess/p2p-chess/" . "src/")
+ ("/Users/aidencullo/Code/Github/p2pchess/" . "p2p-chess/")
+ ("/Users/aidencullo/Code/Github/dotfiles/.emacs.d/" . ".emacs.d/")
+ ("/Users/aidencullo/Code/Github/dotfiles/" . ".emacs.d/")
  ("/Users/aidencullo/Code/Github/cullo7.github.io/" . "blog/")
  ("/Users/aidencullo/Code/Github/MessingAround/js/" . "react/")
  ("/Users/aidencullo/Code/Github/MessingAround/js/react/my-app/" . "src/")
  ("/Users/aidencullo/Code/Github/MessingAround/js/react/" . "my-app/")
  ("/Users/aidencullo/my-react-project/" . "src/")
  ("/Users/aidencullo/Code/Github/problem_solutions/leetcode/23/build/" . "LLMerge/")
- ("/Users/aidencullo/.emacs.d/" . "packages/")
+ ("/Users/aidencullo/.emacs.d/" . "snippets/")
  ("/Users/aidencullo/Code/" . "Github/")
  ("/Users/aidencullo/Code/Github/MessingAround/C++/" . "datatypes/")
  ("/Users/aidencullo/Code/Github/MessingAround/Java/" . "inheritance/")
@@ -30,10 +34,19 @@
 ;; ----- ido-work-directory-list -----
 (
  "/Users/aidencullo/.emacs.d/"
- "/Users/aidencullo/Code/Github/p2pchess/"
- "/Users/aidencullo/Code/Github/cullo7.github.io/blog/"
- "/Users/aidencullo/Code/Github/cullo7.github.io/"
  "/Users/aidencullo/"
+ "/Users/aidencullo/Code/Github/p2pchess/"
+ "/Users/aidencullo/Code/Github/p2pchess/p2p-chess/"
+ "/Users/aidencullo/Code/Github/p2pchess/p2p-chess/src/"
+ "/Users/aidencullo/Code/Github/cullo7.github.io/"
+ "/Users/aidencullo/Code/Github/p2pchess/p2p-chess/public/"
+ "/Users/aidencullo/.emacs.d/snippets/fundamental-mode/"
+ "/Users/aidencullo/.emacs.d/snippets/emacs-lisp-mode/"
+ "/Users/aidencullo/.emacs.d/snippets/emacs-lisp-mode/fundamental-mode/"
+ "/Users/aidencullo/Code/Github/p2p-chess-tanner/src/"
+ "/Users/aidencullo/Code/Github/emacsrocks/ep6/"
+ "/Users/aidencullo/Code/Github/dotfiles/.emacs.d/"
+ "/Users/aidencullo/Code/Github/cullo7.github.io/blog/"
  "/Users/aidencullo/Code/Github/MessingAround/js/react/my-app/src/"
  "/Users/aidencullo/.emacs.d/packages/"
  "/Users/aidencullo/Code/Github/MessingAround/js/react/my-app/"
@@ -71,32 +84,64 @@
 ;; ----- ido-work-file-list -----
 (
  "init.el"
+ "practice.org"
+ "package-lock.json"
  "package.json"
  "index.js"
- "ido.last"
- "index.html"
- "professional.html"
- "blog.html"
- "projects.html"
- "package-lock.json"
- "emacsrocks"
+ "python_test.py"
+ "english_class.html"
+ "index.css"
+ "README.md"
+ "manifest.json"
 )
 
 ;; ----- ido-dir-file-cache -----
 (
- ("/Users/aidencullo/.emacs.d/" (25504 40002 288478 883000) "games/" "elpa/" ".backups/" "floobits/" "packages/" ".autosaves/" "bookmarks" ".emacs.d/" "init.el" "url/" "auto-save-list/" "transient/" "eshell/" "tutorial/" "init.el~" "ido.last" "snippets/" "../" "./")
+ ("/Users/aidencullo/Code/Github/dotfiles/.emacs.d/" (25513 65416 727981 942000) "games/" "elpa/" ".backups/" "floobits/" "packages/" ".autosaves/" "bookmarks" "init.el" "url/" "auto-save-list/" "transient/" "eshell/" "tutorial/" "init.el~" "ido.last" "snippets/" "../" "./")
 
- ("/Users/aidencullo/" (25504 39922 790232 341000) ".viminfo" ".bash_history" ".gitconfig" ".cache/" ".python_history" "Downloads/" ".oh-my-zsh/" ".m2/" ".vscode/" "Documents/" ".npm/" ".jupyter/" "floobits/" ".zcompdump-MacBook Pro de Aiden-5.7.1" ".Trash/" "Applications/" ".vimrc" "Movies/" "package.json" "package-lock.json" "Public/" ".lein/" ".zcompdump-MacBook Pro de Aiden-5.7.1.zwc" ".bash_sessions/" ".gitignore_global" ".emacs.d/" ".floorc.json" ".lesshst" "Library/" "Desktop/" ".ipython/" ".zsh_history" "Code/" "node_modules/" ".atom/" "Pictures/" "Creative Cloud Files/" ".local/" ".zshrc" "test/" ".CFUserTextEncoding" ".yarnrc" ".tmux.conf" ".DS_Store" ".vim/" ".clojure/" ".yarn/" "Music/" ".config/" "../" "./")
+ ("/Users/aidencullo/.emacs.d/" (25511 30080 145897 258000) "games/" "elpa/" ".backups/" "floobits/" "packages/" ".autosaves/" "bookmarks" "init.el" "url/" "auto-save-list/" "transient/" "eshell/" "tutorial/" "init.el~" "ido.last" "snippets/" "../" "./")
 
- ("/Users/aidencullo/Code/Github/p2pchess/" (25500 52583 169428 266000) ".git/" "package.json" "package-lock.json" "README.md" "index.js" "node_modules/" "index.html" "../" "./")
+ ("/Users/aidencullo/" (25511 39076 723712 42000) ".viminfo" ".bash_history" ".gitconfig" ".cache/" ".python_history" "Downloads/" ".oh-my-zsh/" ".m2/" ".vscode/" "Documents/" ".npm/" ".jupyter/" "floobits/" ".zcompdump-MacBook Pro de Aiden-5.7.1" ".Trash/" "Applications/" ".vimrc" "Movies/" "Public/" ".lein/" ".zcompdump-MacBook Pro de Aiden-5.7.1.zwc" ".bash_sessions/" ".gitignore_global" ".node_repl_history" ".emacs.d/" ".floorc.json" ".lesshst" "Library/" "Desktop/" ".ipython/" ".zsh_history" "Code/" "node_modules/" ".atom/" "Pictures/" "Creative Cloud Files/" ".local/" ".zshrc" ".CFUserTextEncoding" ".yarnrc" ".tmux.conf" ".DS_Store" ".vim/" ".clojure/" ".yarn/" "Music/" ".config/" "../" "./")
 
- ("/Users/aidencullo/Code/Github/cullo7.github.io/blog/" (25499 31132 843479 990000) "professional.html" "blog.html" "../" "./")
+ ("/Users/aidencullo/Code/Github/p2pchess/p2p-chess/" (25513 64348 24325 519000) "src/" "package.json" "package-lock.json" ".gitignore" "public/" "README.md" ".#package.json" "node_modules/" "../" "./")
 
- ("/Users/aidencullo/Code/Github/cullo7.github.io/" (25499 30819 531811 931000) "media/" ".git/" "english_class.html" "reading.html" "scripts/" "spanish.html" "README.md" "blog/" "projects.html" "style/" "CNAME" "bio.html" ".DS_store" "index.html" "../" "./")
+ ("/Users/aidencullo/Code/Github/p2pchess/p2p-chess/src/" (25511 37244 668570 243000) "index.css" "index.js" "../" "./")
 
- ("/Users/aidencullo/.emacs.d/packages/" (25499 22612 443601 347000) "iy-go-to-char.el" "yasnippet/" "../" "./")
+ ("/usr/" (25370 44723 575977 637000) "share/" "X11R6" "X11" "lib/" "local/" "sbin/" "libexec/" "standalone/" "bin/" "../" "./")
 
- ("/Users/aidencullo/Code/Github/" (25498 10632 784385 855000) "MessingAround/" "fb_messenger_but_better/" "p2pchess/" "emacsrocks/" "resume/" "todo_list/" "pipenv_workspace/" "dotfiles/" "problem_solutions/" "pipenv/" "cullo7.github.io/" "../" "./")
+ ("/Users/aidencullo/Code/Github/cullo7.github.io/" (25509 13247 639056 770000) "media/" ".git/" "english_class.html" ".#english_class.html" "reading.html" "scripts/" "spanish.html" "README.md" "blog/" "projects.html" "style/" "CNAME" "bio.html" ".DS_store" "index.html" "../" "./")
+
+ ("/Users/aidencullo/.emacs.d/snippets/fundamental-mode/" (25508 52405 701439 122000) "demo" "../" "./")
+
+ ("/Users/aidencullo/Code/Github/p2pchess/p2p-chess/public/" (25509 3711 887287 657000) "logo192.png" ".#index.html" "robots.txt" "manifest.json" "logo512.png" "index.html" "favicon.ico" "../" "./")
+
+ ("/Users/aidencullo/Code/Github/p2pchess/" (25509 3102 496759 872000) ".git/" "package.json" "package-lock.json" "p2p-chess/" "README.md" "index.css" "index.js" "node_modules/" "index.html" "../" "./")
+
+ ("/Users/aidencullo/Code/Github/pipenv/" (25497 56030 898849 984000) "Pipfile.lock" ".git/" "CHANGELOG.rst" "HISTORY.txt" "setup.cfg" ".gitattributes" ".github/" "examples/" "CONTRIBUTING.md" ".gitignore" "news/" "setup.py" "Pipfile" "README.md" ".deepsource.toml" "NOTICES" ".editorconfig" ".gitmodules" "docs/" "MANIFEST.in" "tests/" "pyproject.toml" "Makefile" ".pre-commit-config.yaml" "run-tests.sh" "LICENSE" "pipenv/" "peeps/" "RELEASING.md" "get-pipenv.py" "tasks/" "run-tests.bat" ".isort.cfg" "../" "./")
+
+ ("/Users/aidencullo/Code/Github/" (25508 64310 274577 920000) "MessingAround/" "fb_messenger_but_better/" "p2pchess/" "p2p-chess-tanner/" "emacsrocks/" "resume/" "todo_list/" "pipenv_workspace/" "dotfiles/" "problem_solutions/" "pipenv/" "cullo7.github.io/" "../" "./")
+
+ ("/Users/aidencullo/.emacs.d/elpa/" (25508 50710 115723 328000) "highlight-20210318.2248/" "company-20221206.2122/" "paredit-20221127.1452/" "git-commit-20221127.2227/" "with-editor-20221127.2243/" "grep-a-lot-20210618.1420/" "dash-20221013.836/" "archives/" "floobits-20211018.550/" "compat-28.1.2.2/" "magit-section-20221127.2227/" "magit-20221208.1848/" "yasnippet-20200604.246/" "transient-20221202.1727/" "monokai-theme-20220117.1244/" "../" "./")
+
+ ("/Users/aidencullo/.emacs.d/elpa/magit-20221208.1848/" (25508 50702 12195 910000) "magit-status.el" "magit-autorevert.elc" "magit-core.elc" "magit.elc" "magit-blame.el" "magit-refs.elc" "magit-fetch.elc" "magit.info" "magit-reflog.elc" "magit-sequence.el" "magit-subtree.el" "magit-pull.el" "magit-autoloads.el" "magit-submodule.elc" "magit-merge.elc" "magit-pull.elc" "git-rebase.elc" "magit-wip.el" "magit-bisect.elc" "magit-patch.elc" "magit-repos.el" "magit-tag.elc" "magit-sparse-checkout.el" "magit-pkg.el" "magit-subtree.elc" "magit-transient.elc" "magit-base.elc" "magit-apply.el" "dir" "magit-commit.elc" "magit-remote.elc" "magit-bundle.elc" "magit-push.elc" "magit-core.el" "magit-clone.el" "magit-extras.elc" "magit-git.elc" "magit-sequence.elc" "magit-autorevert.el" "magit-tag.el" "magit-obsolete.el" "magit-refs.el" "magit-diff.el" "magit-margin.el" "magit-worktree.elc" "magit-commit.el" "magit-git.el" "magit-branch.el" "magit-stash.elc" "magit-patch.el" "magit-branch.elc" "magit-fetch.el" "magit-bookmark.elc" "magit-status.elc" "magit-ediff.elc" "magit-remote.el" "magit-files.el" "magit-sparse-checkout.elc" "magit-mode.el" "magit-log.elc" "magit-merge.el" "magit-ediff.el" "magit-log.el" "magit.el" "magit-mode.elc" "git-rebase.el" "magit-push.el" "magit-transient.el" "magit-bisect.el" "magit-diff.elc" "magit-process.el" "magit-clone.elc" "magit-notes.elc" "magit-stash.el" "LICENSE" "magit-base.el" "magit-notes.el" "magit-bookmark.el" "magit-reset.elc" "magit-apply.elc" "magit-submodule.el" "magit-worktree.el" "magit-process.elc" "magit-reflog.el" "magit-wip.elc" "magit-blame.elc" "AUTHORS.md" "magit-margin.elc" "magit-gitignore.elc" "magit-gitignore.el" "magit-extras.el" "magit-repos.elc" "magit-bundle.el" "magit-files.elc" "magit-obsolete.elc" "magit-reset.el" "../" "./")
+
+ ("/Users/aidencullo/.emacs.d/snippets/" (25500 50341 193208 332000) "../" "./")
+
+ ("/Users/aidencullo/Code/Github/p2p-chess-tanner/src/" (25506 10920 403816 553000) "index.css" "index.js" "../" "./")
+
+ ("/Users/aidencullo/Code/Github/p2p-chess-tanner/" (25506 10920 402499 605000) "src/" ".git/" "README.org" "package.json" "package-lock.json" ".gitignore" "public/" "README.md" "node_modules/" "../" "./")
+
+ ("/Users/aidencullo/Code/Github/emacsrocks/ep6/" (25506 10285 868687 613000) "before" "../" "./")
+
+ ("/Users/aidencullo/Code/Github/dotfiles/.emacs.d/.emacs.d/" (25500 48936 108693 933000) "games/" "elpa/" ".backups/" "packages/" ".autosaves/" "bookmarks" "init.el" "url/" "auto-save-list/" "transient/" "eshell/" "tutorial/" "ido.last" "snippets/" "../" "./")
+
+ ("/Users/aidencullo/Code/Github/dotfiles/" (25500 50465 559466 208000) "git/" "zsh/" ".git/" "make/" "README.md" ".emacs.d/" ".gitmodules" ".DS_Store" "vim/" "../" "./")
+
+ ("/Users/aidencullo/.emacs.d/.emacs.d/" (25500 48936 108693 933000) "games/" "elpa/" ".backups/" "packages/" ".autosaves/" "bookmarks" "init.el" "url/" "auto-save-list/" "transient/" "eshell/" "tutorial/" "ido.last" "snippets/" "../" "./")
+
+ ("/Users/aidencullo/.emacs.d/packages/" (25500 50341 131082 792000) "iy-go-to-char.el" "yasnippet/" "../" "./")
+
+ ("/Users/aidencullo/Code/Github/cullo7.github.io/blog/" (25499 31693 683546 192000) "Mac_Keyboard_Shortcuts.html" "professional.html" "blog.html" "../" "./")
 
  ("/Users/aidencullo/Code/Github/resume/" (25435 25 579961 71000) ".git/" "english/" "README.md" "espanol/" "../" "./")
 
@@ -126,8 +171,6 @@
 
  ("/Users/aidencullo/Code/Github/problem_solutions/leetcode/23/src/LLMerge/" (25490 23130 81056 897000) "TestSuite.java" "TestCase.java" "ListNode.java" "Main.java" "ReadFile.java" "Algorithm.java" "../" "./")
 
- ("/Users/aidencullo/Code/Github/pipenv/" (25431 2040 757240 907000) "Pipfile.lock" ".git/" "CHANGELOG.rst" "HISTORY.txt" "setup.cfg" ".gitattributes" ".github/" "examples/" "CONTRIBUTING.md" ".gitignore" "news/" "setup.py" "Pipfile" "README.md" ".deepsource.toml" "NOTICES" ".editorconfig" ".gitmodules" "docs/" "MANIFEST.in" "tests/" "pyproject.toml" "Makefile" ".pre-commit-config.yaml" "run-tests.sh" "LICENSE" "pipenv/" "peeps/" "RELEASING.md" "get-pipenv.py" "tasks/" "run-tests.bat" ".isort.cfg" "../" "./")
-
  ("/Users/aidencullo/Code/Github/problem_solutions/leetcode/23/" (25490 22746 585846 956000) "src/" "build/" "build.xml" "test1.txt" "../" "./")
 
  ("/Users/aidencullo/Code/Github/problem_solutions/leetcode/23/build/LLMerge/" (25489 10041 49233 64000) "../" "./")
@@ -154,15 +197,11 @@
 
  ("/Users/aidencullo/.emacs.d/auto-save-list/" (25487 37173 383758 965000) ".saves-62666-192.168.10.4~" ".saves-28219-192.168.10.3~" ".saves-24879-192.168.10.4~" "../" "./")
 
- ("/Users/aidencullo/.emacs.d/elpa/" (25487 36714 618665 373000) "transient-20221028.1430/" "monokai-theme-3.5.3/" "grep-a-lot-20210618.1420/" "dash-20221013.836/" "magit-3.3.0/" "with-editor-20220810.1159/" "archives/" "paredit-20220709.916/" "compat-28.1.2.2/" "git-commit-20221106.1128/" "company-0.9.13/" "magit-section-20220929.1014/" "../" "./")
-
  ("/Users/aidencullo/.emacs.d/elpa/monokai-theme-3.5.3/" (25487 36714 684520 721000) "monokai-theme.el" "README.md" "monokai-theme-autoloads.el" "monokai-theme-pkg.el" "LICENSE.md" "../" "./")
 
  ("/Users/aidencullo/Code/Github/MessingAround/C++/binding/" (25486 17411 918070 62000) "a.out" "virtual.cpp" "../" "./")
 
  ("/Users/aidencullo/Code/Github/problem_solutions/CCI/chapter8/" (25486 20483 600854 424000) "8.12.py" "8.9.py" "8.9.2.py" "../" "./")
-
- ("/Users/aidencullo/Code/Github/dotfiles/" (25487 36443 692332 534000) "git/" "zsh/" ".git/" "make/" "README.md" ".emacs.d/" ".gitmodules" ".DS_Store" "vim/" "../" "./")
 
  ("/Applications/Emacs.app/Contents/Resources/info/" (25375 30625 0 0) "ido.info.gz" "htmlfontify.info.gz" "emacs-gnutls.info.gz" "ede.info.gz" "mairix-el.info.gz" "bovine.info.gz" "erc.info.gz" "ccmode.info.gz" "eintr.info.gz" "ediff.info.gz" "gnus.info.gz" "rcirc.info.gz" "cl.info.gz" "smtpmail.info.gz" "tramp.info.gz" "vip.info.gz" "pcl-cvs.info.gz" "ert.info.gz" "forms.info.gz" "remember.info.gz" "ebrowse.info.gz" "newsticker.info.gz" "dir" "mh-e.info.gz" "elisp.info.gz" "semantic.info.gz" "url.info.gz" "sc.info.gz" "srecode.info.gz" "ses.info.gz" "dired-x.info.gz" "dbus.info.gz" "woman.info.gz" "nxml-mode.info.gz" "org.info.gz" "info.info.gz" "emacs.info.gz" "calc.info.gz" "eieio.info.gz" "todo-mode.info.gz" "speedbar.info.gz" "eshell.info.gz" "eudc.info.gz" "octave-mode.info.gz" "wisent.info.gz" "auth.info.gz" "vhdl-mode.info.gz" "idlwave.info.gz" "widget.info.gz" "efaq.info.gz" "sieve.info.gz" "eww.info.gz" "pgg.info.gz" "emacs-mime.info.gz" "flymake.info.gz" "modus-themes.info.gz" "viper.info.gz" "edt.info.gz" "transient.info.gz" "sasl.info.gz" "autotype.info.gz" "epa.info.gz" "message.info.gz" "reftex.info.gz" "../" "./")
 
