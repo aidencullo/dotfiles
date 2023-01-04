@@ -15,7 +15,7 @@
      ("nongnu" . "https://elpa.nongnu.org/nongnu/")
      ("melpa" . "https://melpa.org/packages/")))
  '(package-selected-packages
-   '(yasnippet floobits monokai-theme grep-a-lot paredit magit company ##))
+   '(expand-region yasnippet floobits monokai-theme grep-a-lot paredit magit company ##))
  '(uniquify-buffer-name-style 'post-forward nil (uniquify)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -75,10 +75,6 @@
 (setq yas-snipper-dirs '("~/.emacs.d/snippets"))
 (yas-global-mode 1)
 
-;; open always in ~/Code/Github
-;; set dir
-(setq initial-buffer-choice "~/Code/Github")
-
 ;; on macOS, ls doesn't support the --dired 
 (when (string= system-type "darwin")       
   (setq dired-use-ls-dired nil))
@@ -95,3 +91,9 @@
 ;;;;Org mode configuration
 ;; Enable Org mode
 (require 'org)
+
+;; expand region
+(require 'expand-region)
+(global-set-key (kbd "C-=") 'er/expand-region)
+
+(global-set-key "\C-m" 'newline-and-indent)

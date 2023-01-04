@@ -104,7 +104,7 @@ alias zshrc="emacs ~/.zshrc && source ~/.zshrc"
 alias ohmyzsh="emacs ~/.oh-my-zsh/oh-my-zsh.sh&"
 alias vimrc="emacs ~/.vimrc&"
 alias gitig="emacs ~/.gitignore_global&"
-alias emac="emacs ~/.emacs"
+alias emac="emacs ~/.emacs.d/init.el"
 alias src="source ~/.zshrc"
 
 # git
@@ -175,4 +175,4 @@ zsh_command_time() {
 }
 
 # setting home dir to ~/Code/Github
-cd Code/Github
+cd ~/Code/Github
