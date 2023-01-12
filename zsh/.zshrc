@@ -109,8 +109,9 @@ alias src="source ~/.zshrc"
 
 # git
 alias gd="git diff"
+alias gl="git log"
 alias gaa="git add -A"
-alias gs="git status"
+alias gs="git status --porcelain"
 alias gc="git commit -m "
 alias gcp='(){git commit -m $1 && gp;}'
 alias gp="git push origin main"

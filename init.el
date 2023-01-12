@@ -1,9 +1,3 @@
-(package-initialize)
-
-(require 'grep-a-lot)
-(grep-a-lot-setup-keys)
-
-
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -15,31 +9,42 @@
      ("nongnu" . "https://elpa.nongnu.org/nongnu/")
      ("melpa" . "https://melpa.org/packages/")))
  '(package-selected-packages
-   '(expand-region yasnippet floobits monokai-theme grep-a-lot paredit magit company ##))
+   '(expand-region
+     yasnippet
+     floobits
+     monokai-theme
+     grep-a-lot
+     paredit
+     magit
+     company ##))
  '(uniquify-buffer-name-style 'post-forward nil (uniquify)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+
+;; install indicated packages
+(package-install-selected-packages)
+
+;; initialize all the packages i've loaded
+(package-initialize)
+
+;; setting graphic themes
+(custom-set-faces)
 
 ;;
 ;; Setting Values
 ;;
+
+;;This variable determines whether the debugger is called when an error is signaled and not handled
+(setq debug-on-error t)
+
+;; initialize grep-a-lot
+(grep-a-lot-setup-keys)
 
 ;; adding absolute line numbers
 (global-linum-mode)
 ;; adding relative line numbers
 (setq-default display-line-numbers 'relative)
 
-;;
-;; Key Mappings
-;;
-
 ;; inhibit tutorial screen upon opening emacs
 (setq inhibit-startup-screen t)
-
 
 ;; store backups and autosaves in .emacs.d
 ;; ~/.emacs.d/.autosaves needs to exist
@@ -50,22 +55,26 @@
 (fancy-startup-screen)
 (put 'erase-buffer 'disabled nil)
 
+;;set monokai theme
+(load-theme 'monokai t)
+
+;;
+;; Key Bindings
+;;
+
 ;; f1 fullscreen toggle
 (global-set-key (kbd "C-x m") 'toggle-frame-fullscreen)
+
+;;
+;; Hooks
+;;
 
 ;; autofill hool on text mode
 (add-hook 'text-mode-hook 'auto-fill-mode)
 
-;;set monokai theme
-(load-theme 'monokai t)
-
-
 ;;manual installed packages
 (add-to-list 'load-path (concat user-emacs-directory "packages/" ))
 (load "iy-go-to-char")
-
-;;This variable determines whether the debugger is called when an error is signaled and not handled
-(setq debug-on-error t)
 
 ;; reload buffers updated on the disk by another program
 (add-hook 'dired-mode-hook 'auto-revert-mode)
