@@ -9,9 +9,13 @@
      ("nongnu" . "https://elpa.nongnu.org/nongnu/")
      ("melpa" . "https://melpa.org/packages/")))
  '(package-selected-packages
-   '(expand-region
+   '(compat
+     git-commit
+     magit-section
+     transient
+     with-editor
+     expand-region
      yasnippet
-     floobits
      monokai-theme
      grep-a-lot
      paredit
@@ -22,11 +26,13 @@
 ;; install indicated packages
 (package-install-selected-packages)
 
-;; initialize all the packages i've loaded
-(package-initialize)
-
 ;; setting graphic themes
-(custom-set-faces)
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
 
 ;;
 ;; Setting Values
@@ -105,4 +111,14 @@
 (require 'expand-region)
 (global-set-key (kbd "C-=") 'er/expand-region)
 
+;; newline automatically indents
 (global-set-key "\C-m" 'newline-and-indent)
+
+(global-set-key (kbd "C-x C-r") 'replace-line)
+
+;;
+;; MACROS
+;;
+
+(fset 'replace-line
+   (kmacro-lambda-form [?\C-y ?\C-k ?\C-k ?\C-p] 0 "%d"))
