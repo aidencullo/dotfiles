@@ -130,10 +130,16 @@ alias pypro="mkdir -p src/module && mkdir src/test && touch src/modules/__init__
 alias -s {js,json,md,html,css,py,cpp,c,txt}=emacs
 alias -s git="git clone"
 
+# program (re)assignments
+alias emacs=Emacs.app/Contents/MacOS/Emacs
+
 # exports
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
+# for java compilation
 export PATH="/usr/local/opt/openjdk/bin:$PATH"
+# for vue
+export PATH="$PATH:/usr/local/Cellar/node/19.4.0_1/bin"
 # don't open less if it is less than a page
 export LESS="-F -X $LESS"
 
@@ -177,3 +183,12 @@ zsh_command_time() {
 
 # setting home dir to ~/Code/Github
 cd ~/Code/Github
+
+
+# history
+export HISTFILE=~/.zsh_history
+export HISTFILESIZE=1000000000
+export HISTSIZE=1000000000
+setopt INC_APPEND_HISTORY
+export HISTTIMEFORMAT="[%F %T] "
+setopt EXTENDED_HISTORY
