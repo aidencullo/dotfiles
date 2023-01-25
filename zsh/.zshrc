@@ -131,7 +131,11 @@ alias -s {js,json,md,html,css,py,cpp,c,txt}=emacs
 alias -s git="git clone"
 
 # program (re)assignments
-alias emacs=Emacs.app/Contents/MacOS/Emacs
+alias emacs=/Applications/Emacs.app/Contents/MacOS/Emacs
+
+#scripts
+alias tradigro=~/Code/Scripts/start_tradigro.sh
+alias apache='sudo apachectl start'
 
 # exports
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
@@ -180,10 +184,6 @@ zsh_command_time() {
         printf "${ZSH_COMMAND_TIME_MSG}\n" "$timer_show"
     fi
 }
-
-# setting home dir to ~/Code/Github
-cd ~/Code/Github
-
 
 # history
 export HISTFILE=~/.zsh_history
