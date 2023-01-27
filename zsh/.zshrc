@@ -136,6 +136,7 @@ alias emacs=/Applications/Emacs.app/Contents/MacOS/Emacs
 #scripts
 alias tradigro=~/Code/Scripts/start_tradigro.sh
 alias apache='sudo apachectl start'
+alias apachestop='sudo apachectl stop'
 
 # exports
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
