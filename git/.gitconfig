@@ -1,7 +1,1 @@
-[user]
-	email = aidencullo@gmail.com
-	name = Aiden Cullo
-[core]
-	excludesfile = /Users/aidencullo/.gitignore_global
-[pager]
-	branch = false
+/Users/aiden/.gitconfig
