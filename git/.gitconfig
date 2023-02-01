@@ -1,1 +1,6 @@
-/Users/aiden/.gitconfig
+[user]
+	name = Aiden Cullo
+	email = aidencullo@gmail.com
+[core]
+	autocrlf = input
+	safecrlf = false
