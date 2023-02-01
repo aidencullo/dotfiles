@@ -104,7 +104,7 @@ alias zshrc="emacs ~/.zshrc && source ~/.zshrc"
 alias ohmyzsh="emacs ~/.oh-my-zsh/oh-my-zsh.sh&"
 alias vimrc="emacs ~/.vimrc&"
 alias gitig="emacs ~/.gitignore_global&"
-alias gitconf="emacs ~/.gitconf&"
+alias gitconf="emacs ~/.gitconfig&"
 alias emac="emacs ~/.emacs.d/init.el"
 alias src="source ~/.zshrc"
 
