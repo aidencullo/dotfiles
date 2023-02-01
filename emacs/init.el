@@ -13,7 +13,7 @@
      ("nongnu" . "https://elpa.nongnu.org/nongnu/")
      ("melpa" . "https://melpa.org/packages/")))
  '(package-selected-packages
-   '(typescript-mode php-mode lsp-mode auto-complete compat git-commit magit-section transient with-editor expand-region yasnippet monokai-theme grep-a-lot paredit magit company ##))
+   '(vue-mode typescript-mode php-mode lsp-mode auto-complete compat git-commit magit-section transient with-editor expand-region yasnippet monokai-theme grep-a-lot paredit magit company ##))
  '(uniquify-buffer-name-style 'post-forward nil (uniquify)))
 
 ;; install indicated packages

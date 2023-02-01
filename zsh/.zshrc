@@ -112,6 +112,7 @@ alias gd="git diff"
 alias gl="git log"
 alias gaa="git add -A"
 alias gs="git status --porcelain"
+alias gs="git status"
 alias gc="git commit -m "
 alias gcp='(){git commit -m $1 && gp;}'
 alias gp="git push origin main"
