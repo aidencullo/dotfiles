@@ -13,6 +13,7 @@
 *.pyc
 *.gch
 *.aux
+otherfile.txt
 file.txt
 
 # Temporary files #
