@@ -125,3 +125,6 @@
     (ac-config-default)
     (global-auto-complete-mode t)
    ))
+
+;; stop asking before following symlink
+(setq vc-follow-symlinks t)

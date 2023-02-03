@@ -100,12 +100,12 @@ source $ZSH/oh-my-zsh.sh
 # aliases
 
 # altering profiles
-alias zshrc="emacs ~/.zshrc && source ~/.zshrc"
+alias zshrc="emacs ~/.zshrc&"
 alias ohmyzsh="emacs ~/.oh-my-zsh/oh-my-zsh.sh&"
 alias vimrc="emacs ~/.vimrc&"
 alias gitig="emacs ~/.gitignore_global&"
 alias gitconf="emacs ~/.gitconfig&"
-alias emac="emacs ~/.emacs.d/init.el"
+alias emac="emacs ~/.emacs.d/init.el&"
 alias src="source ~/.zshrc"
 
 # git

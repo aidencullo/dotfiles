@@ -13,6 +13,8 @@
 *.pyc
 *.gch
 *.aux
+ios/
+android/
 
 # Temporary files #
 ###################
