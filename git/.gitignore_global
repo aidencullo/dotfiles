@@ -13,8 +13,6 @@
 *.pyc
 *.gch
 *.aux
-ios/
-android/
 
 # Temporary files #
 ###################
@@ -40,6 +38,10 @@ node_modules/
 *.log
 *.sql
 *.sqlite
+
+# generated files #
+######################
+package-lock.json
 
 # OS generated files #
 ######################

@@ -137,6 +137,7 @@ alias emacs=/Applications/Emacs.app/Contents/MacOS/Emacs
 
 #scripts
 alias tradigro=~/Code/Scripts/start_tradigro.sh
+alias superandroid=~/Code/Scripts/superandroid.sh
 alias apache='sudo apachectl start'
 alias apachestop='sudo apachectl stop'
 

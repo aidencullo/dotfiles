@@ -1,4 +1,6 @@
-;; package installation
+;; 
+;; Loading Packages
+;;
 
 (require 'package)
 
@@ -20,6 +22,8 @@
 (package-initialize)
 
 (require 'use-package)
+
+(require 'lsp-mode)
 
 ;;
 ;; Setting Values
@@ -50,6 +54,9 @@
 
 ;;set monokai theme
 (load-theme 'monokai t)
+
+;; stop asking before following symlink
+(setq vc-follow-symlinks t)
 
 ;;
 ;; Key Bindings
@@ -126,5 +133,3 @@
     (global-auto-complete-mode t)
    ))
 
-;; stop asking before following symlink
-(setq vc-follow-symlinks t)

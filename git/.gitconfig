@@ -2,6 +2,4 @@
 	name = Aiden Cullo
 	email = aidencullo@gmail.com
 [core]
-	autocrlf = input
-	safecrlf = false
 	excludesfile = /Users/aiden/.gitignore_global
