@@ -30,8 +30,9 @@
 *.iso
 *.jar
 *.rar
-*.zip
 node_modules/
+ios/
+android/
 
 # Logs and databases #
 ######################

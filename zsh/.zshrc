@@ -110,14 +110,13 @@ alias src="source ~/.zshrc"
 
 # git
 alias gd="git diff"
-alias gl="git log"
+alias gl="git log --oneline"
 alias gaa="git add -A"
-alias gs="git status --porcelain"
 alias gs="git status"
 alias gc="git commit -m "
 alias gcp='(){git commit -m $1 && gp;}'
 alias gp="git push origin main"
-alias ga="gd && gaa && gs"
+alias ga="gaa && gs"
 alias gad='(){gd && git add $1 && gs;}'
 alias gacp='(){gad $1 && gcp $2;}' # not working
 
@@ -138,6 +137,8 @@ alias emacs=/Applications/Emacs.app/Contents/MacOS/Emacs
 #scripts
 alias tradigro=~/Code/Scripts/start_tradigro.sh
 alias superandroid=~/Code/Scripts/superandroid.sh
+alias ios=~/Code/Scripts/ios.sh
+alias iose=' emacs ~/Code/Scripts/ios.sh'
 alias apache='sudo apachectl start'
 alias apachestop='sudo apachectl stop'
 
