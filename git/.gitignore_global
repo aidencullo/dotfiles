@@ -30,6 +30,9 @@
 *.iso
 *.jar
 *.rar
+*.gz
+*.zip
+package-lock.json
 node_modules/
 ios/
 android/

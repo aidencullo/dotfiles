@@ -119,6 +119,7 @@ alias gp="git push origin main"
 alias ga="gaa && gs"
 alias gad='(){gd && git add $1 && gs;}'
 alias gacp='(){gad $1 && gcp $2;}' # not working
+alias gpj="git push origin juego4"
 
 # ls commands
 alias lh="ls -ld .*"
@@ -136,9 +137,16 @@ alias emacs=/Applications/Emacs.app/Contents/MacOS/Emacs
 
 #scripts
 alias tradigro=~/Code/Scripts/start_tradigro.sh
-alias superandroid=~/Code/Scripts/superandroid.sh
 alias ios=~/Code/Scripts/ios.sh
+alias iosc=~/Code/Scripts/iosc.sh
+alias iosp=~/Code/Scripts/iosp.sh
 alias iose=' emacs ~/Code/Scripts/ios.sh'
+alias iosce=' emacs ~/Code/Scripts/iosc.sh'
+alias iospe=' emacs ~/Code/Scripts/iosp.sh'
+alias android=~/Code/Scripts/android.sh
+alias androidc=~/Code/Scripts/androidc.sh
+alias androide=' emacs ~/Code/Scripts/android.sh'
+alias androidce=' emacs ~/Code/Scripts/androidc.sh'
 alias apache='sudo apachectl start'
 alias apachestop='sudo apachectl stop'
 

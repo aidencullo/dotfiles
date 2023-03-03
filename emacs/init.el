@@ -9,13 +9,15 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(grep-find-ignored-directories
+   '("SCCS" "RCS" "CVS" "MCVS" ".src" ".svn" ".git" ".hg" ".bzr" "_MTN" "_darcs" "{arch}" "node_modules"))
  '(ido-mode 'both nil (ido))
  '(package-archives
    '(("gnu" . "https://elpa.gnu.org/packages/")
      ("nongnu" . "https://elpa.nongnu.org/nongnu/")
      ("melpa" . "https://melpa.org/packages/")))
  '(package-selected-packages
-   '(vue-mode typescript-mode php-mode lsp-mode auto-complete compat git-commit magit-section transient with-editor expand-region yasnippet monokai-theme grep-a-lot paredit magit company ##))
+   '(swift-mode vue-mode typescript-mode php-mode lsp-mode auto-complete compat git-commit magit-section transient with-editor expand-region yasnippet monokai-theme grep-a-lot paredit magit company ##))
  '(uniquify-buffer-name-style 'post-forward nil (uniquify)))
 
 ;; install indicated packages
@@ -132,4 +134,3 @@
     (ac-config-default)
     (global-auto-complete-mode t)
    ))
-
