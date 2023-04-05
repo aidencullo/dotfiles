@@ -111,12 +111,10 @@ alias src="source ~/.zshrc"
 # git
 alias gd="git diff"
 alias gl="git log --oneline"
-alias gaa="git add -A"
 alias gs="git status"
 alias gc="git commit -m "
 alias gcp='(){git commit -m $1 && gp;}'
 alias gp="git push origin main"
-alias ga="gaa && gs"
 alias gad='(){gd && git add $1 && gs;}'
 alias gacp='(){gad $1 && gcp $2;}' # not working
 alias gpj="git push origin juego4"
