@@ -13,3 +13,4 @@
 	rc = !git commit -am
 	A = add -A
 	p = push origin main
+	al = config --get-regexp ^alias
