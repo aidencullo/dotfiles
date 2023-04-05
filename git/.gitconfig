@@ -9,6 +9,7 @@
 [init]
 	defaultBranch = main
 [alias]
-	ac = !git add -A && git commit -m
+	ac = !git A && git commit -m
 	rc = !git commit -am
 	A = add -A
+	p = push origin main
