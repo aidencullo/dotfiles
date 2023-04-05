@@ -3,7 +3,7 @@
 	email = aidencullo@gmail.com
 [core]
 	excludesfile = /Users/aiden/.gitignore_global
-	editor = emacs
+	editor = vim
 [fetch]
 	prune = true
 [init]
