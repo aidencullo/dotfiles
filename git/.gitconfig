@@ -8,3 +8,6 @@
 	prune = true
 [init]
 	defaultBranch = main
+[alias]
+	ac = !git add -A && git commit -m
+	rc = !git commit -am
