@@ -120,6 +120,7 @@ alias ga="gaa && gs"
 alias gad='(){gd && git add $1 && gs;}'
 alias gacp='(){gad $1 && gcp $2;}' # not working
 alias gpj="git push origin juego4"
+alias gitrecon="git checkout main && git pull && git branch -d"
 
 # ls commands
 alias lh="ls -ld .*"
@@ -137,6 +138,7 @@ alias emacs=/Applications/Emacs.app/Contents/MacOS/Emacs
 
 #scripts
 alias tradigro=~/Code/Scripts/start_tradigro.sh
+alias tradigroe=" emacs ~/Code/Scripts/start_tradigro.sh"
 alias ios=~/Code/Scripts/ios.sh
 alias iosc=~/Code/Scripts/iosc.sh
 alias iosp=~/Code/Scripts/iosp.sh
@@ -205,3 +207,6 @@ export HISTSIZE=1000000000
 setopt INC_APPEND_HISTORY
 export HISTTIMEFORMAT="[%F %T] "
 setopt EXTENDED_HISTORY
+export PATH="/usr/local/opt/openjdk/bin:$PATH"
+export PATH="/usr/local/opt/openjdk@17/bin:$PATH"
+export PATH="/usr/local/opt/node@18/bin:$PATH"

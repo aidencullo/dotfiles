@@ -3,5 +3,8 @@
 	email = aidencullo@gmail.com
 [core]
 	excludesfile = /Users/aiden/.gitignore_global
+	editor = emacs
 [fetch]
 	prune = true
+[init]
+	defaultBranch = main
