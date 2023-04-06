@@ -14,3 +14,6 @@
 	A = add -A
 	p = push origin main
 	al = config --get-regexp ^alias
+	h = push origin HEAD
+[push]
+	default = current
