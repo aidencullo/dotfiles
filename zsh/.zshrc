@@ -108,17 +108,6 @@ alias gitconf="emacs ~/.gitconfig&"
 alias emac="emacs ~/.emacs.d/init.el&"
 alias src="source ~/.zshrc"
 
-# git
-alias gd="git diff"
-alias gl="git log --oneline"
-alias gs="git status"
-alias gc="git commit -m "
-alias gcp='(){git commit -m $1 && gp;}'
-alias gad='(){gd && git add $1 && gs;}'
-alias gacp='(){gad $1 && gcp $2;}' # not working
-alias gpj="git push origin juego4"
-alias gitrecon="git checkout main && git pull && git branch -d"
-
 # ls commands
 alias lh="ls -ld .*"
 
@@ -136,16 +125,6 @@ alias emacs=/Applications/Emacs.app/Contents/MacOS/Emacs
 #scripts
 alias tradigro=~/Code/Scripts/start_tradigro.sh
 alias tradigroe=" emacs ~/Code/Scripts/start_tradigro.sh"
-alias ios=~/Code/Scripts/ios.sh
-alias iosc=~/Code/Scripts/iosc.sh
-alias iosp=~/Code/Scripts/iosp.sh
-alias iose=' emacs ~/Code/Scripts/ios.sh'
-alias iosce=' emacs ~/Code/Scripts/iosc.sh'
-alias iospe=' emacs ~/Code/Scripts/iosp.sh'
-alias android=~/Code/Scripts/android.sh
-alias androidc=~/Code/Scripts/androidc.sh
-alias androide=' emacs ~/Code/Scripts/android.sh'
-alias androidce=' emacs ~/Code/Scripts/androidc.sh'
 alias apache='sudo apachectl start'
 alias apachestop='sudo apachectl stop'
 
@@ -207,3 +186,6 @@ setopt EXTENDED_HISTORY
 export PATH="/usr/local/opt/openjdk/bin:$PATH"
 export PATH="/usr/local/opt/openjdk@17/bin:$PATH"
 export PATH="/usr/local/opt/node@18/bin:$PATH"
+
+# Load Angular CLI autocompletion.
+source <(ng completion script)
