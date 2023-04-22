@@ -16,7 +16,7 @@
 	al = config --get-regexp ^alias
 	h = push origin HEAD
 	last = log -1 HEAD
-	st = status
+	st = status --ignored
 	co = checkout
 	ci = commit
 	br = branch
@@ -25,5 +25,8 @@
 	sh = show --stat
 	df = diff
 	dfs = diff --stat
+	cl = clean -xdn
+	r = reset
+	clf = clean -xdf
 [push]
 	default = current
