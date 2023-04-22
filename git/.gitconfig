@@ -25,8 +25,8 @@
 	sh = show --stat
 	df = diff
 	dfs = diff --stat
-	cl = clean -xdn
+	cl = clean -nd
 	r = reset
-	clf = clean -xdf
+	clf = clean -fd
 [push]
 	default = current
