@@ -28,5 +28,6 @@
 	cl = clean -nd
 	r = reset
 	clf = clean -fd
+	f = fetch
 [push]
 	default = current
