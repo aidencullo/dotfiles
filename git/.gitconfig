@@ -29,5 +29,7 @@
 	r = reset
 	clf = clean -fd
 	f = fetch
+	ali = ! echo git config --global alias
+	cli = clean -fdx
 [push]
 	default = current
