@@ -33,7 +33,7 @@
 *.rar
 *.gz
 *.zip
-package-lock.json
+*-lock.*
 node_modules/
 ios/
 android/
