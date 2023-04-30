@@ -34,3 +34,5 @@
 	clif = clean -fdx
 [push]
 	default = current
+[pull]
+	rebase = false
