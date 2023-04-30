@@ -30,6 +30,7 @@
 	clf = clean -fd
 	f = fetch
 	ali = ! echo git config --global alias
-	cli = clean -fdx
+	cli = clean -ndx
+	clif = clean -fdx
 [push]
 	default = current
