@@ -15,7 +15,7 @@
      ("nongnu" . "https://elpa.nongnu.org/nongnu/")
      ("melpa" . "https://melpa.org/packages/")))
  '(package-selected-packages
-   '(auto-complete magit-section expand-region magit ##))
+   '(yaml-mode auto-complete magit-section expand-region magit ##))
  '(uniquify-buffer-name-style 'post-forward nil (uniquify)))
 
 ;; install indicated packages
