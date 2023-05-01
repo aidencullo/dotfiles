@@ -33,10 +33,7 @@
 *.rar
 *.gz
 *.zip
-*-lock.*
 node_modules/
-ios/
-android/
 
 # Logs and databases #
 ######################
@@ -44,11 +41,12 @@ android/
 *.sql
 *.sqlite
 
-# generated files #
+# Generated files #
 ######################
-package-lock.json
+*-lock.*
+coverage/
 
-# OS generated files #
+# OS files #
 ######################
 .DS_Store
 .DS_Store?
@@ -62,4 +60,3 @@ Thumbs.db
 # Executables #
 ###############
 a.out
-output
