@@ -19,7 +19,6 @@
 	st = status --ignored
 	co = checkout
 	ci = commit -m
-	br = branch -a
 	lg = log --graph --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%an%C(reset)%C(bold yellow)%d%C(reset) %C(dim white)- %s%C(reset)' --all
 	aal = config --global
 	sh = show --stat
@@ -32,6 +31,8 @@
 	ali = ! echo git config --global alias
 	cli = clean -ndx
 	clif = clean -fdx
+	b = branch
+	ba = branch -a
 [push]
 	default = current
 [pull]
