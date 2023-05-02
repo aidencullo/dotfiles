@@ -1,3 +1,3 @@
 # env
 
-my terminal configurations
+all my dotfile configs
