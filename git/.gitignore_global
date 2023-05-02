@@ -43,7 +43,6 @@ node_modules/
 
 # Generated files #
 ######################
-*-lock.*
 coverage/
 
 # OS files #
