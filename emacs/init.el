@@ -38,8 +38,16 @@
 ;; Configurations
 ;;
 
-;; adding absolute line numbers
-(global-linum-mode)
+;; modes
+
+;; disable toolbar mode
+(tool-bar-mode -1)
+
+;; enable line numbers mode
+(global-display-line-numbers-mode 1)
+
+;; pretty startup screen
+(fancy-startup-screen)
 
 ;; adding relative line numbers
 (setq-default display-line-numbers 'relative)
@@ -47,12 +55,16 @@
 ;; inhibit tutorial screen upon opening emacs
 (setq inhibit-startup-screen t)
 
-;; pretty startup screen
-(fancy-startup-screen)
-(put 'erase-buffer 'disabled nil)
-
 ;; stop asking before following symlink
 (setq vc-follow-symlinks t)
+
+;; flash when bell rings
+(setq visible-bell t)
+
+;; style
+
+;; load Modus Vivendi dark theme
+(load-theme 'modus-vivendi t)
 
 ;;
 ;; Key Bindings
@@ -84,3 +96,4 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
