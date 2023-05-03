@@ -50,8 +50,10 @@
 ;; turn blinking cursor off
 (blink-cursor-mode -1)
 
-indent
- 
+;; save history in mini-buffer prompts
+(setq history-length 25)
+(savehist-mode 1)
+
 ;; pretty startup screen
 (fancy-startup-screen)
 
