@@ -54,6 +54,12 @@
 (setq history-length 25)
 (savehist-mode 1)
 
+;; save place in file
+(save-place-mode 1)
+
+;; refresh buffers if file changes on disk
+(global-auto-revert-mode 1)
+
 ;; pretty startup screen
 (fancy-startup-screen)
 
