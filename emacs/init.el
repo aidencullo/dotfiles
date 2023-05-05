@@ -60,6 +60,9 @@
 ;; refresh buffers if file changes on disk
 (global-auto-revert-mode 1)
 
+;; refresh buffers if file changes on disk
+(setq global-auto-revert-non-file-buffers t)
+
 ;; pretty startup screen
 (fancy-startup-screen)
 
