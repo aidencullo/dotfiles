@@ -42,9 +42,16 @@
 ;; flash when bell rings
 (setq visible-bell t)
 
-;; style
-
-(setq modus-themes-region '(accented))
+;;
+;; Style
+;;
 
 ;; load Modus Vivendi dark theme
 (load-theme 'modus-vivendi t)
+
+;;
+;; Key binding
+;;
+
+;; f1 fullscreen toggle
+(global-set-key (kbd "C-x m") 'toggle-frame-fullscreen)
