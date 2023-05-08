@@ -2,6 +2,8 @@
 ;; Configurations
 ;;
 
+;; Modes
+
 ;; disable toolbar mode
 (tool-bar-mode -1)
 
@@ -23,6 +25,13 @@
 
 ;; refresh buffers if file changes on disk
 (global-auto-revert-mode 1)
+
+;; setup ido
+(setq ido-enable-flex-matching t)
+(setq ido-everywhere t)
+(ido-mode 1)
+
+;; Settings
 
 ;; refresh non-file buffer if change on disk
 (setq global-auto-revert-non-file-buffers t)
