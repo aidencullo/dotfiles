@@ -9,7 +9,7 @@
 (global-display-line-numbers-mode 1)
 
 ;; highlight current line
-(hl-line-mode 1)
+(global-hl-line-mode 1)
 
 ;; turn blinking cursor off
 (blink-cursor-mode -1)
