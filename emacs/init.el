@@ -51,6 +51,10 @@
 ;; flash when bell rings
 (setq visible-bell t)
 
+
+;; set autofill mode in all major modes
+(setq-default auto-fill-function 'do-auto-fill)
+
 ;;
 ;; Style
 ;;
