@@ -59,3 +59,10 @@ Thumbs.db
 # Executables #
 ###############
 a.out
+
+
+# Env files #
+###############
+.env.local
+.env.*.local
+	

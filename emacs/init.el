@@ -31,6 +31,9 @@
 (setq ido-everywhere t)
 (ido-mode 1)
 
+;; use spaces for indentation
+(setq-default indent-tabs-mode nil)
+
 ;; Settings
 
 ;; refresh non-file buffer if change on disk
@@ -51,10 +54,13 @@
 ;; flash when bell rings
 (setq visible-bell t)
 
-
 ;; set autofill mode in all major modes
 (setq-default auto-fill-function 'do-auto-fill)
 
+;; set tab-width across modes
+(setq-default tab-width 4)
+(defvaralias 'c-basic-offset 'tab-width)
+(defvaralias 'cperl-indent-level 'tab-width)
 ;;
 ;; Style
 ;;

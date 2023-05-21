@@ -37,9 +37,13 @@ alias -s git="git clone"
 # program (re)assignments
 alias emacs=/Applications/Emacs.app/Contents/MacOS/Emacs
 
-#scripts
+# scripts
+# tradigro
 alias tradigro=~/Code/Scripts/start_tradigro.sh
 alias tradigroe=" emacs ~/Code/Scripts/start_tradigro.sh"
+# tradigro
+alias herogrow=~/Code/Scripts/herogrow.sh
+alias herogrowe=" emacs ~/Code/Scripts/herogrow.sh"
 
 # mongodb
 alias mongod="sudo mongod --dbpath='/usr/local/var/mongodb'"
