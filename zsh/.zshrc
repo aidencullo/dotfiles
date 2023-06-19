@@ -44,6 +44,8 @@ alias tradigroe=" emacs ~/Code/Scripts/start_tradigro.sh"
 # tradigro
 alias herogrow=~/Code/Scripts/herogrow.sh
 alias herogrowe=" emacs ~/Code/Scripts/herogrow.sh"
+# js
+alias play="cd ~/Code/Testing/js/play"
 
 # mongodb
 alias mongod="sudo mongod --dbpath='/usr/local/var/mongodb'"

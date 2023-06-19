@@ -33,6 +33,11 @@
 	clif = clean -fdx
 	b = branch
 	ba = branch -a
+	cld = clean -nd
+	cldf = clean -fd
+	clx = clean -nx
+	clxf = clean -fx
+	acp = !git add . && git ci 'N/A' && git h
 [push]
 	default = current
 [pull]
