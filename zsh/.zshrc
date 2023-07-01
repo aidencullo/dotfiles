@@ -50,6 +50,9 @@ alias play="cd ~/Code/Testing/js/play"
 # mongodb
 alias mongod="sudo mongod --dbpath='/usr/local/var/mongodb'"
 
+#tools
+alias howbig="stat -f '%N: %Z bytes'"
+
 # displaying execution time
 
 # If command execution time above min. time, plugins will not output time.

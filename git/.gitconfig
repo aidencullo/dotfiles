@@ -40,5 +40,3 @@
 	acp = !git add . && git ci 'N/A' && git h
 [push]
 	default = current
-[pull]
-	rebase = false
