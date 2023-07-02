@@ -88,13 +88,20 @@
  ;; If there is more than one, they won't work right.
  '(grep-find-ignored-directories
    '("SCCS" "RCS" "CVS" "MCVS" ".src" ".svn" ".git" ".hg" ".bzr" "_MTN" "_darcs" "{arch}" "node_modules"))
- )
+ '(package-selected-packages
+   '(yasnippet yaml-mode vue-mode use-package typescript-mode swift-mode spinner paredit monokai-theme modus-themes markdown-mode magit lv ht grep-a-lot f expand-region company auto-complete)))
 
 ;;
 ;; packages
 ;;
 
+;; customize dired presentation
 (add-to-list 'load-path "~/.emacs.d/packages/dired-details")
 (require 'dired-details)
 (setq-default dired-details-hidden-string "------")
 (dired-details-install)
+
+;; expand/contract marked region
+(require 'expand-region)
+(global-set-key (kbd "C-=") 'er/expand-region)
+(global-set-key (kbd "C--") 'er/contract-region)

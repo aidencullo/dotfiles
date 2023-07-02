@@ -63,6 +63,7 @@ a.out
 
 # Env files #
 ###############
+.env
 .env.local
 .env.*.local
 	
