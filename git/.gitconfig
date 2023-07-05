@@ -38,5 +38,6 @@
 	clx = clean -nx
 	clxf = clean -fx
 	acp = !git add . && git ci 'N/A' && git h
+	sta = stash -u
 [push]
 	default = current
