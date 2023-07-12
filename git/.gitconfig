@@ -24,9 +24,9 @@
 	sh = show --stat
 	df = diff
 	dfs = diff --stat
-	cl = clean -nd
+	cl = clean -n
 	r = reset
-	clf = clean -fd
+	clf = clean -f
 	f = fetch
 	ali = ! echo git config --global alias
 	cli = clean -ndx
@@ -35,8 +35,10 @@
 	ba = branch -a
 	cld = clean -nd
 	cldf = clean -fd
-	clx = clean -nx
-	clxf = clean -fx
+	clx = clean -nX
+	clxf = clean -fX
+	clxd = clean -ndX
+	clxdf = clean -fdX
 	acp = !git add . && git ci 'N/A' && git h
 	sta = stash -u
 [push]
