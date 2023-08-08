@@ -32,9 +32,14 @@
 (setq-default indent-tabs-mode nil)
 
 ;; turn on auto-fill mode for all text buffers
-(add-hook 'text-mode-hook 'turn-on-auto-fill)
+;; (add-hook 'text-mode-hook 'turn-on-auto-fill)
 ;; turn on auto-fill mode in all major modes
-;; (setq-default auto-fill-function 'do-auto-fill)
+(setq-default auto-fill-function 'do-auto-fill)
+
+;; hooks
+
+;; hook embedded ruby into web-mode
+(add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
 
 ;;
 ;; Settings
@@ -83,33 +88,27 @@
 ;; f1 fullscreen toggle
 (global-set-key (kbd "C-x m") 'toggle-frame-fullscreen)
 
-;; customize gui settings
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(grep-find-ignored-directories
-   '("SCCS" "RCS" "CVS" "MCVS" ".src" ".svn" ".git" ".hg" ".bzr" "_MTN" "_darcs" "{arch}" "node_modules" "package-lock.json"))
- '(grep-find-ignored-files
-   '(".#*" "*.o" "*~" "*.bin" "*.lbin" "*.so" "*.a" "*.ln" "*.blg" "*.bbl" "*.elc" "*.lof" "*.glo" "*.idx" "*.lot" "*.fmt" "*.tfm" "*.class" "*.fas" "*.lib" "*.mem" "*.x86f" "*.sparcf" "*.dfsl" "*.pfsl" "*.d64fsl" "*.p64fsl" "*.lx64fsl" "*.lx32fsl" "*.dx64fsl" "*.dx32fsl" "*.fx64fsl" "*.fx32fsl" "*.sx64fsl" "*.sx32fsl" "*.wx64fsl" "*.wx32fsl" "*.fasl" "*.ufsl" "*.fsl" "*.dxl" "*.lo" "*.la" "*.gmo" "*.mo" "*.toc" "*.aux" "*.cp" "*.fn" "*.ky" "*.pg" "*.tp" "*.vr" "*.cps" "*.fns" "*.kys" "*.pgs" "*.tps" "*.vrs" "*.pyc" "*.pyo" "*-lock.*"))
- '(package-selected-packages
-   '(vue-mode lsp-mode yasnippet yaml-mode use-package typescript-mode swift-mode spinner paredit monokai-theme modus-themes markdown-mode magit lv ht grep-a-lot f expand-region company auto-complete)))
-
 ;;
 ;; packages
 ;;
 
+;; manual
+
+;; i don't have any manual packages currently -- so i commented this out
+;; (add-to-list 'load-path (concat user-emacs-directory "packages/" ))
+;; need to reinstall this manually
 ;; customize dired presentation
-(add-to-list 'load-path "~/.emacs.d/packages/dired-details")
-(require 'dired-details)
-(setq-default dired-details-hidden-string "------")
-(dired-details-install)
+;; (add-to-list 'load-path "~/.emacs.d/packages/dired-details")
+;; (require 'dired-details)
+;; (setq-default dired-details-hidden-string "------")
+;; (dired-details-install)
+
+;; system
 
 ;; expand/contract marked region
-(require 'expand-region)
-(global-set-key (kbd "C-=") 'er/expand-region)
-(global-set-key (kbd "C--") 'er/contract-region)
+;; (require 'expand-region)
+;; (global-set-key (kbd "C-=") 'er/expand-region)
+;; (global-set-key (kbd "C--") 'er/contract-region)
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -117,13 +116,13 @@
  ;; If there is more than one, they won't work right.
  )
 
-(use-package auto-complete
-  :ensure t
-  :init
-  (progn
-    (ac-config-default)
-    (global-auto-complete-mode t)
-    ))
+;; (use-package auto-complete
+;;   :ensure t
+;;   :init
+;;   (progn
+;;     (ac-config-default)
+;;     (global-auto-complete-mode t)
+;;     ))
 
 ;; melpa
 (require 'package)
@@ -132,3 +131,36 @@
 ;; and `package-pinned-packages`. Most users will not need or want to do this.
 ;;(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 (package-initialize)
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   '(multiple-cursors lsp-mode magit auto-complete vue-mode use-package typescript-mode)))
+
+;; save backups in a special dir
+(setq backup-directory-alist '(("." . "~/.emacs.d/backup"))
+  backup-by-copying t    ; Don't delink hardlinks
+  version-control t      ; Use version numbers on backups
+  delete-old-versions t  ; Automatically delete excess backups
+  kept-new-versions 20   ; how many of the newest versions to keep
+  kept-old-versions 5    ; and how many of the old
+  )
+
+;; idk if works
+    (require 'multiple-cursors)
+    (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
+
+;; untested
+;; When you want to add multiple cursors not based on continuous lines, but based on
+;; keywords in the buffer, use:
+
+    (global-set-key (kbd "C->") 'mc/mark-next-like-this)
+    (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+    (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
+
+;; autosaves
+(setq auto-save-file-name-transforms
+  `((".*" "~/.emacs.d/autosaves/" t)))
