@@ -43,3 +43,5 @@
 	sta = stash -u
 [push]
 	default = current
+[pager]
+	branch = false

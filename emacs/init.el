@@ -142,25 +142,37 @@
 
 ;; save backups in a special dir
 (setq backup-directory-alist '(("." . "~/.emacs.d/backup"))
-  backup-by-copying t    ; Don't delink hardlinks
-  version-control t      ; Use version numbers on backups
-  delete-old-versions t  ; Automatically delete excess backups
-  kept-new-versions 20   ; how many of the newest versions to keep
-  kept-old-versions 5    ; and how many of the old
-  )
+      backup-by-copying t    ; Don't delink hardlinks
+      version-control t      ; Use version numbers on backups
+      delete-old-versions t  ; Automatically delete excess backups
+      kept-new-versions 20   ; how many of the newest versions to keep
+      kept-old-versions 5    ; and how many of the old
+      )
 
 ;; idk if works
-    (require 'multiple-cursors)
-    (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
+(require 'multiple-cursors)
+(global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
 
 ;; untested
 ;; When you want to add multiple cursors not based on continuous lines, but based on
 ;; keywords in the buffer, use:
 
-    (global-set-key (kbd "C->") 'mc/mark-next-like-this)
-    (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
-    (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
+(global-set-key (kbd "C->") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
 
 ;; autosaves
 (setq auto-save-file-name-transforms
-  `((".*" "~/.emacs.d/autosaves/" t)))
+      `((".*" "~/.emacs.d/autosaves/" t)))
+
+;; kill all buffers in a session
+(defun kill-other-buffers ()
+  "Kill all other buffers."
+  (interactive)
+  ;; (load-file "~/.emacs.d/init.el")
+  (about-emacs)
+  (mapc 'kill-buffer (delq (current-buffer) (buffer-list)))
+  )
+
+;; full screen on start-up
+(add-hook 'after-init-hook 'toggle-frame-fullscreen)
