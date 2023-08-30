@@ -1,7 +1,0 @@
-* Start
-#+begin_src emacs-lisp
-  (defun hello ()
-    "Hello World and you can call it via M-x hello."
-    (interactive)
-    (message "Hello World!"))
-#+end_src

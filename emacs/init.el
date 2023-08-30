@@ -1,11 +1,8 @@
-(require 'org)
-(org-babel-load-file "~/.emacs.d/init_.org")
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
-;; Configurations
+;;  Major/Minor modes
 ;;
-
-;; Modes
 
 ;; disable toolbar mode
 (tool-bar-mode -1)
@@ -39,13 +36,32 @@
 ;; turn on auto-fill mode in all major modes
 (setq-default auto-fill-function 'do-auto-fill)
 
-;; hooks
+;;
+;;
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;;  Hooks
+;;
 
 ;; hook embedded ruby into web-mode
 (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
 
+;; full screen on start-up
+(add-hook 'after-init-hook 'toggle-frame-fullscreen)
+
 ;;
-;; Settings
+;;
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;;  Settings
 ;;
 
 ;; refresh non-file buffer if change on disk
@@ -77,41 +93,80 @@
 ;; set javascript indent to 2 spaces
 (setq js-indent-level 2)
 
+;; don't prompt when following symlinks
+(setq vc-follow-symlinks t)
+
+;; autosaves
+(setq auto-save-file-name-transforms
+      `((".*" "~/.emacs.d/autosaves/" t)))
+
+;; save backups in a special dir
+(setq backup-directory-alist '(("." . "~/.emacs.d/backup"))
+      backup-by-copying t    ; Don't delink hardlinks
+      version-control t      ; Use version numbers on backups
+      delete-old-versions t  ; Automatically delete excess backups
+      kept-new-versions 20   ; how many of the newest versions to keep
+      kept-old-versions 5    ; and how many of the old
+      )
+
 ;;
-;; Style
+;;
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;;  Style
 ;;
 
 ;; load Modus Vivendi dark theme
 (load-theme 'modus-vivendi t)
 
 ;;
-;; Key binding
+;;
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;;  Key Bindings
 ;;
 
 ;; f1 fullscreen toggle
 (global-set-key (kbd "C-x m") 'toggle-frame-fullscreen)
 
 ;;
-;; packages
+;;
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;;  Custom
 ;;
 
-;; manual
+;; kill all buffers in a session
+(defun kill-other-buffers ()
+  "Kill all other buffers."
+  (interactive)
+  ;; (load-file "~/.emacs.d/init.el")
+  (about-emacs)
+  (mapc 'kill-buffer (delq (current-buffer) (buffer-list)))
+  )
 
-;; i don't have any manual packages currently -- so i commented this out
-;; (add-to-list 'load-path (concat user-emacs-directory "packages/" ))
-;; need to reinstall this manually
-;; customize dired presentation
-;; (add-to-list 'load-path "~/.emacs.d/packages/dired-details")
-;; (require 'dired-details)
-;; (setq-default dired-details-hidden-string "------")
-;; (dired-details-install)
+;;
+;;
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;; system
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;;  Packages
+;;
 
-;; expand/contract marked region
-;; (require 'expand-region)
-;; (global-set-key (kbd "C-=") 'er/expand-region)
-;; (global-set-key (kbd "C--") 'er/contract-region)
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -129,7 +184,8 @@
 
 ;; melpa
 (require 'package)
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+(
+ add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 ;; Comment/uncomment this line to enable MELPA Stable if desired.  See `package-archive-priorities`
 ;; and `package-pinned-packages`. Most users will not need or want to do this.
 ;;(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
@@ -143,39 +199,7 @@
  '(package-selected-packages
    '(multiple-cursors lsp-mode magit auto-complete vue-mode use-package typescript-mode)))
 
-;; save backups in a special dir
-(setq backup-directory-alist '(("." . "~/.emacs.d/backup"))
-      backup-by-copying t    ; Don't delink hardlinks
-      version-control t      ; Use version numbers on backups
-      delete-old-versions t  ; Automatically delete excess backups
-      kept-new-versions 20   ; how many of the newest versions to keep
-      kept-old-versions 5    ; and how many of the old
-      )
-
-;; idk if works
-(require 'multiple-cursors)
-(global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
-
-;; untested
-;; When you want to add multiple cursors not based on continuous lines, but based on
-;; keywords in the buffer, use:
-
-(global-set-key (kbd "C->") 'mc/mark-next-like-this)
-(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
-(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
-
-;; autosaves
-(setq auto-save-file-name-transforms
-      `((".*" "~/.emacs.d/autosaves/" t)))
-
-;; kill all buffers in a session
-(defun kill-other-buffers ()
-  "Kill all other buffers."
-  (interactive)
-  ;; (load-file "~/.emacs.d/init.el")
-  (about-emacs)
-  (mapc 'kill-buffer (delq (current-buffer) (buffer-list)))
-  )
-
-;; full screen on start-up
-(add-hook 'after-init-hook 'toggle-frame-fullscreen)
+;;
+;;
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
