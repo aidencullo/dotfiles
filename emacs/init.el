@@ -153,9 +153,10 @@
   "Kill all other buffers."
   (interactive)
   ;; (load-file "~/.emacs.d/init.el")
-  (about-emacs)
   (mapc 'kill-buffer (delq (current-buffer) (buffer-list)))
-  )
+  (about-emacs))
+
+(global-set-key (kbd "C-c z") 'kill-other-buffers)
 
 ;;
 ;;
@@ -196,10 +197,26 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   '(multiple-cursors lsp-mode magit auto-complete vue-mode use-package typescript-mode)))
+ '(package-selected-packages '(helpful magit auto-complete use-package typescript-mode)))
+
+;; manually installing packages
+(add-to-list 'load-path (concat user-emacs-directory "packages/" ))
+(load "iy-go-to-char")
+
 
 ;;
 ;;
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+(require 'multiple-cursors)
+
+    (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
+
+;; When you want to add multiple cursors not based on continuous lines, but based on
+;; keywords in the buffer, use:
+
+    (global-set-key (kbd "C->") 'mc/mark-next-like-this)
+    (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+    (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
