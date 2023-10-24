@@ -1,4 +1,3 @@
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;  Major/Minor modes
@@ -36,6 +35,30 @@
 ;; turn on auto-fill mode in all major modes
 (setq-default auto-fill-function 'do-auto-fill)
 
+;; do i need this tho??? the require -- how to check if it is already loaded?
+;; (require 'rspec-mode)
+;; use current shell env variables (needed for ruby version)
+(when (memq window-system '(mac ns x))
+  (exec-path-from-shell-initialize))
+
+;; maybe move this somewhere else?
+(require 'multiple-cursors)
+
+(global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
+
+;; When you want to add multiple cursors not based on continuous lines, but based on
+;; keywords in the buffer, use:
+(global-set-key (kbd "C->") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
+
+(require 'yasnippet)
+(yas-global-mode 1)
+
+;; this still works -- still pretty unsure about requires
+(require 'expand-region)
+(global-set-key (kbd "C-=") 'er/expand-region)
+
 ;;
 ;;
 ;;
@@ -53,6 +76,8 @@
 ;; full screen on start-up
 (add-hook 'after-init-hook 'toggle-frame-fullscreen)
 
+;; to re-run specs in dired
+(add-hook 'dired-mode-hook 'rspec-mode)
 ;;
 ;;
 ;;
@@ -137,6 +162,13 @@
 ;; f1 fullscreen toggle
 (global-set-key (kbd "C-x m") 'toggle-frame-fullscreen)
 
+;; kill all current buffers
+(global-set-key (kbd "C-c z") 'kill-other-buffers)
+
+;; re-assign backward-delete-word to delete non-word chars up to next
+;; word or just a word
+(global-set-key (kbd "M-DEL") 'backward-kill-word-or-chars)
+
 ;;
 ;;
 ;;
@@ -153,10 +185,23 @@
   "Kill all other buffers."
   (interactive)
   ;; (load-file "~/.emacs.d/init.el")
-  (mapc 'kill-buffer (delq (current-buffer) (buffer-list)))
-  (about-emacs))
+  (mapc 'kill-buffer (delq () (buffer-list)))
+  (about-emacs)
+  )
 
-(global-set-key (kbd "C-c z") 'kill-other-buffers)
+(defun backward-kill-word-or-chars ()
+  "Delete the character or word before point."
+  (interactive)
+  (if (looking-back "\\w" 1)
+      (backward-kill-word 1)
+    (backward-kill-all-char)))
+
+(defun backward-kill-all-char ()
+  "Delete the character or word before point."
+  (interactive)
+(while (not (looking-back "\\w" 1))
+    (backward-delete-char 1)))
+
 
 ;;
 ;;
@@ -197,26 +242,15 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages '(helpful magit auto-complete use-package typescript-mode)))
+ '(package-selected-packages
+   '(restclient expand-region exec-path-from-shell yasnippet helpful magit auto-complete use-package typescript-mode)))
 
 ;; manually installing packages
 (add-to-list 'load-path (concat user-emacs-directory "packages/" ))
 (load "iy-go-to-char")
-
+(load "rspec-mode")
 
 ;;
 ;;
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-
-(require 'multiple-cursors)
-
-    (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
-
-;; When you want to add multiple cursors not based on continuous lines, but based on
-;; keywords in the buffer, use:
-
-    (global-set-key (kbd "C->") 'mc/mark-next-like-this)
-    (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
-    (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
