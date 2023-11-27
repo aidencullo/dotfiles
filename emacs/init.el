@@ -42,7 +42,7 @@
   (exec-path-from-shell-initialize))
 
 ;; maybe move this somewhere else?
-(require 'multiple-cursors)
+;; (require 'multiple-cursors)
 
 (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
 
@@ -52,12 +52,14 @@
 (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
 (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
 
+;; (autoload 'yasnippet "yasnippet")
 (require 'yasnippet)
 (yas-global-mode 1)
 
 ;; this still works -- still pretty unsure about requires
-(require 'expand-region)
+;; (require 'expand-region)
 (global-set-key (kbd "C-=") 'er/expand-region)
+(global-set-key (kbd "C--") 'er/contract-region)
 
 ;;
 ;;
@@ -134,6 +136,10 @@
       kept-old-versions 5    ; and how many of the old
       )
 
+;; for python inferior process
+(setq python-shell-completion-native-disabled-interpreters
+      '("python3"))
+
 ;;
 ;;
 ;;
@@ -169,6 +175,9 @@
 ;; word or just a word
 (global-set-key (kbd "M-DEL") 'backward-kill-word-or-chars)
 
+;; indent file
+;; (global-set-key (kbd "C-M-/") (lambda () (interactive) (mark-whole-buffer) (indent-region)))
+
 ;;
 ;;
 ;;
@@ -199,9 +208,8 @@
 (defun backward-kill-all-char ()
   "Delete the character or word before point."
   (interactive)
-(while (not (looking-back "\\w" 1))
+  (while (not (looking-back "\\w" 1))
     (backward-delete-char 1)))
-
 
 ;;
 ;;
@@ -229,12 +237,12 @@
 ;;     ))
 
 ;; melpa
-(require 'package)
+;; (require 'package)
 (
  add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 ;; Comment/uncomment this line to enable MELPA Stable if desired.  See `package-archive-priorities`
-;; and `package-pinned-packages`. Most users will not need or want to do this.
-;;(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
+;; and `package-pinned-packages`. Most users will not need or want to do his.
+(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 (package-initialize)
 
 (custom-set-variables
@@ -243,7 +251,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(restclient expand-region exec-path-from-shell yasnippet helpful magit auto-complete use-package typescript-mode)))
+   '(company paredit restclient expand-region exec-path-from-shell helpful magit auto-complete use-package typescript-mode)))
 
 ;; manually installing packages
 (add-to-list 'load-path (concat user-emacs-directory "packages/" ))
@@ -254,3 +262,77 @@
 ;;
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(defun save-line ()
+  "comment then copy current line."
+  (interactive)
+  (kill-line)
+  (yank)
+  (previous-line)
+  (comment-line 1)
+  (yank)
+  (previous-line))
+
+(defun transpose-arguments ()
+  "transpose arguments in function signature."
+  (interactive)
+  (search-forward "thing"))
+
+(defun copy-line ()
+  "transpose arguments in function signature."
+  (interactive)
+  (kill-line)
+  (yank))
+
+;; Make dired less verbose
+;; (require 'dired-details)
+;; (setq-default dired-details-hidden-string "--- ")
+;; (dired-details-install)
+
+(global-set-key (kbd "C-x 4 o") 'window-swap-states)
+(global-set-key (kbd "C-c k") 'save-line)
+(global-set-key (kbd "C-c l") 'copy-line)
+
+;; helpful package
+;; Note that the built-in `describe-function' includes both functions
+;; and macros. `helpful-function' is functions only, so we provide
+;; `helpful-callable' as a drop-in replacement.
+(global-set-key (kbd "C-h f") #'helpful-callable)
+
+(global-set-key (kbd "C-h v") #'helpful-variable)
+(global-set-key (kbd "C-h k") #'helpful-key)
+(global-set-key (kbd "C-h x") #'helpful-command)
+;; Lookup the current symbol at point. C-c C-d is a common keybinding
+;; for this in lisp modes.
+(global-set-key (kbd "C-c C-d") #'helpful-at-point)
+
+;; Look up *F*unctions (excludes macros).
+;;
+;; By default, C-h F is bound to `Info-goto-emacs-command-node'. Helpful
+;; already links to the manual, if a function is referenced there.
+(global-set-key (kbd "C-h F") #'helpful-function)
+
+;; paredit
+(autoload 'enable-paredit-mode "paredit" "Turn on pseudo-structural editing of Lisp code." t)
+(add-hook 'emacs-lisp-mode-hook       #'enable-paredit-mode)
+(add-hook 'eval-expression-minibuffer-setup-hook #'enable-paredit-mode)
+(add-hook 'ielm-mode-hook             #'enable-paredit-mode)
+(add-hook 'lisp-mode-hook             #'enable-paredit-mode)
+(add-hook 'lisp-interaction-mode-hook #'enable-paredit-mode)
+(add-hook 'scheme-mode-hook           #'enable-paredit-mode)
+
+;; (defun python-shell-resend-buffer ()
+;;   "resend last buffer to python shell"
+;;   (interactive)
+;;   ;; (python-shell-restart)
+;;   (python-shell-send-file "~/6.86/unit4/proj4/netflix/main.py"))
+
+;; (add-hook 'python-mode
+;;           (lambda () (local-set-key (kbd "C-c C-r") #'python-shell-resend-buffer)))
+
+(defalias 'testingmacroooooo
+   (kmacro "d o SPC n o t h i n g"))
+(defalias 'format-arrays
+   (kmacro "M-% : <return> SPC = SPC <return> ! M-{ M-% SPC 0 . <return> , SPC 0 . <return> ! M-{ M-% SPC - . <backspace> 0 . <return> , SPC 0 <backspace> - 1 <backspace> 0 . <return> ! M-{ M-% ] <return> ] , <return> !"))
+
+(global-set-key (kbd "<f6>") (lambda() (interactive)(find-file "~/.emacs.d/init.el")))
