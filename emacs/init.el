@@ -42,7 +42,7 @@
   (exec-path-from-shell-initialize))
 
 ;; maybe move this somewhere else?
-;; (require 'multiple-cursors)
+(require 'multiple-cursors)
 
 (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
 
@@ -59,7 +59,7 @@
 ;; this still works -- still pretty unsure about requires
 ;; (require 'expand-region)
 (global-set-key (kbd "C-=") 'er/expand-region)
-(global-set-key (kbd "C--") 'er/contract-region)
+(global-set-key (kbd "C-+") 'er/contract-region)
 
 ;;
 ;;
@@ -251,7 +251,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(company paredit restclient expand-region exec-path-from-shell helpful magit auto-complete use-package typescript-mode)))
+   '(elpy multiple-cursors company paredit restclient expand-region exec-path-from-shell helpful magit auto-complete use-package typescript-mode)))
 
 ;; manually installing packages
 (add-to-list 'load-path (concat user-emacs-directory "packages/" ))
@@ -304,6 +304,7 @@
 (global-set-key (kbd "C-h x") #'helpful-command)
 ;; Lookup the current symbol at point. C-c C-d is a common keybinding
 ;; for this in lisp modes.
+
 (global-set-key (kbd "C-c C-d") #'helpful-at-point)
 
 ;; Look up *F*unctions (excludes macros).
@@ -315,24 +316,59 @@
 ;; paredit
 (autoload 'enable-paredit-mode "paredit" "Turn on pseudo-structural editing of Lisp code." t)
 (add-hook 'emacs-lisp-mode-hook       #'enable-paredit-mode)
-(add-hook 'eval-expression-minibuffer-setup-hook #'enable-paredit-mode)
+;; (add-hook 'eval-expression-minibuffer-setup-hook #'enable-paredit-mode)
 (add-hook 'ielm-mode-hook             #'enable-paredit-mode)
 (add-hook 'lisp-mode-hook             #'enable-paredit-mode)
 (add-hook 'lisp-interaction-mode-hook #'enable-paredit-mode)
 (add-hook 'scheme-mode-hook           #'enable-paredit-mode)
 
-;; (defun python-shell-resend-buffer ()
-;;   "resend last buffer to python shell"
-;;   (interactive)
-;;   ;; (python-shell-restart)
-;;   (python-shell-send-file "~/6.86/unit4/proj4/netflix/main.py"))
-
-;; (add-hook 'python-mode
-;;           (lambda () (local-set-key (kbd "C-c C-r") #'python-shell-resend-buffer)))
-
 (defalias 'testingmacroooooo
-   (kmacro "d o SPC n o t h i n g"))
+  (kmacro "d o SPC n o t h i n g"))
 (defalias 'format-arrays
-   (kmacro "M-% : <return> SPC = SPC <return> ! M-{ M-% SPC 0 . <return> , SPC 0 . <return> ! M-{ M-% SPC - . <backspace> 0 . <return> , SPC 0 <backspace> - 1 <backspace> 0 . <return> ! M-{ M-% ] <return> ] , <return> !"))
+  (kmacro "M-% : <return> SPC = SPC <return> ! M-{ M-% SPC 0 . <return> , SPC 0 . <return> ! M-{ M-% SPC - . <backspace> 0 . <return> , SPC 0 <backspace> - 1 <backspace> 0 . <return> ! M-{ M-% ] <return> ] , <return> !"))
 
 (global-set-key (kbd "<f6>") (lambda() (interactive)(find-file "~/.emacs.d/init.el")))
+(defalias 'change-names
+  (kmacro "C-s m u M-b M-l C-s v a r M-b M-l C-s p M-b M-l C-s o u t M-b C-x C-; M-f _ c o r r e c t C-s l l M-b C-k C-y C-y C-p M-f C-<backspace> l _ c o r r e c t"))
+(defalias 'convert-to-np
+  (kmacro "C-s K <return> C-p C-e <backspace> <return> X SPC = SPC X . <backspace> <backspace> n p . a s a r r a y ( X ) <return> C-n C-e <return> C-s v a r <return> C-p C-e <backspace> <return> m u SPC = SPC n p . a s a r r a y ( m u ) <return> C-s p <return> C-p C-e <backspace> <return> v a r SPC = SPC v a r . <backspace> <backspace> <backspace> <backspace> n p . a s a r r a y ( ) <backspace> v a r ) C-x C-s C-s p o s t C-p C-p C-e <backspace> <return> p SPC = SPC p <backspace> n p . a r a r r a y <backspace> <backspace> <backspace> <backspace> <backspace> <backspace> s a r r a y ( p ) <return> C-s l l C-p C-e <backspace> <return> p o M-/ SPC = SPC p o s M-/ C-<backspace> C-<backspace> n p . a s a r r a y ( ) C-b p o M-/ C-x C-s C-e <return> C-x C-s"))
+
+(add-hook 'text-mode-hook 'whitespace-mode)
+
+(global-set-key (kbd "C-x p") #'other-other-window)
+
+(defun other-other-window ()
+  "Run `negative-argument' and `other-window' in sequence."
+  (interactive)
+  (other-window -1))
+
+
+(defun my-python-shell-run ()
+  (interactive)
+  (python-shell-send-buffer))
+
+(defun my-python-shell-rerun ()
+  (interactive)
+  (set-buffer python-target)
+  (my-python-shell-run))
+
+(eval-after-load "python"
+  '(progn
+     (print "evaluating python mode")
+     (define-key python-mode-map (kbd "C-c C-c") 'my-python-shell-run)
+     (define-key python-mode-map (kbd "C-c C-r") 'my-python-shell-rerun)))
+
+(defun my-python-shell-run ()
+  (interactive)
+  (progn
+    (python-shell-restart)
+    (sleep-for 0.5)
+    (python-shell-send-buffer))
+  (setq python-target (current-buffer)))
+
+(defun after-magit-pull (&rest _)
+  "Some function to run after `magit-pull`."
+  (other-window 1))
+
+
+(advice-add 'run-python :after 'after-magit-pull)
