@@ -56,10 +56,26 @@
 (require 'yasnippet)
 (yas-global-mode 1)
 
+;; enable repeat-mode
+(repeat-mode 1)
+
+;; enable flymake-mode (minor)
+;; goal here is to convert this to use-package
+(use-package flycheck
+  :ensure t
+  :init
+  (global-flycheck-mode t))
+;; (flymake-mode 1)
+;; (define-key flymake-mode-map (kbd "M-n") 'flymake-goto-next-error)
+;; (define-key flymake-mode-map (kbd "M-p") 'flymake-goto-prev-error)
+
 ;; this still works -- still pretty unsure about requires
 ;; (require 'expand-region)
 (global-set-key (kbd "C-=") 'er/expand-region)
 (global-set-key (kbd "C-+") 'er/contract-region)
+
+;; enable repeat-mode
+(keycast-mode-line-mode 1)
 
 ;;
 ;;
@@ -251,7 +267,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(elpy multiple-cursors company paredit restclient expand-region exec-path-from-shell helpful magit auto-complete use-package typescript-mode)))
+   '(keycast flycheck elpy multiple-cursors company paredit restclient expand-region exec-path-from-shell helpful magit auto-complete use-package typescript-mode)))
 
 ;; manually installing packages
 (add-to-list 'load-path (concat user-emacs-directory "packages/" ))
@@ -366,9 +382,25 @@
     (python-shell-send-buffer))
   (setq python-target (current-buffer)))
 
-(defun after-magit-pull (&rest _)
-  "Some function to run after `magit-pull`."
+(defun after-run-python (&rest _)
+  "switch windows after running python."
   (other-window 1))
 
+(advice-add 'run-python :after 'after-run-python)
 
-(advice-add 'run-python :after 'after-magit-pull)
+;; install use-package if not installed
+(when (not (package-installed-p 'use-package))
+  (package-refresh-contents)
+  (package-install 'use-package))
+
+(require 'use-package-ensure)
+(setq use-package-always-ensure t)
+
+(add-hook 'company-mode 'python-mode )
+
+(use-package company
+  :ensure t
+  :pin gnu
+  :hook python-mode)
+
+()
