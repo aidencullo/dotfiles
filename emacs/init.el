@@ -77,6 +77,11 @@
 ;; enable repeat-mode
 (keycast-mode-line-mode 1)
 
+;; double check this
+(use-package lorem-ipsum
+  :bind (("C-c C-l s" . lorem-ipsum-insert-sentences)
+         ("C-c C-l p" . lorem-ipsum-insert-paragraphs)
+         ("C-c C-l l" . lorem-ipsum-insert-list)))
 ;;
 ;;
 ;;
@@ -267,7 +272,8 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(keycast flycheck elpy multiple-cursors company paredit restclient expand-region exec-path-from-shell helpful magit auto-complete use-package typescript-mode)))
+   '(go-mode flycheck yaml-mode py-autopep8 lorem-ipsum keycast elpy multiple-cursors company paredit restclient expand-region exec-path-from-shell helpful magit auto-complete use-package typescript-mode))
+ '(virtualenv-root "~"))
 
 ;; manually installing packages
 (add-to-list 'load-path (concat user-emacs-directory "packages/" ))
@@ -292,7 +298,19 @@
 (defun transpose-arguments ()
   "transpose arguments in function signature."
   (interactive)
-  (search-forward "thing"))
+  (forward-word)
+  (backward-word)
+  (set-mark-command nil)
+  (search-forward ")")
+  (set-mark-command nil)
+  (search-backward "(")
+  (forward-word)
+  (backward-word)
+  (set-mark-command nil)
+  (search-forward ",")
+  (set-mark-command nil)
+  (transpose-regions 0)
+  )
 
 (defun copy-line ()
   "transpose arguments in function signature."
@@ -383,9 +401,10 @@
   (setq python-target (current-buffer)))
 
 (defun after-run-python (&rest _)
-  "switch windows after running python."
+  "Switch windows after running python."
   (other-window 1))
 
+;; stay on current window
 (advice-add 'run-python :after 'after-run-python)
 
 ;; install use-package if not installed
@@ -393,14 +412,32 @@
   (package-refresh-contents)
   (package-install 'use-package))
 
+;; idk
 (require 'use-package-ensure)
 (setq use-package-always-ensure t)
 
+;; untested
 (add-hook 'company-mode 'python-mode )
 
+;; untested i believe
 (use-package company
   :ensure t
   :pin gnu
   :hook python-mode)
 
-()
+;; hook saving file here
+(defun aiden/repeat-last-shell-command (&rest r)
+  "Search and repeat last shell command."
+  (interactive)
+  (shell-command (cadr (assoc 'shell-command command-history))))
+
+(global-set-key (kbd "C-c r") 'aiden/repeat-last-shell-command)
+
+(advice-add 'aiden/repeat-last-shell-command :before 'save-buffer)
+
+(use-package py-autopep8
+  :hook ((python-mode) . py-autopep8-mode))
+
+;; (add-hook
+;;  'python-mode
+;;  '(lambda () (setq python-interpreter "python3")))
