@@ -37,10 +37,6 @@ alias -s git="git clone"
 # program (re)assignments
 alias emacs=/Applications/Emacs.app/Contents/MacOS/Emacs
 
-# scripts
-alias herogrow=~/Code/Scripts/herogrow.sh
-alias herogrowe=" emacs ~/Code/Scripts/herogrow.sh"
-
 # mongodb
 alias mongod="sudo mongod --dbpath='/usr/local/var/mongodb'"
 
@@ -92,31 +88,11 @@ export HISTSIZE=1000000000
 setopt INC_APPEND_HISTORY
 export HISTTIMEFORMAT="[%F %T] "
 setopt EXTENDED_HISTORY
-export PATH="/usr/local/opt/openjdk/bin:$PATH"
-export PATH="/usr/local/opt/openjdk@17/bin:$PATH"
 export PATH="/usr/local/opt/node@18/bin:$PATH"
 
 # Load Angular CLI autocompletion.
 source <(ng completion script)
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/aiden/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/aiden/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/aiden/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/aiden/google-cloud-sdk/completion.zsh.inc'; fi
-export PATH="/usr/local/sbin:$PATH"
-
-# pnpm
-export PNPM_HOME="/Users/aiden/Library/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
 export PATH="/usr/local/opt/ruby/bin:$PATH"
 
 # Ruby
@@ -127,15 +103,9 @@ if [ -d "/usr/local/opt/ruby/bin" ]; then
 fi
 export PATH="/usr/local/opt/libpq/bin:$PATH"
 
-export PATH="/usr/local/opt/postgresql@15/bin:$PATH"
-export PATH="/usr/local/opt/postgresql@15/bin:$PATH"
-export PATH="/usr/local/opt/postgresql@15/bin:$PATH"
+export LANG="en_US.UTF-8"
+export LC_ALL="en_US.UTF-8"
+export LC_CTYPE="en_US.UTF-8"
 
-
-function ver {
-    if [[ $(pip list | grep $1) ]]; then
-        pip list | grep $1
-    else
-        echo "no $1 installation found"
-    fi
-}
+# change dir so not in ~
+cd Testing
