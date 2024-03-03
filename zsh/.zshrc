@@ -109,3 +109,9 @@ export LC_CTYPE="en_US.UTF-8"
 
 # change dir so not in ~
 cd Testing
+
+export PYTHONPATH=$PYTHONPATH:/Users/aiden/Github/problem_solutions/data_structures
+
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
