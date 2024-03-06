@@ -106,6 +106,25 @@ INSTALL all necessary packages.
     )
 #+end_src
 
+** marginalia
+
+#+begin_src emacs-lisp 
+  (use-package marginalia
+    :ensure t
+    :config
+    (marginalia-mode 1)
+    )
+#+end_src
+
+** keycast
+#+begin_src emacs-lisp 
+  (use-package keycast
+    :ensure t
+    :config
+    (keycast-mode-line-mode 1)
+    )
+#+end_src
+
 * SETTINGS
 SET modes and global variables.
 
@@ -199,21 +218,6 @@ By default, Emacs creates automatic backups of files in their original directori
 
 #+end_src
 
-* MODES
-Global and local mode settings
-
-#+begin_src emacs-lisp  
-  ;; vertico
-  ;; (vertico-mode 1)
-  ;; ;
-					  ; marginalia
-  ;; (marginalia-mode 1)
-  ;; (
-  ;;  repeat-mode 1)
-  ;; ;
-					  ; show last key-binding used
-  ;; (keycast-mode-line-mode 1)
-#+end_src
 * FUNCTIONS
 My custom functions
 
