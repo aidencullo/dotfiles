@@ -3,6 +3,9 @@
 #+DESCRIPTION: My personal Emacs config.
 #+STARTUP: overview
 
+
+
+
 * GUI
 LET'S make GNU Emacs look a little better.
 
@@ -107,7 +110,6 @@ INSTALL all necessary packages.
 #+end_src
 
 ** marginalia
-
 #+begin_src emacs-lisp 
   (use-package marginalia
     :ensure t
@@ -122,6 +124,31 @@ INSTALL all necessary packages.
     :ensure t
     :config
     (keycast-mode-line-mode 1)
+    )
+#+end_src
+
+** manual
+#+begin_src emacs-lisp 
+  (add-to-list 'load-path (concat user-emacs-directory "manual/" ))
+
+  (use-package c3po
+    :config
+    )
+  (use-package f
+    :ensure t
+    )
+  (use-package editorconfig
+    :ensure t
+    )
+  (use-package dash
+    :ensure t
+    )
+  (use-package s
+    :ensure t
+    )
+  (use-package copilot
+    :config
+    (setq copilot-node-executable "/usr/local/bin/node")
     )
 #+end_src
 
@@ -218,6 +245,20 @@ By default, Emacs creates automatic backups of files in their original directori
 
 #+end_src
 
+Global and local mode settings
+
+#+begin_src emacs-lisp  
+  ;; vertico
+  ;; (vertico-mode 1)
+  ;; ;
+					  ; marginalia
+  ;; (marginalia-mode 1)
+  ;; (
+  ;;  repeat-mode 1)
+  ;; ;
+					  ; show last key-binding used
+  ;; (keycast-mode-line-mode 1)
+#+end_src
 * FUNCTIONS
 My custom functions
 

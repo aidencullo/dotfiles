@@ -43,9 +43,6 @@ alias mongod="sudo mongod --dbpath='/usr/local/var/mongodb'"
 #tools
 alias howbig="stat -f '%N: %Z bytes'"
 
-# programs
-alias python='python3'
-
 # displaying execution time
 
 # If command execution time above min. time, plugins will not output time.
@@ -89,19 +86,19 @@ setopt INC_APPEND_HISTORY
 export HISTTIMEFORMAT="[%F %T] "
 setopt EXTENDED_HISTORY
 export PATH="/usr/local/opt/node@18/bin:$PATH"
+ 
+# # Load Angular CLI autocompletion.
+# source <(ng completion script)
 
-# Load Angular CLI autocompletion.
-source <(ng completion script)
+# export PATH="/usr/local/opt/ruby/bin:$PATH"
 
-export PATH="/usr/local/opt/ruby/bin:$PATH"
+# # Ruby
 
-# Ruby
-
-if [ -d "/usr/local/opt/ruby/bin" ]; then
-  export PATH=/usr/local/opt/ruby/bin:$PATH
-  export PATH=`gem environment gemdir`/bin:$PATH
-fi
-export PATH="/usr/local/opt/libpq/bin:$PATH"
+# if [ -d "/usr/local/opt/ruby/bin" ]; then
+#   export PATH=/usr/local/opt/ruby/bin:$PATH
+#   export PATH=`gem environment gemdir`/bin:$PATH
+# fi
+# export PATH="/usr/local/opt/libpq/bin:$PATH"
 
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
@@ -109,6 +106,5 @@ export LC_CTYPE="en_US.UTF-8"
 
 export PYTHONPATH=$PYTHONPATH:/Users/aiden/Github/problem_solutions/data_structures
 
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+# access python version
+export PATH="/usr/local/opt/python@3.12/libexec/bin:$PATH"
