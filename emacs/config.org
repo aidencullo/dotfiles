@@ -34,6 +34,7 @@ INSTALL all necessary packages.
 
 ** archives
 #+begin_src emacs-lisp
+  (require 'package)
   (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 #+end_src
 
@@ -127,29 +128,37 @@ INSTALL all necessary packages.
     )
 #+end_src
 
-** manual
+** keycast
 #+begin_src emacs-lisp 
-  (add-to-list 'load-path (concat user-emacs-directory "manual/" ))
+  (use-package magit
+    :ensure t
+    )
+#+end_src
 
-  (use-package c3po
-    :config
-    )
-  (use-package f
-    :ensure t
-    )
-  (use-package editorconfig
-    :ensure t
-    )
-  (use-package dash
-    :ensure t
-    )
-  (use-package s
-    :ensure t
-    )
-  (use-package copilot
-    :config
-    (setq copilot-node-executable "/usr/local/bin/node")
-    )
+** manual
+#+begin_src emacs-lisp
+
+  ;; straight.el bootstrap installation
+    (defvar bootstrap-version)
+  (let ((bootstrap-file
+	 (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
+	(bootstrap-version 6))
+    (unless (file-exists-p bootstrap-file)
+      (with-current-buffer
+	  (url-retrieve-synchronously
+	   "https://raw.githubusercontent.com/radian-software/straight.el/develop/install.el"
+	   'silent 'inhibit-cookies)
+	(goto-char (point-max))
+	(eval-print-last-sexp)))
+    (load bootstrap-file nil 'nomessage))
+
+    (use-package copilot
+      :straight (:host github :repo "copilot-emacs/copilot.el" :files ("dist" "*.el"))
+      :ensure t)
+
+      ;; (use-package c3po
+      ;;   :config
+      ;;   )
 #+end_src
 
 * SETTINGS
