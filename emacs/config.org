@@ -139,7 +139,7 @@ INSTALL all necessary packages.
 #+begin_src emacs-lisp
 
   ;; straight.el bootstrap installation
-    (defvar bootstrap-version)
+  (defvar bootstrap-version)
   (let ((bootstrap-file
 	 (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
 	(bootstrap-version 6))
@@ -152,13 +152,18 @@ INSTALL all necessary packages.
 	(eval-print-last-sexp)))
     (load bootstrap-file nil 'nomessage))
 
-    (use-package copilot
-      :straight (:host github :repo "copilot-emacs/copilot.el" :files ("dist" "*.el"))
-      :ensure t)
 
-      ;; (use-package c3po
-      ;;   :config
-      ;;   )
+  ;; copilot config
+  (use-package copilot
+    :straight (:host github :repo "copilot-emacs/copilot.el" :files ("dist" "*.el"))
+    :ensure t)
+  (add-hook 'prog-mode-hook 'copilot-mode)
+  (define-key copilot-completion-map (kbd "<tab>") 'copilot-accept-completion)
+  (define-key copilot-completion-map (kbd "TAB") 'copilot-accept-completion)
+
+  ;; (use-package c3po
+  ;;   :config
+  ;;   )
 #+end_src
 
 * SETTINGS
