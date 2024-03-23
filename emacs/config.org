@@ -256,20 +256,10 @@ By default, Emacs creates automatic backups of files in their original directori
     (global-company-mode t))
 
 #+end_src
-
-Global and local mode settings
-
-#+begin_src emacs-lisp  
-  ;; vertico
-  ;; (vertico-mode 1)
-  ;; ;
-					  ; marginalia
-  ;; (marginalia-mode 1)
-  ;; (
-  ;;  repeat-mode 1)
-  ;; ;
-					  ; show last key-binding used
-  ;; (keycast-mode-line-mode 1)
+** symlinks
+Follow symlinks without asking if it's ok
+#+begin_src emacs-lisp
+  (setq vc-follow-symlinks t)
 #+end_src
 * FUNCTIONS
 My custom functions
