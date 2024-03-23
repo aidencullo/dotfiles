@@ -4,8 +4,6 @@
 #+STARTUP: overview
 
 
-
-
 * GUI
 LET'S make GNU Emacs look a little better.
 
@@ -128,16 +126,8 @@ INSTALL all necessary packages.
     )
 #+end_src
 
-** keycast
+** straight.el
 #+begin_src emacs-lisp 
-  (use-package magit
-    :ensure t
-    )
-#+end_src
-
-** manual
-#+begin_src emacs-lisp
-
   ;; straight.el bootstrap installation
   (defvar bootstrap-version)
   (let ((bootstrap-file
@@ -151,19 +141,25 @@ INSTALL all necessary packages.
 	(goto-char (point-max))
 	(eval-print-last-sexp)))
     (load bootstrap-file nil 'nomessage))
+#+end_src
 
-
-  ;; copilot config
+** manual
+#+begin_src emacs-lisp
   (use-package copilot
-    :straight (:host github :repo "copilot-emacs/copilot.el" :files ("dist" "*.el"))
-    :ensure t)
-  (add-hook 'prog-mode-hook 'copilot-mode)
-  (define-key copilot-completion-map (kbd "<tab>") 'copilot-accept-completion)
-  (define-key copilot-completion-map (kbd "TAB") 'copilot-accept-completion)
-
-  ;; (use-package c3po
-  ;;   :config
-  ;;   )
+    :straight
+    (:host github
+	   :repo "copilot-emacs/copilot.el"
+	   :files ("dist" "*.el")
+	   )
+    :ensure t
+    :init
+    (add-hook 'prog-mode-hook #'copilot-mode)
+    :bind (
+	   :map copilot-mode-map
+	   ("<tab>" . copilot-accept-completion)
+	   ("TAB" . copilot-accept-completion)
+	   )
+    )
 #+end_src
 
 * SETTINGS
@@ -187,6 +183,8 @@ SET modes and global variables.
   (global-set-key (kbd "M-<backspace>") 'aiden/backward-kill-word-or-chars)
   (global-set-key (kbd "<f6>") (lambda() (interactive)(find-file user-init-file)))
   (global-set-key (kbd "C-c r") 'aiden/repeat-last-shell-command)
+  (global-set-key (kbd "C-S-o") 'open-next-line)
+
 #+end_src
 
 ** Other
@@ -277,6 +275,13 @@ Global and local mode settings
 My custom functions
 
 #+begin_src emacs-lisp  
+
+  (defun open-next-line (n)
+    (interactive "p")
+    (end-of-line)
+    (newline)
+    )
+
   (defun aiden/backward-kill-word-or-chars ()
     "Delete the character or word before point."
     (interactive)
