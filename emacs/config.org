@@ -143,7 +143,7 @@ INSTALL all necessary packages.
     (load bootstrap-file nil 'nomessage))
 #+end_src
 
-** manual
+** copilot
 #+begin_src emacs-lisp
   (use-package copilot
     :straight
@@ -157,9 +157,19 @@ INSTALL all necessary packages.
     :bind (
 	   :map copilot-mode-map
 	   ("<tab>" . copilot-accept-completion)
-	   ("TAB" . copilot-accept-completion)
 	   )
     )
+#+end_src
+
+** consult
+#+begin_src emacs-lisp
+  (use-package consult
+    :ensure t
+    )
+#+end_src
+
+** c3po
+#+begin_src emacs-lisp
 #+end_src
 
 * SETTINGS
@@ -264,8 +274,8 @@ Follow symlinks without asking if it's ok
 * FUNCTIONS
 My custom functions
 
+** gen
 #+begin_src emacs-lisp  
-
   (defun open-next-line (n)
     (interactive "p")
     (end-of-line)
@@ -310,6 +320,40 @@ My custom functions
     "Search and repeat last shell command."
     (interactive)
     (shell-command (cadr (assoc 'shell-command command-history))))
+#+end_src
+
+** experimental
+#+begin_src emacs-lisp  
+  (defun transpose-arguments ()
+    (interactive)
+    (forward-word)
+    (backward-word)
+    (setq beg_of_arg (point))
+    (search-forward ")")
+    (backward-char)
+    (setq end_of_arg (point))
+    (search-backward "(")
+    (forward-char)
+    (setq beg_of_arg1 (point))
+    (search-forward ",")
+    (backward-char)
+    (setq end_of_arg1 (point))
+    (transpose-regions beg_of_arg end_of_arg beg_of_arg1 end_of_arg1)
+    )
+
+  (defun ff ()
+    "sample code to show region begin/end positions"
+    (interactive)
+    (message "begin at %s\nend at %s"
+	     (region-beginning)
+	     (region-end)))
+
+  (defun pt ()
+    "sample code to show region begin/end positions"
+    (interactive)
+    (message "point at %s"
+	     (point)))
+
 #+end_src
 
 * HOOKS
