@@ -170,6 +170,15 @@ INSTALL all necessary packages.
 
 ** c3po
 #+begin_src emacs-lisp
+
+     (load-file
+      (expand-file-name "keys.el" user-emacs-directory))
+
+   (use-package c3po
+     :straight (:host github :repo "d1egoaz/c3po.el")
+     :init
+     (setq c3po-api-key open-api-key))
+
 #+end_src
 
 * SETTINGS
@@ -371,4 +380,3 @@ builtin mode hooks.
   (add-hook 'lisp-interaction-mode-hook #'enable-paredit-mode)
   (add-hook 'scheme-mode-hook           #'enable-paredit-mode)
 #+end_src
-
