@@ -168,19 +168,6 @@ INSTALL all necessary packages.
     )
 #+end_src
 
-** c3po
-#+begin_src emacs-lisp
-
-     (load-file
-      (expand-file-name "keys.el" user-emacs-directory))
-
-   (use-package c3po
-     :straight (:host github :repo "d1egoaz/c3po.el")
-     :init
-     (setq c3po-api-key open-api-key))
-
-#+end_src
-
 * SETTINGS
 SET modes and global variables.
 
@@ -256,7 +243,7 @@ By default, Emacs creates automatic backups of files in their original directori
 
 #+begin_src emacs-lisp
   (setq backup-directory-alist '((".*" . "~/.local/share/Trash/files")))
-
+  (setq dired-omit-files "__pycache__")
 #+end_src
 
 ** COMPANY
@@ -279,6 +266,11 @@ By default, Emacs creates automatic backups of files in their original directori
 Follow symlinks without asking if it's ok
 #+begin_src emacs-lisp
   (setq vc-follow-symlinks t)
+#+end_src
+** errors
+Full debug on error
+#+begin_src emacs-lisp
+  (setq debug-on-error t)
 #+end_src
 * FUNCTIONS
 My custom functions
@@ -370,6 +362,7 @@ builtin mode hooks.
 
 #+begin_src emacs-lisp  
   (add-hook 'dired-mode-hook #'dired-hide-details-mode)
+  (add-hook 'dired-mode-hook #'dired-omit-mode)
   ;; full screen on start-up
   (add-hook 'after-init-hook 'toggle-frame-fullscreen)
   ;; paredit
