@@ -189,6 +189,7 @@ SET modes and global variables.
   (global-set-key (kbd "<f6>") (lambda() (interactive)(find-file user-init-file)))
   (global-set-key (kbd "C-c r") 'aiden/repeat-last-shell-command)
   (global-set-key (kbd "C-S-o") 'open-next-line)
+  (global-set-key (kbd "C-c d") 'aiden/pytest)
 
 #+end_src
 
@@ -321,6 +322,14 @@ My custom functions
     "Search and repeat last shell command."
     (interactive)
     (shell-command (cadr (assoc 'shell-command command-history))))
+
+  (defun aiden/pytest ()
+  "Runs pytest shell command and displays output in a buffer called *Tidy Error Buffer*"
+  (interactive)
+  (shell-command
+   "pytest"
+   "*Tidy Error Buffer*"))
+
 #+end_src
 
 ** experimental
