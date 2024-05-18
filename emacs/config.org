@@ -168,6 +168,22 @@ INSTALL all necessary packages.
     )
 #+end_src
 
+** magit
+#+begin_src emacs-lisp
+
+;; Ensure 'use-package' is available
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+
+;; Load and configure Magit using 'use-package'
+(use-package magit
+  :ensure t
+  :bind ("C-x g" . magit-status))
+
+#+end_src
+
+
 * SETTINGS
 SET modes and global variables.
 
