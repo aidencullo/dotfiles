@@ -244,6 +244,20 @@ SET modes and global variables.
        (define-key python-mode-map (kbd "C-c C-c") 'aiden/my-python-shell-run)
        (define-key python-mode-map (kbd "C-c C-r") 'aiden/python-shell-rerun)))
 
+  ;; interim function -- i want to hook a parser upon entering python mode
+  (defun print-current-buffer ()
+    "Print the current buffer's content."
+    (print (buffer-string)))
+
+  (defun print-current-buffer-in-python-mode ()
+    "Print the current buffer's content when entering Python mode."
+    (when (eq major-mode 'python-mode)
+      (message "Printing current buffer...")
+      (print-current-buffer)))
+
+  (add-hook 'python-mode-hook 'print-current-buffer-in-python-mode)
+
+
 #+end_src
 
 ** BACKUP 
@@ -280,6 +294,7 @@ Full debug on error
 #+begin_src emacs-lisp
   (setq debug-on-error t)
 #+end_src
+
 * FUNCTIONS
 My custom functions
 
@@ -324,11 +339,11 @@ My custom functions
     (shell-command (cadr (assoc 'shell-command command-history))))
 
   (defun aiden/pytest ()
-  "Runs pytest shell command and displays output in a buffer called *Tidy Error Buffer*"
-  (interactive)
-  (shell-command
-   "pytest"
-   "*Tidy Error Buffer*"))
+    "Runs pytest shell command and displays output in a buffer called *Tidy Error Buffer*"
+    (interactive)
+    (shell-command
+     "pytest"
+     "*Tidy Error Buffer*"))
 
 #+end_src
 
@@ -385,5 +400,5 @@ builtin mode hooks.
   (add-hook 'lisp-mode-hook             #'enable-paredit-mode)
   (add-hook 'lisp-interaction-mode-hook #'enable-paredit-mode)
   (add-hook 'scheme-mode-hook           #'enable-paredit-mode)
-  
+
 #+end_src
