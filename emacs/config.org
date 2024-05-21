@@ -413,6 +413,14 @@ My custom functions
 
 #+end_src
 
+** replace-string
+#+begin_src emacs-lisp
+  (defun custom-replace-string ()
+    "Replace OLD with NEW in the current buffer."
+    (interactive)
+    (replace-string "List" "list" nil (point-min) (point-max)))
+#+end_src
+
 * HOOKS
 
 builtin mode hooks.
