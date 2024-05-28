@@ -124,17 +124,17 @@ INSTALL all necessary packages.
   (use-package marginalia
     :ensure t
     :config
-    (marginalia-mode 1)
-    )
+    (marginalia-mode 1))
 #+end_src
 
 ** keycast
-#+begin_src emacs-lisp 
+#+begin_src emacs-lisp
+  
   (use-package keycast
     :ensure t
     :config
-    (keycast-mode-line-mode 1)
-    )
+    (keycast-mode-line-mode 1))
+
 #+end_src
 
 ** straight.el
@@ -156,20 +156,17 @@ INSTALL all necessary packages.
 
 ** copilot
 #+begin_src emacs-lisp
+
   (use-package copilot
     :straight
     (:host github
 	   :repo "copilot-emacs/copilot.el"
-	   :files ("dist" "*.el")
-	   )
+	   :files ("dist" "*.el"))
     :ensure t
-    :init
-    (add-hook 'prog-mode-hook #'copilot-mode)
     :bind (
 	   :map copilot-mode-map
-	   ("<tab>" . copilot-accept-completion)
-	   )
-    )
+	   ("<tab>" . copilot-accept-completion)))
+
 #+end_src
 
 ** consult
@@ -182,16 +179,20 @@ INSTALL all necessary packages.
 ** magit
 #+begin_src emacs-lisp
 
-  ;; Ensure 'use-package' is available
-  (unless (package-installed-p 'use-package)
-    (package-refresh-contents)
-    (package-install 'use-package))
-
-  ;; Load and configure Magit using 'use-package'
+  ;; Load and configure Magit
   (use-package magit
     :ensure t
     :bind ("C-x g" . magit-status))
 
+#+end_src
+
+** rainbow-delimiters
+#+begin_src emacs-lisp
+
+  (use-package rainbow-delimiters
+    :ensure t
+  :hook (prog-mode . rainbow-delimiters-mode))
+  
 #+end_src
 
 * SETTINGS
@@ -290,8 +291,24 @@ SET modes and global variables.
 By default, Emacs creates automatic backups of files in their original directories, such "file.el" and the backup "file.el~".  This leads to a lot of clutter, so let's tell Emacs to put all backups that it creates in the =TRASH= directory.
 
 #+begin_src emacs-lisp
+
+  ;; store all backups in one place
+
   (setq backup-directory-alist '((".*" . "~/.local/share/Trash/files")))
-  (setq dired-omit-files "__pycache__")
+  (make-directory "~/.local/share/Trash/files" t)
+
+  ;; backups are made by copying files
+
+  (setq backup-by-copying t)
+
+  ;; versioned backups
+
+  (setq version-control t)     ;; Use version numbers for backups
+  (setq kept-new-versions 10)  ;; Number of newest versions to keep
+  (setq kept-old-versions 2)   ;; Number of oldest versions to keep
+  (setq delete-old-versions t) ;; Automatically delete excess backups
+
+
 #+end_src
 
 ** COMPANY
@@ -428,11 +445,9 @@ builtin mode hooks.
 #+begin_src emacs-lisp
 
   ;; dired modes
+  (add-hook 'prog-mode #'copilot-mode)
   (add-hook 'dired-mode-hook #'dired-hide-details-mode)
   (add-hook 'dired-mode-hook #'dired-omit-mode)
-
-  ;; full screen on start-up
-  (add-hook 'after-init-hook 'toggle-frame-fullscreen)
 
   ;; paredit
   (add-hook 'emacs-lisp-mode-hook       #'enable-paredit-mode)
@@ -441,5 +456,15 @@ builtin mode hooks.
   (add-hook 'lisp-mode-hook             #'enable-paredit-mode)
   (add-hook 'lisp-interaction-mode-hook #'enable-paredit-mode)
   (add-hook 'scheme-mode-hook           #'enable-paredit-mode)
+
+#+end_src
+* STARTUP
+
+startup configs.
+
+#+begin_src emacs-lisp
+
+  ;; full screen on start-up
+  (add-hook 'after-init-hook 'toggle-frame-fullscreen)
 
 #+end_src
