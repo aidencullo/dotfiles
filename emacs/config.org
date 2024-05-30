@@ -444,8 +444,11 @@ builtin mode hooks.
 
 #+begin_src emacs-lisp
 
-  ;; dired modes
-  (add-hook 'prog-mode #'copilot-mode)
+  ;; copilot
+  (add-hook 'prog-mode-hook #'copilot-mode)
+  (add-hook 'org-mode-hook #'copilot-mode)
+
+  ;; dired
   (add-hook 'dired-mode-hook #'dired-hide-details-mode)
   (add-hook 'dired-mode-hook #'dired-omit-mode)
 
