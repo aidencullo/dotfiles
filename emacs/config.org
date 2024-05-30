@@ -158,28 +158,28 @@ INSTALL all necessary packages.
 #+begin_src emacs-lisp
 
   (use-package copilot
-    :straight
-    (:host github
-	   :repo "copilot-emacs/copilot.el"
-	   :files ("dist" "*.el"))
+    :straight (:host github
+		     :repo "copilot-emacs/copilot.el"
+		     :files ("dist" "*.el"))
     :ensure t
-    :bind (
-	   :map copilot-mode-map
+    :hook ((org-mode . copilot-mode)
+	   (prog-mode . copilot-mode))
+    :bind (:map copilot-mode-map
 	   ("<tab>" . copilot-accept-completion)))
 
 #+end_src
 
 ** consult
 #+begin_src emacs-lisp
+
   (use-package consult
-    :ensure t
-    )
+    :ensure t)
+
 #+end_src
 
 ** magit
 #+begin_src emacs-lisp
 
-  ;; Load and configure Magit
   (use-package magit
     :ensure t
     :bind ("C-x g" . magit-status))
@@ -443,10 +443,6 @@ My custom functions
 builtin mode hooks.
 
 #+begin_src emacs-lisp
-
-  ;; copilot
-  (add-hook 'prog-mode-hook #'copilot-mode)
-  (add-hook 'org-mode-hook #'copilot-mode)
 
   ;; dired
   (add-hook 'dired-mode-hook #'dired-hide-details-mode)
