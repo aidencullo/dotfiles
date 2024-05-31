@@ -195,6 +195,24 @@ INSTALL all necessary packages.
   
 #+end_src
 
+** flycheck
+#+begin_src emacs-lisp
+
+;; Ensure use-package is installed
+(require 'use-package)
+
+;; Install and configure flycheck
+(use-package flycheck
+  :ensure t
+  :init
+  (global-flycheck-mode)  ; Enable flycheck globally
+  :hook ((prog-mode . flycheck-mode)  ; Enable flycheck in programming modes
+         (text-mode . flycheck-mode)) ; Enable flycheck in text modes
+  :config
+  (setq flycheck-check-syntax-automatically '(save mode-enabled))) ; Check syntax on save and mode enable
+  
+#+end_src
+
 * SETTINGS
 SET modes and global variables.
 
@@ -465,5 +483,15 @@ startup configs.
 
   ;; full screen on start-up
   (add-hook 'after-init-hook 'toggle-frame-fullscreen)
+
+#+end_src
+* TEST
+
+mods i'm just testing.
+
+#+begin_src emacs-lisp
+
+  ;; this is working but still leave it in test, will prob modify later
+  (global-set-key (kbd "<backtab>") 'indent-for-tab-command)
 
 #+end_src

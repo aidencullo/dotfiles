@@ -4,6 +4,7 @@
 [core]
 	excludesfile = /Users/aiden/.gitignore_global
 	editor = vim
+	pager = 
 [fetch]
 	prune = true
 [init]
@@ -45,3 +46,6 @@
 	default = current
 [pager]
 	branch = false
+[safe]
+	directory = /home/runner/work/pipenv/pipenv
+	directory = /home/runner/work/pipenv/pipenv
