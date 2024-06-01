@@ -1,4 +1,4 @@
-#+TITLE: Aiden's GNU Emacs Config
++TITLE: Aiden's GNU Emacs Config
 #+AUTHOR: Aiden Cullo
 #+DESCRIPTION: My personal Emacs config.
 #+STARTUP: overview
@@ -198,9 +198,6 @@ INSTALL all necessary packages.
 ** flycheck
 #+begin_src emacs-lisp
 
-;; Ensure use-package is installed
-(require 'use-package)
-
 ;; Install and configure flycheck
 (use-package flycheck
   :ensure t
@@ -211,6 +208,24 @@ INSTALL all necessary packages.
   :config
   (setq flycheck-check-syntax-automatically '(save mode-enabled))) ; Check syntax on save and mode enable
   
+#+end_src
+
+** vue
+#+begin_src emacs-lisp
+
+(use-package vue-mode
+  :ensure t
+  :mode "\\.vue\\'"
+  :config
+  ;; Add any additional configuration here
+  (setq mmm-submode-decoration-level 2)
+  ;; Optional: Set up a flycheck integration with Vue
+  (use-package flycheck
+    :ensure t
+    :config
+    (flycheck-add-mode 'javascript-eslint 'vue-mode)
+    (add-hook 'vue-mode-hook 'flycheck-mode)))
+
 #+end_src
 
 * SETTINGS
@@ -288,20 +303,6 @@ SET modes and global variables.
     '(progn
        (define-key python-mode-map (kbd "C-c C-c") 'aiden/my-python-shell-run)
        (define-key python-mode-map (kbd "C-c C-r") 'aiden/python-shell-rerun)))
-
-  ;; ;; interim function -- i want to hook a parser upon entering python mode
-  ;; (defun print-current-buffer ()
-  ;;   "Print the current buffer's content."
-  ;;   (print (buffer-string)))
-
-  ;; (defun print-current-buffer-in-python-mode ()
-  ;;   "Print the current buffer's content when entering Python mode."
-  ;;   (when (eq major-mode 'python-mode)
-  ;;     (message "Printing current buffer...")
-  ;;     (print-current-buffer)))
-
-  ;; (add-hook 'python-mode-hook 'print-current-buffer-in-python-mode)
-
 
 #+end_src
 
@@ -462,6 +463,9 @@ builtin mode hooks.
 
 #+begin_src emacs-lisp
 
+  ;; hook to replace string in python mode
+  (add-hook 'python-mode-hook #'custom-replace-string)
+
   ;; dired
   (add-hook 'dired-mode-hook #'dired-hide-details-mode)
   (add-hook 'dired-mode-hook #'dired-omit-mode)
@@ -483,15 +487,5 @@ startup configs.
 
   ;; full screen on start-up
   (add-hook 'after-init-hook 'toggle-frame-fullscreen)
-
-#+end_src
-* TEST
-
-mods i'm just testing.
-
-#+begin_src emacs-lisp
-
-  ;; this is working but still leave it in test, will prob modify later
-  (global-set-key (kbd "<backtab>") 'indent-for-tab-command)
 
 #+end_src
