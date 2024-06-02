@@ -25,7 +25,8 @@ source $ZSH/oh-my-zsh.sh
 alias -s git="git clone"
 
 # program (re)assignments
-alias commit='FILENAME="random_file_$(date +%s%N).txt"; echo "This is a random file created at $(date)" > "$FILENAME"; git add "$FILENAME"; git commit -m "Add random file $FILENAME"; echo "File $FILENAME created, added, and committed to Git."'
+alias commit1='echo 1 >> new_file && git add . && git commit -m "Add random file"'
+alias commit='commit1 && commit1 && commit1'
 
 # displaying execution time
 
