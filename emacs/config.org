@@ -1,4 +1,4 @@
-+TITLE: Aiden's GNU Emacs Config
+#+TITLE: Aiden's GNU Emacs Config
 #+AUTHOR: Aiden Cullo
 #+DESCRIPTION: My personal Emacs config.
 #+STARTUP: overview

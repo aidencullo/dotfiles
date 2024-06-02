@@ -2,7 +2,6 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
-source ~/.bash_profile
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -22,26 +21,11 @@ source $ZSH/oh-my-zsh.sh
 
 # aliases
 
-# altering profiles
-alias zshrc="emacs ~/.zshrc&"
-alias vimrc="emacs ~/.vimrc&"
-alias gitig="emacs ~/.gitignore_global&"
-alias gitconf="emacs ~/.gitconfig&"
-alias emac="emacs ~/.emacs.d/init.el&"
-alias src="source ~/.zshrc"
-
 # alias suffixes
-alias -s {js,json,md,html,css,py,cpp,c,txt}=emacs
 alias -s git="git clone"
 
 # program (re)assignments
-alias emacs=/Applications/Emacs.app/Contents/MacOS/Emacs
-
-# mongodb
-alias mongod="sudo mongod --dbpath='/usr/local/var/mongodb'"
-
-#tools
-alias howbig="stat -f '%N: %Z bytes'"
+alias commit='FILENAME="random_file_$(date +%s%N).txt"; echo "This is a random file created at $(date)" > "$FILENAME"; git add "$FILENAME"; git commit -m "Add random file $FILENAME"; echo "File $FILENAME created, added, and committed to Git."'
 
 # displaying execution time
 
@@ -86,25 +70,16 @@ setopt INC_APPEND_HISTORY
 export HISTTIMEFORMAT="[%F %T] "
 setopt EXTENDED_HISTORY
 export PATH="/usr/local/opt/node@18/bin:$PATH"
- 
-# # Load Angular CLI autocompletion.
-# source <(ng completion script)
-
-# export PATH="/usr/local/opt/ruby/bin:$PATH"
-
-# # Ruby
-
-# if [ -d "/usr/local/opt/ruby/bin" ]; then
-#   export PATH=/usr/local/opt/ruby/bin:$PATH
-#   export PATH=`gem environment gemdir`/bin:$PATH
-# fi
-# export PATH="/usr/local/opt/libpq/bin:$PATH"
 
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 export LC_CTYPE="en_US.UTF-8"
 
-export PYTHONPATH=$PYTHONPATH:/Users/aiden/Github/problem_solutions/data_structures
-
 # access python version
-export PATH="/usr/local/opt/python@3.12/libexec/bin:$PATH"
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+
+# Load Angular CLI autocompletion.
+source <(ng completion script)
