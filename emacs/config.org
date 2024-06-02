@@ -165,7 +165,7 @@ INSTALL all necessary packages.
     :hook ((org-mode . copilot-mode)
 	   (prog-mode . copilot-mode))
     :bind (:map copilot-mode-map
-	   ("<tab>" . copilot-accept-completion)))
+		("<tab>" . copilot-accept-completion)))
 
 #+end_src
 
@@ -191,40 +191,50 @@ INSTALL all necessary packages.
 
   (use-package rainbow-delimiters
     :ensure t
-  :hook (prog-mode . rainbow-delimiters-mode))
-  
+    :hook (prog-mode . rainbow-delimiters-mode))
+
 #+end_src
 
 ** flycheck
 #+begin_src emacs-lisp
 
-;; Install and configure flycheck
-(use-package flycheck
-  :ensure t
-  :init
-  (global-flycheck-mode)  ; Enable flycheck globally
-  :hook ((prog-mode . flycheck-mode)  ; Enable flycheck in programming modes
-         (text-mode . flycheck-mode)) ; Enable flycheck in text modes
-  :config
-  (setq flycheck-check-syntax-automatically '(save mode-enabled))) ; Check syntax on save and mode enable
-  
-#+end_src
-
-** vue
-#+begin_src emacs-lisp
-
-(use-package vue-mode
-  :ensure t
-  :mode "\\.vue\\'"
-  :config
-  ;; Add any additional configuration here
-  (setq mmm-submode-decoration-level 2)
-  ;; Optional: Set up a flycheck integration with Vue
+  ;; Install and configure flycheck
   (use-package flycheck
     :ensure t
+    :init
+    (global-flycheck-mode)  ; Enable flycheck globally
+    :hook ((prog-mode . flycheck-mode)  ; Enable flycheck in programming modes
+	   (text-mode . flycheck-mode)) ; Enable flycheck in text modes
     :config
-    (flycheck-add-mode 'javascript-eslint 'vue-mode)
-    (add-hook 'vue-mode-hook 'flycheck-mode)))
+    (setq flycheck-check-syntax-automatically '(save mode-enabled))) ; Check syntax on save and mode enable
+
+#+end_src
+
+** dired-x
+#+begin_src emacs-lisp
+
+  ;; load dired-x solely for dired-omit-mode
+  (use-package dired-x)
+  (setq dired-omit-files (concat dired-omit-files "\\|__pycache__$"))
+  (setq dired-omit-files (concat dired-omit-files "\\|.*cache*"))
+
+#+end_src
+
+** dired-x
+#+begin_src emacs-lisp
+
+  (use-package vue-mode
+    :ensure t
+    :mode "\\.vue\\'"
+    :config
+    ;; Add any additional configuration here
+    (setq mmm-submode-decoration-level 2)
+    ;; Optional: Set up a flycheck integration with Vue
+    (use-package flycheck
+      :ensure t
+      :config
+      (flycheck-add-mode 'javascript-eslint 'vue-mode)
+      (add-hook 'vue-mode-hook 'flycheck-mode)))
 
 #+end_src
 
@@ -470,6 +480,7 @@ builtin mode hooks.
   (add-hook 'dired-mode-hook #'dired-hide-details-mode)
   (add-hook 'dired-mode-hook #'dired-omit-mode)
 
+
   ;; paredit
   (add-hook 'emacs-lisp-mode-hook       #'enable-paredit-mode)
   ;; (add-hook 'eval-expression-minibuffer-setup-hook #'enable-paredit-mode)
@@ -481,7 +492,7 @@ builtin mode hooks.
 #+end_src
 * STARTUP
 
-startup configs.
+Startup configs.
 
 #+begin_src emacs-lisp
 
