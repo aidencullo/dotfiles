@@ -189,9 +189,10 @@ INSTALL all necessary packages.
 ** rainbow-delimiters
 #+begin_src emacs-lisp
 
-  (use-package rainbow-delimiters
-    :ensure t
-    :hook (prog-mode . rainbow-delimiters-mode))
+    (use-package rainbow-delimiters
+      :ensure t
+      :hook (prog-mode . rainbow-delimiters-mode)
+      :init (message "Loading rainbow-delimiters"))
 
 #+end_src
 
@@ -213,14 +214,16 @@ INSTALL all necessary packages.
 ** dired-x
 #+begin_src emacs-lisp
 
-  ;; load dired-x solely for dired-omit-mode
-  (use-package dired-x)
-  (setq dired-omit-files (concat dired-omit-files "\\|__pycache__$"))
-  (setq dired-omit-files (concat dired-omit-files "\\|.*cache*"))
+  ;; ;; load dired-x solely for dired-omit-mode
+  ;; (use-package dired-x
+  ;;   :ensure t
+  ;;   :config
+  ;; (setq dired-omit-files (concat dired-omit-files "\\|__pycache__$"))
+  ;; (setq dired-omit-files (concat dired-omit-files "\\|.*cache*")))
 
 #+end_src
 
-** dired-x
+** vue-mode
 #+begin_src emacs-lisp
 
   (use-package vue-mode
@@ -496,7 +499,36 @@ Startup configs.
 
 #+begin_src emacs-lisp
 
-  ;; full screen on start-up
-  (add-hook 'after-init-hook 'toggle-frame-fullscreen)
+	    ;; full screen on start-up
+	    (add-hook 'after-init-hook 'toggle-frame-fullscreen)
+	    ;; (add-hook 'sql-mode-hook (lambda () (sqlind-minor-mode -1)))
+
+
+
+
+    (use-package sql
+    :ensure nil
+    :mode ("\\.sql\\'" . sql-mode)
+    :hook (sql-mode . (lambda () (sqlind-minor-mode -1))))
+
+
+
+
+
+
+    ;; (use-package sql
+    ;;   :ensure t
+    ;;   :hook (sql-mode . (lambda () (sqlind-minor-mode -1))))
+
+
+
+
+
+    ;; ;
+					    ; Disable sqlind-minor-mode by default
+    ;; (add-hook 'sql-mode-hook (lambda () (sqlind-minor-mode -1)))
+	  ;; (use-package sql-indent
+	  ;;   :ensure t
+	  ;;   :load-path "~/.emacs.d/manual")
 
 #+end_src
