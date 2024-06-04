@@ -189,10 +189,10 @@ INSTALL all necessary packages.
 ** rainbow-delimiters
 #+begin_src emacs-lisp
 
-    (use-package rainbow-delimiters
-      :ensure t
-      :hook (prog-mode . rainbow-delimiters-mode)
-      :init (message "Loading rainbow-delimiters"))
+  (use-package rainbow-delimiters
+    :ensure t
+    :hook (prog-mode . rainbow-delimiters-mode)
+    :init (message "Loading rainbow-delimiters"))
 
 #+end_src
 
@@ -223,7 +223,7 @@ INSTALL all necessary packages.
 
 #+end_src
 
-** vue-mode
+** vue
 #+begin_src emacs-lisp
 
   (use-package vue-mode
@@ -238,6 +238,15 @@ INSTALL all necessary packages.
       :config
       (flycheck-add-mode 'javascript-eslint 'vue-mode)
       (add-hook 'vue-mode-hook 'flycheck-mode)))
+
+#+end_src
+** sql
+#+begin_src emacs-lisp
+
+  (use-package sql
+    :ensure nil
+    :mode ("\\.sql\\'" . sql-mode)
+    :hook (sql-mode . (lambda () (sqlind-minor-mode -1))))
 
 #+end_src
 
@@ -499,36 +508,6 @@ Startup configs.
 
 #+begin_src emacs-lisp
 
-	    ;; full screen on start-up
-	    (add-hook 'after-init-hook 'toggle-frame-fullscreen)
-	    ;; (add-hook 'sql-mode-hook (lambda () (sqlind-minor-mode -1)))
-
-
-
-
-    (use-package sql
-    :ensure nil
-    :mode ("\\.sql\\'" . sql-mode)
-    :hook (sql-mode . (lambda () (sqlind-minor-mode -1))))
-
-
-
-
-
-
-    ;; (use-package sql
-    ;;   :ensure t
-    ;;   :hook (sql-mode . (lambda () (sqlind-minor-mode -1))))
-
-
-
-
-
-    ;; ;
-					    ; Disable sqlind-minor-mode by default
-    ;; (add-hook 'sql-mode-hook (lambda () (sqlind-minor-mode -1)))
-	  ;; (use-package sql-indent
-	  ;;   :ensure t
-	  ;;   :load-path "~/.emacs.d/manual")
+  (add-hook 'after-init-hook 'toggle-frame-fullscreen)
 
 #+end_src
