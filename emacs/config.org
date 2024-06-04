@@ -509,5 +509,6 @@ Startup configs.
 #+begin_src emacs-lisp
 
   (add-hook 'after-init-hook 'toggle-frame-fullscreen)
+  (setq-default js-indent-level 2)
 
 #+end_src
