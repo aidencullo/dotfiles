@@ -4,6 +4,7 @@
 #+STARTUP: overview
 
 
+
 * GUI
 LET'S make GNU Emacs look a little better.
 
@@ -164,6 +165,8 @@ INSTALL all necessary packages.
     :ensure t
     :hook ((org-mode . copilot-mode)
 	   (prog-mode . copilot-mode))
+    :config
+    (setq copilot-indent-offset-warning-disable t)
     :bind (:map copilot-mode-map
 		("<tab>" . copilot-accept-completion)))
 
