@@ -337,6 +337,17 @@ SET modes and global variables.
        (define-key python-mode-map (kbd "C-c C-c") 'aiden/my-python-shell-run)
        (define-key python-mode-map (kbd "C-c C-r") 'aiden/python-shell-rerun)))
 
+  (defun my-python-save-hook ()
+  "Function to run every time a Python file is saved."
+  (custom-replace-string))
+
+(defun add-python-save-hook ()
+  "Add my-python-save-hook to the local after-save-hook."
+  (add-hook 'after-save-hook #'my-python-save-hook nil t))
+
+(add-hook 'python-mode-hook #'add-python-save-hook)
+
+
 #+end_src
 
 ** BACKUP 
