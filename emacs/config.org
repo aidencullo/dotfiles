@@ -216,14 +216,15 @@ INSTALL all necessary packages.
 
 ** dired-x
 #+begin_src emacs-lisp
-(require 'dired)
-(require 'dired-x)
+  (require 'dired)
+  (require 'dired-x)
 
-;; Enable dired-omit-mode by default
-(add-hook 'dired-mode-hook 'dired-omit-mode)
+  ;; Enable dired-omit-mode by default
+  (add-hook 'dired-mode-hook 'dired-omit-mode)
 
-;; Customize the omitted files and directories
-(setq dired-omit-files (concat dired-omit-files "\\|^\\.\\|^#.*#$\\|^.*cache.*$"))
+  ;; Customize the omitted files and directories
+  (setq dired-omit-files (concat dired-omit-files "\\|^\\.\\|^#.*#$\\|^.*cache.*$"))
+  (setq dired-omit-files (concat dired-omit-files "\\|node_modules"))
 
   ;; ;; load dired-x solely for dired-omit-mode
   ;; (use-package dired-x
@@ -323,7 +324,6 @@ SET modes and global variables.
   (setq dired-dwim-target t)
 
   ;; save buffer when repeating last cmd
-  (advice-add 'aiden/repeat-last-shell-command :before 'save-buffer)
 
   ;; mimic system shell in emacs
   ;; useful for env variables
@@ -338,14 +338,14 @@ SET modes and global variables.
        (define-key python-mode-map (kbd "C-c C-r") 'aiden/python-shell-rerun)))
 
   (defun my-python-save-hook ()
-  "Function to run every time a Python file is saved."
-  (custom-replace-string))
+    "Function to run every time a Python file is saved."
+    (custom-replace-string))
 
-(defun add-python-save-hook ()
-  "Add my-python-save-hook to the local after-save-hook."
-  (add-hook 'after-save-hook #'my-python-save-hook nil t))
+  (defun add-python-save-hook ()
+    "Add my-python-save-hook to the local after-save-hook."
+    (add-hook 'after-save-hook #'my-python-save-hook nil t))
 
-(add-hook 'python-mode-hook #'add-python-save-hook)
+  ;; (add-hook 'python-mode-hook #'add-python-save-hook)
 
 
 #+end_src
