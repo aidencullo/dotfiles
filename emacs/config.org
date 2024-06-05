@@ -213,6 +213,14 @@ INSTALL all necessary packages.
 
 ** dired-x
 #+begin_src emacs-lisp
+(require 'dired)
+(require 'dired-x)
+
+;; Enable dired-omit-mode by default
+(add-hook 'dired-mode-hook 'dired-omit-mode)
+
+;; Customize the omitted files and directories
+(setq dired-omit-files (concat dired-omit-files "\\|^\\.\\|^#.*#$\\|^.*cache.*$"))
 
   ;; ;; load dired-x solely for dired-omit-mode
   ;; (use-package dired-x
