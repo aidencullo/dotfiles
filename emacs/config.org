@@ -5,7 +5,7 @@
 
 
 
-* GUI
+* Gui
 LET'S make GNU Emacs look a little better.
 
 ** Disable Menubar, Toolbars and Scrollbars
@@ -21,8 +21,8 @@ LET'S make GNU Emacs look a little better.
   (global-visual-line-mode t)
 #+end_src
 
-* PACKAGES
-INSTALL all necessary packages.
+* Packages
+Package configs, repos, settings.
 
 ** custom
 #+begin_src emacs-lisp
@@ -37,12 +37,24 @@ INSTALL all necessary packages.
   (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 #+end_src
 
-** paredit
-#+begin_src emacs-lisp
-  (use-package paredit
-    :ensure t)
+** straight.el
+#+begin_src emacs-lisp 
+  ;; straight.el bootstrap installation
+  (defvar bootstrap-version)
+  (let ((bootstrap-file
+	 (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
+	(bootstrap-version 6))
+    (unless (file-exists-p bootstrap-file)
+      (with-current-buffer
+	  (url-retrieve-synchronously
+	   "https://raw.githubusercontent.com/radian-software/straight.el/develop/install.el"
+	   'silent 'inhibit-cookies)
+	(goto-char (point-max))
+	(eval-print-last-sexp)))
+    (load bootstrap-file nil 'nomessage))
 #+end_src
 
+* Highlighting
 ** multiple-cursor
 #+begin_src emacs-lisp 
   (use-package multiple-cursors
@@ -63,43 +75,7 @@ INSTALL all necessary packages.
     :ensure t)
 #+end_src
 
-** lorem-ipsum
-#+begin_src emacs-lisp 
-  (use-package lorem-ipsum
-    :bind (
-	   ("C-c C-l s" . lorem-ipsum-insert-sentences)
-	   ("C-c C-l p" . lorem-ipsum-insert-paragraphs)
-	   ("C-c C-l l" . lorem-ipsum-insert-list)
-	   )
-    :ensure t
-    )
-#+end_src
-
-** Shell variables
-#+begin_src emacs-lisp 
-  (use-package exec-path-from-shell
-    :ensure t
-    )
-#+end_src
-
-** editable grep buffer
-
-#+begin_src emacs-lisp 
-  (use-package wgrep
-    :ensure t
-    )
-#+end_src
-
-** yassnippets
-
-#+begin_src emacs-lisp 
-  (use-package yasnippet                  ; Snippets
-    :ensure t
-    :config
-    (yas-reload-all)
-    (yas-global-mode))
-#+end_src
-
+* Minibuffer
 ** vertico
 #+begin_src emacs-lisp 
     ;;; Vertical completion layout (vertico)
@@ -138,82 +114,15 @@ INSTALL all necessary packages.
 
 #+end_src
 
-** straight.el
+* Shell
+** Shell variables
 #+begin_src emacs-lisp 
-  ;; straight.el bootstrap installation
-  (defvar bootstrap-version)
-  (let ((bootstrap-file
-	 (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
-	(bootstrap-version 6))
-    (unless (file-exists-p bootstrap-file)
-      (with-current-buffer
-	  (url-retrieve-synchronously
-	   "https://raw.githubusercontent.com/radian-software/straight.el/develop/install.el"
-	   'silent 'inhibit-cookies)
-	(goto-char (point-max))
-	(eval-print-last-sexp)))
-    (load bootstrap-file nil 'nomessage))
-#+end_src
-
-** copilot
-#+begin_src emacs-lisp
-
-  (use-package copilot
-    :straight (:host github
-		     :repo "copilot-emacs/copilot.el"
-		     :files ("dist" "*.el"))
+  (use-package exec-path-from-shell
     :ensure t
-    :hook ((org-mode . copilot-mode)
-	   (prog-mode . copilot-mode))
-    :config
-    (setq copilot-indent-offset-warning-disable t)
-    :bind (:map copilot-mode-map
-		("<tab>" . copilot-accept-completion)))
-
+    )
 #+end_src
 
-** consult
-#+begin_src emacs-lisp
-
-  (use-package consult
-    :ensure t)
-
-#+end_src
-
-** magit
-#+begin_src emacs-lisp
-
-  (use-package magit
-    :ensure t
-    :bind ("C-x g" . magit-status))
-
-#+end_src
-
-** rainbow-delimiters
-#+begin_src emacs-lisp
-
-  (use-package rainbow-delimiters
-    :ensure t
-    :hook (prog-mode . rainbow-delimiters-mode)
-    :init (message "Loading rainbow-delimiters"))
-
-#+end_src
-
-** flycheck
-#+begin_src emacs-lisp
-
-  ;; Install and configure flycheck
-  (use-package flycheck
-    :ensure t
-    :init
-    (global-flycheck-mode)  ; Enable flycheck globally
-    :hook ((prog-mode . flycheck-mode)  ; Enable flycheck in programming modes
-	   (text-mode . flycheck-mode)) ; Enable flycheck in text modes
-    :config
-    (setq flycheck-check-syntax-automatically '(save mode-enabled))) ; Check syntax on save and mode enable
-
-#+end_src
-
+* Dired
 ** dired-x
 #+begin_src emacs-lisp
   (require 'dired)
@@ -232,6 +141,54 @@ INSTALL all necessary packages.
   ;;   :config
   ;; (setq dired-omit-files (concat dired-omit-files "\\|__pycache__$"))
   ;; (setq dired-omit-files (concat dired-omit-files "\\|.*cache*")))
+
+#+end_src
+
+* Completion
+** copilot
+#+begin_src emacs-lisp
+
+  (use-package copilot
+    :straight (:host github
+		     :repo "copilot-emacs/copilot.el"
+		     :files ("dist" "*.el"))
+    :ensure t
+    :hook ((org-mode . copilot-mode)
+	   (prog-mode . copilot-mode))
+    :config
+    (setq copilot-indent-offset-warning-disable t)
+    :bind (:map copilot-mode-map
+		("<tab>" . copilot-accept-completion)))
+
+#+end_src
+
+** yassnippets
+
+#+begin_src emacs-lisp 
+  (use-package yasnippet                  ; Snippets
+    :ensure t
+    :config
+    (yas-reload-all)
+    (yas-global-mode))
+#+end_src
+
+** lorem-ipsum
+#+begin_src emacs-lisp 
+  (use-package lorem-ipsum
+    :bind (
+	   ("C-c C-l s" . lorem-ipsum-insert-sentences)
+	   ("C-c C-l p" . lorem-ipsum-insert-paragraphs)
+	   ("C-c C-l l" . lorem-ipsum-insert-list))
+    :ensure t)
+#+end_src
+
+* Programming Languages
+** magit
+#+begin_src emacs-lisp
+
+  (use-package magit
+    :ensure t
+    :bind ("C-x g" . magit-status))
 
 #+end_src
 
@@ -262,7 +219,56 @@ INSTALL all necessary packages.
 
 #+end_src
 
-* SETTINGS
+** paredit
+#+begin_src emacs-lisp
+  (use-package paredit
+    :ensure t)
+#+end_src
+
+** flycheck
+#+begin_src emacs-lisp
+
+  ;; Install and configure flycheck
+  (use-package flycheck
+    :ensure t
+    :init
+    (global-flycheck-mode)  ; Enable flycheck globally
+    :hook ((prog-mode . flycheck-mode)  ; Enable flycheck in programming modes
+	   (text-mode . flycheck-mode)) ; Enable flycheck in text modes
+    :config
+    (setq flycheck-check-syntax-automatically '(save mode-enabled))) ; Check syntax on save and mode enable
+
+#+end_src
+
+* Searching
+** editable grep buffer
+
+#+begin_src emacs-lisp 
+  (use-package wgrep
+    :ensure t
+    )
+#+end_src
+
+** consult
+#+begin_src emacs-lisp
+
+  (use-package consult
+    :ensure t)
+
+#+end_src
+
+* Visuals
+** rainbow-delimiters
+#+begin_src emacs-lisp
+
+  (use-package rainbow-delimiters
+    :ensure t
+    :hook (prog-mode . rainbow-delimiters-mode)
+    :init (message "Loading rainbow-delimiters"))
+
+#+end_src
+
+* Settings
 SET modes and global variables.
 
 ** History
@@ -401,7 +407,7 @@ Full debug on error
   (setq debug-on-error t)
 #+end_src
 
-* FUNCTIONS
+* Functions
 My custom functions
 
 ** general
@@ -501,7 +507,7 @@ My custom functions
     (replace-string "List" "list" nil (point-min) (point-max)))
 #+end_src
 
-* HOOKS
+* Hooks
 
 builtin mode hooks.
 
@@ -524,7 +530,7 @@ builtin mode hooks.
   (add-hook 'scheme-mode-hook           #'enable-paredit-mode)
 
 #+end_src
-* STARTUP
+* Startup
 
 Startup configs.
 
