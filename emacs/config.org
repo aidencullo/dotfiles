@@ -5,6 +5,14 @@
 
 
 
+* Startup
+
+Startup configs.
+
+#+begin_src emacs-lisp
+  (add-hook 'after-init-hook 'toggle-frame-fullscreen)
+  (setq-default js-indent-level 2)
+#+end_src
 * Gui
 LET'S make GNU Emacs look a little better.
 
@@ -22,7 +30,7 @@ LET'S make GNU Emacs look a little better.
 #+end_src
 
 * Packages
-Package configs, repos, settings.
+Package configs.
 
 ** custom
 #+begin_src emacs-lisp
@@ -39,7 +47,6 @@ Package configs, repos, settings.
 
 ** straight.el
 #+begin_src emacs-lisp 
-  ;; straight.el bootstrap installation
   (defvar bootstrap-version)
   (let ((bootstrap-file
 	 (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
@@ -54,7 +61,7 @@ Package configs, repos, settings.
     (load bootstrap-file nil 'nomessage))
 #+end_src
 
-* Highlighting
+* Marking
 ** multiple-cursor
 #+begin_src emacs-lisp 
   (use-package multiple-cursors
@@ -78,7 +85,6 @@ Package configs, repos, settings.
 * Minibuffer
 ** vertico
 #+begin_src emacs-lisp 
-    ;;; Vertical completion layout (vertico)
   (use-package vertico
     :ensure t
     :hook (after-init . vertico-mode)
@@ -106,20 +112,17 @@ Package configs, repos, settings.
 
 ** keycast
 #+begin_src emacs-lisp
-  
   (use-package keycast
     :ensure t
     :config
     (keycast-mode-line-mode 1))
-
 #+end_src
 
 * Shell
 ** Shell variables
 #+begin_src emacs-lisp 
   (use-package exec-path-from-shell
-    :ensure t
-    )
+    :ensure t)
 #+end_src
 
 * Dired
@@ -163,9 +166,8 @@ Package configs, repos, settings.
 #+end_src
 
 ** yassnippets
-
 #+begin_src emacs-lisp 
-  (use-package yasnippet                  ; Snippets
+  (use-package yasnippet
     :ensure t
     :config
     (yas-reload-all)
@@ -185,38 +187,30 @@ Package configs, repos, settings.
 * Programming Languages
 ** magit
 #+begin_src emacs-lisp
-
   (use-package magit
     :ensure t
     :bind ("C-x g" . magit-status))
-
 #+end_src
 
 ** vue
 #+begin_src emacs-lisp
-
   (use-package vue-mode
     :ensure t
     :mode "\\.vue\\'"
     :config
-    ;; Add any additional configuration here
     (setq mmm-submode-decoration-level 2)
-    ;; Optional: Set up a flycheck integration with Vue
     (use-package flycheck
       :ensure t
       :config
       (flycheck-add-mode 'javascript-eslint 'vue-mode)
       (add-hook 'vue-mode-hook 'flycheck-mode)))
-
 #+end_src
 ** sql
 #+begin_src emacs-lisp
-
   (use-package sql
     :ensure nil
     :mode ("\\.sql\\'" . sql-mode)
     :hook (sql-mode . (lambda () (sqlind-minor-mode -1))))
-
 #+end_src
 
 ** paredit
@@ -227,8 +221,6 @@ Package configs, repos, settings.
 
 ** flycheck
 #+begin_src emacs-lisp
-
-  ;; Install and configure flycheck
   (use-package flycheck
     :ensure t
     :init
@@ -236,46 +228,38 @@ Package configs, repos, settings.
     :hook ((prog-mode . flycheck-mode)  ; Enable flycheck in programming modes
 	   (text-mode . flycheck-mode)) ; Enable flycheck in text modes
     :config
-    (setq flycheck-check-syntax-automatically '(save mode-enabled))) ; Check syntax on save and mode enable
-
+    (setq flycheck-check-syntax-automatically '(save mode-enabled)))
 #+end_src
 
 * Searching
 ** editable grep buffer
-
 #+begin_src emacs-lisp 
   (use-package wgrep
-    :ensure t
-    )
+    :ensure t)
 #+end_src
 
 ** consult
 #+begin_src emacs-lisp
-
   (use-package consult
     :ensure t)
-
 #+end_src
 
 * Visuals
 ** rainbow-delimiters
 #+begin_src emacs-lisp
-
   (use-package rainbow-delimiters
     :ensure t
-    :hook (prog-mode . rainbow-delimiters-mode)
-    :init (message "Loading rainbow-delimiters"))
-
+    :hook (prog-mode . rainbow-delimiters-mode))
 #+end_src
 
 * Settings
-SET modes and global variables.
+Set modes and global variables.
 
 ** History
+  save history in mini-buffer prompts
+  refresh buffers if file changes on disk
 #+begin_src emacs-lisp
-  ;; save history in mini-buffer prompts
   (savehist-mode 1)
-  ;; refresh buffers if file changes on disk
   (global-auto-revert-mode 1)
 #+end_src
 ** Theme
@@ -286,11 +270,9 @@ SET modes and global variables.
 ** Keys
 #+begin_src emacs-lisp
   (global-set-key (kbd "M-<backspace>") 'aiden/backward-kill-word-or-chars)
-  (global-set-key (kbd "<f6>") (lambda() (interactive)(find-file user-init-file)))
   (global-set-key (kbd "C-c r") 'aiden/repeat-last-shell-command)
   (global-set-key (kbd "C-S-o") 'open-next-line)
   (global-set-key (kbd "C-c d") 'aiden/pytest)
-
 #+end_src
 
 ** Other
@@ -356,31 +338,25 @@ SET modes and global variables.
 
 #+end_src
 
-** BACKUP 
+** Backup 
 By default, Emacs creates automatic backups of files in their original directories, such "file.el" and the backup "file.el~".  This leads to a lot of clutter, so let's tell Emacs to put all backups that it creates in the =TRASH= directory.
 
 #+begin_src emacs-lisp
-
   ;; store all backups in one place
-
   (setq backup-directory-alist '((".*" . "~/.local/share/Trash/files")))
   (make-directory "~/.local/share/Trash/files" t)
 
   ;; backups are made by copying files
-
   (setq backup-by-copying t)
 
   ;; versioned backups
-
   (setq version-control t)     ;; Use version numbers for backups
   (setq kept-new-versions 10)  ;; Number of newest versions to keep
   (setq kept-old-versions 2)   ;; Number of oldest versions to keep
   (setq delete-old-versions t) ;; Automatically delete excess backups
-
-
 #+end_src
 
-** COMPANY
+** Company
 [[https://company-mode.github.io/][Company]] is a text completion framework for Emacs. The name stands for "complete anything".  Completion will start automatically after you type a few letters. Use M-n and M-p to select, <return> to complete or <tab> to complete the common part.
 
 #+begin_src emacs-lisp
@@ -394,7 +370,6 @@ By default, Emacs creates automatic backups of files in their original directori
     (company-show-numbers t)
     (company-tooltip-align-annotations 't)
     (global-company-mode t))
-
 #+end_src
 ** symlinks
 Follow symlinks without asking if it's ok
@@ -413,7 +388,6 @@ My custom functions
 ** general
 
 #+begin_src emacs-lisp  
-
   (defun open-next-line (n)
     (interactive "p")
     (end-of-line)
@@ -458,32 +432,10 @@ My custom functions
     (shell-command
      "pytest"
      "*Tidy Error Buffer*"))
-
 #+end_src
 
-** files
-
-#+begin_src emacs-lisp  
-#+end_src
-
-** experimental
+** position
 #+begin_src emacs-lisp
-  (defun transpose-arguments ()
-    (interactive)
-    (forward-word)
-    (backward-word)
-    (setq beg_of_arg (point))
-    (search-forward ")")
-    (backward-char)
-    (setq end_of_arg (point))
-    (search-backward "(")
-    (forward-char)
-    (setq beg_of_arg1 (point))
-    (search-forward ",")
-    (backward-char)
-    (setq end_of_arg1 (point))
-    (transpose-regions beg_of_arg end_of_arg beg_of_arg1 end_of_arg1))
-
   (defun ff ()
     "sample code to show region begin/end positions"
     (interactive)
@@ -496,10 +448,9 @@ My custom functions
     (interactive)
     (message "point at %s"
 	     (point)))
-
 #+end_src
 
-** replace-string
+** replace list
 #+begin_src emacs-lisp
   (defun custom-replace-string ()
     "Replace OLD with NEW in the current buffer."
@@ -509,17 +460,12 @@ My custom functions
 
 * Hooks
 
-builtin mode hooks.
+Mode hooks.
 
 #+begin_src emacs-lisp
-
-  ;; hook to replace string in python mode
-  (add-hook 'python-mode-hook #'custom-replace-string)
-
   ;; dired
   (add-hook 'dired-mode-hook #'dired-hide-details-mode)
   (add-hook 'dired-mode-hook #'dired-omit-mode)
-
 
   ;; paredit
   (add-hook 'emacs-lisp-mode-hook       #'enable-paredit-mode)
@@ -528,15 +474,4 @@ builtin mode hooks.
   (add-hook 'lisp-mode-hook             #'enable-paredit-mode)
   (add-hook 'lisp-interaction-mode-hook #'enable-paredit-mode)
   (add-hook 'scheme-mode-hook           #'enable-paredit-mode)
-
-#+end_src
-* Startup
-
-Startup configs.
-
-#+begin_src emacs-lisp
-
-  (add-hook 'after-init-hook 'toggle-frame-fullscreen)
-  (setq-default js-indent-level 2)
-
 #+end_src
