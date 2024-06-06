@@ -236,6 +236,9 @@ Package configs.
 #+begin_src emacs-lisp 
   (use-package wgrep
     :ensure t)
+  ;; Add node_modules to the list of ignored directories for rgrep
+(add-to-list 'grep-find-ignored-directories "node_modules")
+
 #+end_src
 
 ** consult
