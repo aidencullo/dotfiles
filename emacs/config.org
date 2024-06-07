@@ -10,6 +10,18 @@
 Startup configs.
 
 #+begin_src emacs-lisp
+
+  (use-package js
+  :ensure nil  ; js-mode is built into Emacs, so we don't need to install it
+  :mode ("\\.js\\'" . js-mode)
+  :init
+  (setq js-indent-level 2)  ; Set the indentation level
+  :config
+  (add-hook 'js-mode-hook
+            (lambda ()
+              (setq js-switch-indent-offset js-indent-level))))
+
+
   (add-hook 'after-init-hook 'toggle-frame-fullscreen)
   (setq-default js-indent-level 2)
 #+end_src
@@ -91,7 +103,7 @@ Package configs.
     :config
     (setq vertico-scroll-margin 0)
     (setq vertico-count 5)
-    (setq vertico-resize t)
+    (setq vertico-resize nil)
     (setq vertico-cycle t)
 
     (with-eval-after-load 'rfn-eshadow
@@ -150,7 +162,6 @@ Package configs.
 * Completion
 ** copilot
 #+begin_src emacs-lisp
-
   (use-package copilot
     :straight (:host github
 		     :repo "copilot-emacs/copilot.el"
@@ -163,6 +174,7 @@ Package configs.
     :bind (:map copilot-mode-map
 		("<tab>" . copilot-accept-completion)))
 
+  (global-set-key (kbd "C-x c") 'copilot-mode)
 #+end_src
 
 ** yassnippets
