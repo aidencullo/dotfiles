@@ -10,20 +10,19 @@
 Startup configs.
 
 #+begin_src emacs-lisp
+     (require 'use-package-ensure)
+     (setq use-package-always-ensure t)
+
+
 
   (use-package js
-  :ensure nil  ; js-mode is built into Emacs, so we don't need to install it
+  :ensure nil
   :mode ("\\.js\\'" . js-mode)
   :init
-  (setq js-indent-level 2)  ; Set the indentation level
-  :config
-  (add-hook 'js-mode-hook
-            (lambda ()
-              (setq js-switch-indent-offset js-indent-level))))
+  (setq js-indent-level 2))
 
 
   (add-hook 'after-init-hook 'toggle-frame-fullscreen)
-  (setq-default js-indent-level 2)
 #+end_src
 * Gui
 LET'S make GNU Emacs look a little better.
@@ -219,10 +218,9 @@ Package configs.
 #+end_src
 ** sql
 #+begin_src emacs-lisp
-  (use-package sql
-    :ensure nil
-    :mode ("\\.sql\\'" . sql-mode)
-    :hook (sql-mode . (lambda () (sqlind-minor-mode -1))))
+    (use-package sql
+      :ensure nil
+      :mode ("\\.sql\\'" . sql-mode))
 #+end_src
 
 ** paredit
