@@ -10,16 +10,10 @@
 Startup configs.
 
 #+begin_src emacs-lisp
-     (require 'use-package-ensure)
-     (setq use-package-always-ensure t)
+  (require 'use-package-ensure)
+  (setq use-package-always-ensure t)
 
 
-
-  (use-package js
-  :ensure nil
-  :mode ("\\.js\\'" . js-mode)
-  :init
-  (setq js-indent-level 2))
 
 
   (add-hook 'after-init-hook 'toggle-frame-fullscreen)
@@ -204,9 +198,9 @@ Package configs.
 #+end_src
 ** sql
 #+begin_src emacs-lisp
-    (use-package sql
-      :ensure nil
-      :mode ("\\.sql\\'" . sql-mode))
+  (use-package sql
+    :ensure nil
+    :mode ("\\.sql\\'" . sql-mode))
 #+end_src
 
 ** paredit
@@ -225,12 +219,21 @@ Package configs.
     (setq flycheck-check-syntax-automatically '(save mode-enabled)))
 #+end_src
 
+** JavaScript
+#+begin_src emacs-lisp
+  (use-package js
+    :ensure nil
+    :mode ("\\.js\\'" . js-mode)
+    :init
+    (setq js-indent-level 2))
+#+end_src
+
 * Searching
 ** editable grep buffer
 #+begin_src emacs-lisp 
   (use-package wgrep)
   ;; Add node_modules to the list of ignored directories for rgrep
-(add-to-list 'grep-find-ignored-directories "node_modules")
+  (add-to-list 'grep-find-ignored-directories "node_modules")
 
 #+end_src
 
@@ -250,8 +253,8 @@ Package configs.
 Set modes and global variables.
 
 ** History
-  save history in mini-buffer prompts
-  refresh buffers if file changes on disk
+save history in mini-buffer prompts
+refresh buffers if file changes on disk
 #+begin_src emacs-lisp
   (savehist-mode 1)
   (global-auto-revert-mode 1)
