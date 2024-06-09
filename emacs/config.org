@@ -79,25 +79,20 @@ Package configs.
     :bind (
 	   ("C->" . mc/mark-next-like-this)
 	   ("C-<" . mc/mark-previous-like-this)
-	   ("C-c C-<" . mc/mark-all-like-this)
-	   )
-    :ensure t)
+	   ("C-c C-<" . mc/mark-all-like-this)))
 #+end_src
 ** expand-region
 #+begin_src emacs-lisp 
   (use-package expand-region
     :bind (
 	   ("C-=" . er/expand-region)
-	   ("C-+" . er/contract-region)
-	   )
-    :ensure t)
+	   ("C-+" . er/contract-region)))
 #+end_src
 
 * Minibuffer
 ** vertico
 #+begin_src emacs-lisp 
   (use-package vertico
-    :ensure t
     :hook (after-init . vertico-mode)
     :config
     (setq vertico-scroll-margin 0)
@@ -116,7 +111,6 @@ Package configs.
 ** marginalia
 #+begin_src emacs-lisp 
   (use-package marginalia
-    :ensure t
     :config
     (marginalia-mode 1))
 #+end_src
@@ -124,7 +118,6 @@ Package configs.
 ** keycast
 #+begin_src emacs-lisp
   (use-package keycast
-    :ensure t
     :config
     (keycast-mode-line-mode 1))
 #+end_src
@@ -132,8 +125,7 @@ Package configs.
 * Shell
 ** Shell variables
 #+begin_src emacs-lisp 
-  (use-package exec-path-from-shell
-    :ensure t)
+  (use-package exec-path-from-shell)
 #+end_src
 
 * Dired
@@ -165,7 +157,6 @@ Package configs.
     :straight (:host github
 		     :repo "copilot-emacs/copilot.el"
 		     :files ("dist" "*.el"))
-    :ensure t
     :hook ((org-mode . copilot-mode)
 	   (prog-mode . copilot-mode))
     :config
@@ -179,7 +170,6 @@ Package configs.
 ** yassnippets
 #+begin_src emacs-lisp 
   (use-package yasnippet
-    :ensure t
     :config
     (yas-reload-all)
     (yas-global-mode))
@@ -191,27 +181,23 @@ Package configs.
     :bind (
 	   ("C-c C-l s" . lorem-ipsum-insert-sentences)
 	   ("C-c C-l p" . lorem-ipsum-insert-paragraphs)
-	   ("C-c C-l l" . lorem-ipsum-insert-list))
-    :ensure t)
+	   ("C-c C-l l" . lorem-ipsum-insert-list)))
 #+end_src
 
 * Programming Languages
 ** magit
 #+begin_src emacs-lisp
   (use-package magit
-    :ensure t
     :bind ("C-x g" . magit-status))
 #+end_src
 
 ** vue
 #+begin_src emacs-lisp
   (use-package vue-mode
-    :ensure t
     :mode "\\.vue\\'"
     :config
     (setq mmm-submode-decoration-level 2)
     (use-package flycheck
-      :ensure t
       :config
       (flycheck-add-mode 'javascript-eslint 'vue-mode)
       (add-hook 'vue-mode-hook 'flycheck-mode)))
@@ -225,14 +211,12 @@ Package configs.
 
 ** paredit
 #+begin_src emacs-lisp
-  (use-package paredit
-    :ensure t)
+  (use-package paredit)
 #+end_src
 
 ** flycheck
 #+begin_src emacs-lisp
   (use-package flycheck
-    :ensure t
     :init
     (global-flycheck-mode)  ; Enable flycheck globally
     :hook ((prog-mode . flycheck-mode)  ; Enable flycheck in programming modes
@@ -244,8 +228,7 @@ Package configs.
 * Searching
 ** editable grep buffer
 #+begin_src emacs-lisp 
-  (use-package wgrep
-    :ensure t)
+  (use-package wgrep)
   ;; Add node_modules to the list of ignored directories for rgrep
 (add-to-list 'grep-find-ignored-directories "node_modules")
 
@@ -253,15 +236,13 @@ Package configs.
 
 ** consult
 #+begin_src emacs-lisp
-  (use-package consult
-    :ensure t)
+  (use-package consult)
 #+end_src
 
 * Visuals
 ** rainbow-delimiters
 #+begin_src emacs-lisp
   (use-package rainbow-delimiters
-    :ensure t
     :hook (prog-mode . rainbow-delimiters-mode))
 #+end_src
 
