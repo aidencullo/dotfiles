@@ -195,6 +195,16 @@ Package configs.
       :config
       (flycheck-add-mode 'javascript-eslint 'vue-mode)
       (add-hook 'vue-mode-hook 'flycheck-mode)))
+
+  (use-package js2-mode
+    :ensure t
+    :mode "\\.js\\'"
+    :config
+    (setq js2-basic-offset 2))
+
+  (use-package css-mode
+    :ensure t
+    :mode "\\.css\\'")
 #+end_src
 ** sql
 #+begin_src emacs-lisp
