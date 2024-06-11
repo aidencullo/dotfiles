@@ -10,12 +10,8 @@
 Startup configs.
 
 #+begin_src emacs-lisp
-  (require 'use-package-ensure)
+  (use-package use-package-ensure)
   (setq use-package-always-ensure t)
-
-
-
-
   (add-hook 'after-init-hook 'toggle-frame-fullscreen)
 #+end_src
 * Gui
@@ -46,7 +42,7 @@ Package configs.
 
 ** archives
 #+begin_src emacs-lisp
-  (require 'package)
+  (use-package package)
   (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 #+end_src
 
@@ -125,23 +121,18 @@ Package configs.
 * Dired
 ** dired-x
 #+begin_src emacs-lisp
-  (require 'dired)
-  (require 'dired-x)
+  (use-package dired-x
+    :ensure nil
+    :after dired
+    :init
+    (setq dired-omit-files "^\\.?#\\|^\\.$")
+    (setq dired-omit-files (concat dired-omit-files "\\|^\\.\\|^#.*#$\\|^.*cache.*$"))
+    (setq dired-omit-files (concat dired-omit-files "\\|node_modules"))
+    :config
+    (add-hook 'dired-mode-hook #'dired-omit-mode))
 
   ;; Enable dired-omit-mode by default
   (add-hook 'dired-mode-hook 'dired-omit-mode)
-
-  ;; Customize the omitted files and directories
-  (setq dired-omit-files (concat dired-omit-files "\\|^\\.\\|^#.*#$\\|^.*cache.*$"))
-  (setq dired-omit-files (concat dired-omit-files "\\|node_modules"))
-
-  ;; ;; load dired-x solely for dired-omit-mode
-  ;; (use-package dired-x
-  ;;   :ensure t
-  ;;   :config
-  ;; (setq dired-omit-files (concat dired-omit-files "\\|__pycache__$"))
-  ;; (setq dired-omit-files (concat dired-omit-files "\\|.*cache*")))
-
 #+end_src
 
 * Completion
