@@ -131,8 +131,10 @@ Package configs.
     :config
     (add-hook 'dired-mode-hook #'dired-omit-mode))
 
-  ;; Enable dired-omit-mode by default
-  (add-hook 'dired-mode-hook 'dired-omit-mode)
+    (use-package dired
+    :ensure nil
+    :hook
+    (dired-mode-hook . dired-omit-mode))
 #+end_src
 
 * Completion
