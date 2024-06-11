@@ -27,6 +27,11 @@ alias -s git="git clone"
 # program (re)assignments
 alias commit1='echo 1 >> new_file && git add . && git commit -m "Add random file"'
 alias commit='commit1 && commit1 && commit1'
+alias herogrow1='/Users/aiden/Github/herogrow &&
+npm run dev'
+alias herogrow2='/Users/aiden/Github/back-herogrow &&
+npm run dev'
+alias herogrow3='herogrow1 & herogrow2'
 
 # displaying execution time
 
