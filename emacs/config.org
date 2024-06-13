@@ -8,11 +8,34 @@
 * Startup
 
 Startup configs.
+** ensure
+
+Default :ensure t in all packages.
 
 #+begin_src emacs-lisp
   (use-package use-package-ensure)
   (setq use-package-always-ensure t)
+#+end_src
+** fullscreen
+
+Fullscreen after startup.
+
+#+begin_src emacs-lisp
   (add-hook 'after-init-hook 'toggle-frame-fullscreen)
+#+end_src
+* Comments
+
+Setup default comments.
+
+#+begin_src emacs-lisp
+  (defun my-set-default-comments ()
+    "Set default comment characters if not already set."
+    (unless comment-start
+      (setq comment-start "# "))
+    (unless comment-end
+      (setq comment-end "")))
+
+  (add-hook 'after-init-hook 'my-set-default-comments)
 #+end_src
 * Gui
 LET'S make GNU Emacs look a little better.
@@ -131,7 +154,7 @@ Package configs.
     :config
     (add-hook 'dired-mode-hook #'dired-omit-mode))
 
-    (use-package dired
+  (use-package dired
     :ensure nil
     :hook
     (dired-mode-hook . dired-omit-mode))
@@ -145,7 +168,8 @@ Package configs.
 		     :repo "copilot-emacs/copilot.el"
 		     :files ("dist" "*.el"))
     :hook ((org-mode . copilot-mode)
-	   (prog-mode . copilot-mode))
+	   (prog-mode . copilot-mode)
+	   (text-mode . copilot-mode))
     :config
     (setq copilot-indent-offset-warning-disable t)
     :bind (:map copilot-mode-map
