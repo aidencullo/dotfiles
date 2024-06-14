@@ -259,9 +259,9 @@ Package configs.
 ** editable grep buffer
 #+begin_src emacs-lisp 
   (use-package wgrep)
-  ;; Add node_modules to the list of ignored directories for rgrep
   (add-to-list 'grep-find-ignored-directories "node_modules")
-
+  (add-to-list 'grep-find-ignored-files "package-lock.json")
+  (add-to-list 'grep-find-ignored-files "pnpm-lock.yaml")
 #+end_src
 
 ** consult
