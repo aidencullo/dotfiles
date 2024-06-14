@@ -173,7 +173,7 @@ Package configs.
     :config
     (setq copilot-indent-offset-warning-disable t)
     :bind (:map copilot-mode-map
-		("<tab>" . copilot-accept-completion)))
+		("C-<return>" . copilot-accept-completion)))
 
   (global-set-key (kbd "C-x c") 'copilot-mode)
 #+end_src
