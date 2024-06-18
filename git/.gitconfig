@@ -2,7 +2,7 @@
 	name = Aiden Cullo
 	email = aidencullo@gmail.com
 [core]
-	excludesfile = /Users/aiden/.gitignore_global
+	excludesfile = /Users/aiden/.gitignore
 	editor = vim
 	pager = 
 [fetch]
