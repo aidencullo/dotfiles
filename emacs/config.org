@@ -141,6 +141,17 @@ Package configs.
   (use-package exec-path-from-shell)
 #+end_src
 
+** Spawn shell
+#+begin_src emacs-lisp 
+(defun split-window-and-open-shell ()
+  "Split the window and open a shell in the new window."
+  (interactive)
+  (split-window-right)
+  (other-window 1)
+  (shell))
+(global-set-key (kbd "C-c s") 'split-window-and-open-shell)
+#+end_src
+
 * Dired
 ** dired-x
 #+begin_src emacs-lisp
@@ -172,6 +183,7 @@ Package configs.
 	   (text-mode . copilot-mode))
     :config
     (setq copilot-indent-offset-warning-disable t)
+    (setq copilot-max-chars 100000000)
     :bind (:map copilot-mode-map
 		("C-<return>" . copilot-accept-completion)))
 
