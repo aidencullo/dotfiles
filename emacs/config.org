@@ -107,18 +107,23 @@ Package configs.
 #+begin_src emacs-lisp 
   (use-package vertico
     :hook (after-init . vertico-mode)
+    :init
+    (vertico-mode)
+    :custom
+    (vertico-sort-function #'vertico-sort-history-alpha)
     :config
-    (setq vertico-scroll-margin 0)
-    (setq vertico-count 5)
-    (setq vertico-resize nil)
-    (setq vertico-cycle t)
-
     (with-eval-after-load 'rfn-eshadow
       ;; This works with `file-name-shadow-mode' enabled.  When you are in
       ;; a sub-directory and use, say, `find-file' to go to your home '~/'
       ;; or root '/' directory, Vertico will clear the old path to keep
       ;; only your current input.
       (add-hook 'rfn-eshadow-update-overlay-hook #'vertico-directory-tidy)))
+
+  ;; Optional: Enhance minibuffer completion with orderless and marginalia
+(use-package orderless
+  :ensure t
+  :custom
+  (completion-styles '(orderless)))
 #+end_src
 
 ** marginalia
@@ -143,13 +148,13 @@ Package configs.
 
 ** Spawn shell
 #+begin_src emacs-lisp 
-(defun split-window-and-open-shell ()
-  "Split the window and open a shell in the new window."
-  (interactive)
-  (split-window-right)
-  (other-window 1)
-  (shell))
-(global-set-key (kbd "C-c s") 'split-window-and-open-shell)
+  (defun split-window-and-open-shell ()
+    "Split the window and open a shell in the new window."
+    (interactive)
+    (split-window-right)
+    (other-window 1)
+    (shell))
+  (global-set-key (kbd "C-c s") 'split-window-and-open-shell)
 #+end_src
 
 * Dired
