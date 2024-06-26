@@ -106,11 +106,8 @@ Package configs.
 ** vertico
 #+begin_src emacs-lisp 
   (use-package vertico
-    :hook (after-init . vertico-mode)
     :init
     (vertico-mode)
-    :custom
-    (vertico-sort-function #'vertico-sort-history-alpha)
     :config
     (with-eval-after-load 'rfn-eshadow
       ;; This works with `file-name-shadow-mode' enabled.  When you are in
@@ -344,7 +341,9 @@ Set modes and global variables.
 save history in mini-buffer prompts
 refresh buffers if file changes on disk
 #+begin_src emacs-lisp
-  (savehist-mode 1)
+  (use-package savehist
+    :init
+    (savehist-mode))
   (global-auto-revert-mode 1)
 #+end_src
 ** Theme
@@ -358,6 +357,7 @@ refresh buffers if file changes on disk
   (global-set-key (kbd "C-c r") 'aiden/repeat-last-shell-command)
   (global-set-key (kbd "C-S-o") 'open-next-line)
   (global-set-key (kbd "C-c d") 'aiden/pytest)
+  (global-set-key (kbd "C-s-k") 'kill-to-end-of-buffer)
 #+end_src
 
 ** Other
@@ -517,6 +517,11 @@ My custom functions
     (shell-command
      "pytest"
      "*Tidy Error Buffer*"))
+
+  (defun kill-to-end-of-buffer ()
+  "Kill text from point to the end of the buffer."
+  (interactive)
+  (kill-region (point) (point-max)))
 #+end_src
 
 ** position
