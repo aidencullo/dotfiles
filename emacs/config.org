@@ -260,27 +260,6 @@ Package configs.
     :bind ("C-x g" . magit-status))
 #+end_src
 
-** vue
-#+begin_src emacs-lisp
-  (use-package vue-mode
-    :mode "\\.vue\\'"
-    :config
-    (setq mmm-submode-decoration-level 2)
-    (use-package flycheck
-      :config
-      (flycheck-add-mode 'javascript-eslint 'vue-mode)
-      (add-hook 'vue-mode-hook 'flycheck-mode)))
-
-  (use-package js2-mode
-    :ensure t
-    :mode "\\.js\\'"
-    :config
-    (setq js2-basic-offset 2))
-
-  (use-package css-mode
-    :ensure t
-    :mode "\\.css\\'")
-#+end_src
 ** sql
 #+begin_src emacs-lisp
   (use-package sql
@@ -291,17 +270,6 @@ Package configs.
 ** paredit
 #+begin_src emacs-lisp
   (use-package paredit)
-#+end_src
-
-** flycheck
-#+begin_src emacs-lisp
-  (use-package flycheck
-    :init
-    (global-flycheck-mode)  ; Enable flycheck globally
-    :hook ((prog-mode . flycheck-mode)  ; Enable flycheck in programming modes
-	   (text-mode . flycheck-mode)) ; Enable flycheck in text modes
-    :config
-    (setq flycheck-check-syntax-automatically '(save mode-enabled)))
 #+end_src
 
 ** JavaScript
