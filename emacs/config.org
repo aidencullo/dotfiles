@@ -281,6 +281,36 @@ Package configs.
     (setq js-indent-level 2))
 #+end_src
 
+** vue
+#+begin_src emacs-lisp
+(use-package vue-mode
+  :ensure t
+  :mode "\\.vue\\'"
+  :config
+  (setq mmm-submode-decoration-level 0) ;; Disable background highlight in submodes
+  (setq mmm-parse-when-idle t) ;; Parse submode regions when Emacs is idle
+  
+  ;; Indentation settings
+  (setq indent-tabs-mode nil) ;; Use spaces for indentation
+  (setq js-indent-level 2) ;; JavaScript indentation level
+  (setq css-indent-offset 2) ;; CSS indentation level
+
+  ;; Enable syntax highlighting in <script> and <style> blocks
+  (setq mmm-global-mode 'maybe)
+  (mmm-add-classes '((vue-js
+                      :submode js-mode
+                      :face mmm-code-submode-face
+                      :front "<script[^>]*>"
+                      :back "</script>")))
+  (mmm-add-classes '((vue-css
+                      :submode css-mode
+                      :face mmm-code-submode-face
+                      :front "<style[^>]*>"
+                      :back "</style>")))
+  (mmm-add-mode-ext-class 'vue-mode nil 'vue-js)
+  (mmm-add-mode-ext-class 'vue-mode nil 'vue-css))
+#+end_src
+
 * Searching
 ** editable grep buffer
 #+begin_src emacs-lisp 
