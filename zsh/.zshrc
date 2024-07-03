@@ -28,10 +28,8 @@ alias -s git="git clone"
 alias commit1='echo 1 >> new_file && git add . && git commit -m "Add random file"'
 alias commit='commit1 && commit1 && commit1'
 alias hero1='/Users/aiden/Github/herogrow &&
-npm i &&
 npm run dev'
 alias hero2='/Users/aiden/Github/back-herogrow &&
-npm i &&
 npm run dev'
 
 # displaying execution time
