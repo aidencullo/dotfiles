@@ -322,7 +322,12 @@ Package configs.
 
 ** consult
 #+begin_src emacs-lisp
-  (use-package consult)
+;; Example configuration for Consult
+(use-package consult
+  ;; Replace bindings. Lazily loaded due by `use-package'.
+  :bind (;; C-c bindings in `mode-specific-map'
+         ("C-x b" . consult-buffer))                ;; orig. switch-to-buffer
+)
 #+end_src
 
 * Visuals
