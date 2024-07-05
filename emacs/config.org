@@ -311,6 +311,14 @@ Package configs.
   (mmm-add-mode-ext-class 'vue-mode nil 'vue-css))
 #+end_src
 
+** flycheck
+#+begin_src emacs-lisp
+  (use-package flycheck
+  :ensure t
+  :init
+  (global-flycheck-mode t))
+#+end_src
+
 * Searching
 ** editable grep buffer
 #+begin_src emacs-lisp 
