@@ -79,8 +79,9 @@ export PATH="/usr/local/opt/node@18/bin:$PATH"
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 export LC_CTYPE="en_US.UTF-8"
-alias python="python3"
 alias pip="pip3"
 
-# Created by `pipx` on 2024-06-27 20:24:35
-export PATH="$PATH:/Users/aiden/.local/bin"
+# pyenv setup
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init --path)"
+eval "$(pyenv init -)"
