@@ -3,7 +3,7 @@
 	email = aidencullo@gmail.com
 [core]
 	excludesfile = /Users/aiden/.gitignore
-	editor = vim
+	editor = emacs
 	pager = 
 [fetch]
 	prune = true
