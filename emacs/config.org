@@ -184,7 +184,6 @@ Package configs.
 	   (prog-mode . copilot-mode)
 	   (text-mode . copilot-mode))
     :config
-    (setq copilot-indent-offset-warning-disable t)
     (setq copilot-max-chars 100000000)
     :bind (:map copilot-mode-map
 		("C-<return>" . copilot-accept-completion)))

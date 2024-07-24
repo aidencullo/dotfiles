@@ -1,7 +1,11 @@
+## dirs
 **/__pycache__/
 **/node_modules/
+*.egg-info/
+
+## files
+**/play.js
 .DS_Store
 \#*
 .\#*
-*.egg-info/
 .env
