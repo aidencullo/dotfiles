@@ -273,11 +273,62 @@ Package configs.
 
 ** JavaScript
 #+begin_src emacs-lisp
-  (use-package js
-    :ensure nil
-    :mode ("\\.js\\'" . js-mode)
-    :init
-    (setq js-indent-level 2))
+    (use-package js
+      :ensure nil
+      :mode ("\\.js\\'" . js-mode)
+      :init
+      (setq js-indent-level 2))
+
+  (use-package typescript-ts-mode
+  :mode (("\\.ts\\'" . typescript-ts-mode)
+	 ("\\.tsx\\'" . tsx-ts-mode)))
+
+
+
+  (use-package jtsx
+    :ensure t)
+
+
+  (use-package typescript-mode
+  :ensure t
+  :mode "\\.ts\\'")
+
+(use-package tide
+  :ensure t
+  :after (typescript-mode company flycheck)
+  :hook ((typescript-mode . tide-setup)
+         (typescript-mode . tide-hl-identifier-mode)
+         (before-save . tide-format-before-save)))
+
+(use-package company
+  :ensure t
+  :config
+  (add-hook 'after-init-hook 'global-company-mode))
+
+(use-package flycheck
+  :ensure t
+  :config
+  (global-flycheck-mode))
+
+(use-package web-mode
+  :ensure t
+  :mode ("\\.tsx\\'" . web-mode)
+  :config
+  (add-hook 'web-mode-hook
+            (lambda ()
+              (when (string-equal "tsx" (file-name-extension buffer-file-name))
+                (setup-tide-mode)))))
+
+(defun setup-tide-mode ()
+  (interactive)
+  (tide-setup)
+  (flycheck-mode +1)
+  (setq flycheck-check-syntax-automatically '(save mode-enabled))
+  (eldoc-mode +1)
+  (tide-hl-identifier-mode +1)
+  (company-mode +1))
+
+
 #+end_src
 
 ** vue
@@ -347,6 +398,8 @@ refresh buffers if file changes on disk
     :init
     (savehist-mode))
   (global-auto-revert-mode 1)
+  
+  (setq history-length 1000)
 #+end_src
 ** Theme
 #+begin_src emacs-lisp

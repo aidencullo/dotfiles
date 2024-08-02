@@ -85,3 +85,10 @@ alias pip="pip3"
 export PATH="$HOME/.pyenv/bin:$PATH"
 eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
+
+# bun completions
+[ -s "/Users/aiden/.bun/_bun" ] && source "/Users/aiden/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"

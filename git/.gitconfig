@@ -1,6 +1,7 @@
 [user]
 	name = Aiden Cullo
 	email = aidencullo@gmail.com
+	signingkey = /Users/aiden/.ssh/id_ed25519.pub
 [core]
 	excludesfile = /Users/aiden/.gitignore_global
 	editor = emacs
@@ -49,3 +50,11 @@
 [safe]
 	directory = /home/runner/work/pipenv/pipenv
 	directory = /home/runner/work/pipenv/pipenv
+[commit]
+	gpgSign = true
+[gpg]
+	format = ssh
+[gpg "ssh"]
+	allowedSignersFile = /Users/aiden/.ssh/allowed_signers
+[tag]
+	gpgsign = true
