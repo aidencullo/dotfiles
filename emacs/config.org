@@ -185,6 +185,7 @@ Package configs.
 	   (text-mode . copilot-mode))
     :config
     (setq copilot-max-chars 100000000)
+    (setq copilot-indent-offset-warning-disable t)
     :bind (:map copilot-mode-map
 		("C-<return>" . copilot-accept-completion)
 		("C-M-<return>" . copilot-accept-completion-by-word)))
@@ -296,15 +297,10 @@ Package configs.
 
 (use-package tide
   :ensure t
-  :after (typescript-mode company flycheck)
+  :after (typescript-mode flycheck)
   :hook ((typescript-mode . tide-setup)
          (typescript-mode . tide-hl-identifier-mode)
          (before-save . tide-format-before-save)))
-
-(use-package company
-  :ensure t
-  :config
-  (add-hook 'after-init-hook 'global-company-mode))
 
 (use-package flycheck
   :ensure t
@@ -326,8 +322,7 @@ Package configs.
   (flycheck-mode +1)
   (setq flycheck-check-syntax-automatically '(save mode-enabled))
   (eldoc-mode +1)
-  (tide-hl-identifier-mode +1)
-  (company-mode +1))
+  (tide-hl-identifier-mode +1))
 
 
 #+end_src
