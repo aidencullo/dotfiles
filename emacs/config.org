@@ -186,7 +186,8 @@ Package configs.
     :config
     (setq copilot-max-chars 100000000)
     :bind (:map copilot-mode-map
-		("C-<return>" . copilot-accept-completion)))
+		("C-<return>" . copilot-accept-completion)
+		("C-M-<return>" . copilot-accept-completion-by-word)))
 
   (global-set-key (kbd "C-x c") 'copilot-mode)
 #+end_src
