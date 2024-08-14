@@ -182,6 +182,7 @@ Package configs.
 		     :files ("dist" "*.el"))
     :hook ((org-mode . copilot-mode)
 	   (prog-mode . copilot-mode)
+	   (dotenv-mode . copilot-mode)
 	   (text-mode . copilot-mode))
     :config
     (setq copilot-max-chars 100000000)
@@ -285,11 +286,8 @@ Package configs.
   :mode (("\\.ts\\'" . typescript-ts-mode)
 	 ("\\.tsx\\'" . tsx-ts-mode)))
 
-
-
   (use-package jtsx
     :ensure t)
-
 
   (use-package typescript-mode
   :ensure t
@@ -355,6 +353,11 @@ Package configs.
                       :back "</style>")))
   (mmm-add-mode-ext-class 'vue-mode nil 'vue-js)
   (mmm-add-mode-ext-class 'vue-mode nil 'vue-css))
+#+end_src
+
+** env
+#+begin_src emacs-lisp
+(use-package dotenv-mode)
 #+end_src
 
 * Searching
