@@ -478,21 +478,10 @@ refresh buffers if file changes on disk
 #+end_src
 
 ** Backup 
-By default, Emacs creates automatic backups of files in their original directories, such "file.el" and the backup "file.el~".  This leads to a lot of clutter, so let's tell Emacs to put all backups that it creates in the =TRASH= directory.
+We just won't make backups.
 
 #+begin_src emacs-lisp
-  ;; store all backups in one place
-  (setq backup-directory-alist '((".*" . "~/.local/share/Trash/files")))
-  (make-directory "~/.local/share/Trash/files" t)
-
-  ;; backups are made by copying files
-  (setq backup-by-copying t)
-
-  ;; versioned backups
-  (setq version-control t)     ;; Use version numbers for backups
-  (setq kept-new-versions 10)  ;; Number of newest versions to keep
-  (setq kept-old-versions 2)   ;; Number of oldest versions to keep
-  (setq delete-old-versions t) ;; Automatically delete excess backups
+  (setq make-backup-files nil)
 #+end_src
 
 ** symlinks
