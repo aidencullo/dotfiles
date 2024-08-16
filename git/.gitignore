@@ -1,7 +1,10 @@
 ## dirs
-**/__pycache__/
-**/node_modules/
+__pycache__/
+node_modules/
+dist/
 *.egg-info/
+.cache/
+.codesandbox/
 
 ## files
 **/play.js
