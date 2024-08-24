@@ -15,6 +15,7 @@ Default :ensure t in all packages.
 #+begin_src emacs-lisp
   (use-package use-package-ensure)
   (setq use-package-always-ensure t)
+  (setq use-package-always-defer t)
 #+end_src
 ** fullscreen
 
@@ -364,9 +365,11 @@ Package configs.
 ** editable grep buffer
 #+begin_src emacs-lisp 
   (use-package wgrep)
-  (add-to-list 'grep-find-ignored-directories "node_modules")
-  (add-to-list 'grep-find-ignored-files "package-lock.json")
-  (add-to-list 'grep-find-ignored-files "pnpm-lock.yaml")
+  (use-package grep
+    :config
+    (add-to-list 'grep-find-ignored-directories "node_modules")
+    (add-to-list 'grep-find-ignored-files "package-lock.json")
+    (add-to-list 'grep-find-ignored-files "pnpm-lock.yaml"))
 #+end_src
 
 ** consult
