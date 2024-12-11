@@ -4,8 +4,9 @@
 	signingkey = /Users/aiden/.ssh/id_ed25519.pub
 [core]
 	excludesfile = /Users/aiden/.gitignore_global
-	editor = emacs
+	editor = code --wait
 	pager = 
+	autocrlf = input
 [fetch]
 	prune = true
 [init]

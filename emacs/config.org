@@ -277,88 +277,89 @@ Package configs.
 
 ** JavaScript
 #+begin_src emacs-lisp
-    (use-package js
-      :ensure nil
-      :mode ("\\.js\\'" . js-mode)
-      :init
-      (setq js-indent-level 2))
+  (use-package js
+    :ensure nil
+    :mode (("\\.js\\'" . js-mode)
+	   ("\\.mjs\\'" . js-mode))
+  :init
+  (setq js-indent-level 2))
 
   (use-package typescript-ts-mode
-  :mode (("\\.ts\\'" . typescript-ts-mode)
-	 ("\\.tsx\\'" . tsx-ts-mode)))
+    :mode (("\\.ts\\'" . typescript-ts-mode)
+	   ("\\.tsx\\'" . tsx-ts-mode)))
 
   (use-package jtsx
     :ensure t)
 
   (use-package typescript-mode
-  :ensure t
-  :mode "\\.ts\\'")
+    :ensure t
+    :mode "\\.ts\\'")
 
-(use-package tide
-  :ensure t
-  :after (typescript-mode flycheck)
-  :hook ((typescript-mode . tide-setup)
-         (typescript-mode . tide-hl-identifier-mode)
-         (before-save . tide-format-before-save)))
+  (use-package tide
+    :ensure t
+    :after (typescript-mode flycheck)
+    :hook ((typescript-mode . tide-setup)
+	   (typescript-mode . tide-hl-identifier-mode)
+	   (before-save . tide-format-before-save)))
 
-(use-package flycheck
-  :ensure t
-  :config
-  (global-flycheck-mode))
+  (use-package flycheck
+    :ensure t
+    :config
+    (global-flycheck-mode))
 
-(use-package web-mode
-  :ensure t
-  :mode ("\\.tsx\\'" . web-mode)
-  :config
-  (add-hook 'web-mode-hook
-            (lambda ()
-              (when (string-equal "tsx" (file-name-extension buffer-file-name))
-                (setup-tide-mode)))))
+  (use-package web-mode
+    :ensure t
+    :mode ("\\.tsx\\'" . web-mode)
+    :config
+    (add-hook 'web-mode-hook
+	      (lambda ()
+		(when (string-equal "tsx" (file-name-extension buffer-file-name))
+		  (setup-tide-mode)))))
 
-(defun setup-tide-mode ()
-  (interactive)
-  (tide-setup)
-  (flycheck-mode +1)
-  (setq flycheck-check-syntax-automatically '(save mode-enabled))
-  (eldoc-mode +1)
-  (tide-hl-identifier-mode +1))
+  (defun setup-tide-mode ()
+    (interactive)
+    (tide-setup)
+    (flycheck-mode +1)
+    (setq flycheck-check-syntax-automatically '(save mode-enabled))
+    (eldoc-mode +1)
+    (tide-hl-identifier-mode +1))
 
 
 #+end_src
 
 ** vue
 #+begin_src emacs-lisp
-(use-package vue-mode
-  :ensure t
-  :mode "\\.vue\\'"
-  :config
-  (setq mmm-submode-decoration-level 0) ;; Disable background highlight in submodes
-  (setq mmm-parse-when-idle t) ;; Parse submode regions when Emacs is idle
+  (use-package vue-mode
+    :ensure t
+    :mode "\\.vue\\'"
+    :config
+    (setq mmm-submode-decoration-level 0) ;; Disable background highlight in submodes
+    (setq mmm-parse-when-idle t) ;; Parse submode regions when Emacs is idle
   
-  ;; Indentation settings
-  (setq indent-tabs-mode nil) ;; Use spaces for indentation
-  (setq js-indent-level 2) ;; JavaScript indentation level
-  (setq css-indent-offset 2) ;; CSS indentation level
+    ;; Indentation settings
+    (setq indent-tabs-mode nil) ;; Use spaces for indentation
+    (setq js-indent-level 2) ;; JavaScript indentation level
+    (setq css-indent-offset 2) ;; CSS indentation level
 
-  ;; Enable syntax highlighting in <script> and <style> blocks
-  (setq mmm-global-mode 'maybe)
-  (mmm-add-classes '((vue-js
-                      :submode js-mode
-                      :face mmm-code-submode-face
-                      :front "<script[^>]*>"
-                      :back "</script>")))
-  (mmm-add-classes '((vue-css
-                      :submode css-mode
-                      :face mmm-code-submode-face
-                      :front "<style[^>]*>"
-                      :back "</style>")))
-  (mmm-add-mode-ext-class 'vue-mode nil 'vue-js)
-  (mmm-add-mode-ext-class 'vue-mode nil 'vue-css))
+    ;; Enable syntax highlighting in <script> and <style> blocks
+    (setq mmm-global-mode 'maybe)
+    (mmm-add-classes '((vue-js
+			:submode js-mode
+			:face mmm-code-submode-face
+			:front "<script[^>]*>"
+			:back "</script>")))
+    (mmm-add-classes '((vue-css
+			:submode css-mode
+			:face mmm-code-submode-face
+			:front "<style[^>]*>"
+			:back "</style>")))
+    (mmm-add-mode-ext-class 'vue-mode nil 'vue-js)
+    (mmm-add-mode-ext-class 'vue-mode nil 'vue-css))
 #+end_src
 
 ** env
 #+begin_src emacs-lisp
-(use-package dotenv-mode)
+  (use-package dotenv-mode)
 #+end_src
 
 * Searching
@@ -374,12 +375,12 @@ Package configs.
 
 ** consult
 #+begin_src emacs-lisp
-;; Example configuration for Consult
-(use-package consult
-  ;; Replace bindings. Lazily loaded due by `use-package'.
-  :bind (;; C-c bindings in `mode-specific-map'
-         ("C-x b" . consult-buffer))                ;; orig. switch-to-buffer
-)
+  ;; Example configuration for Consult
+  (use-package consult
+    ;; Replace bindings. Lazily loaded due by `use-package'.
+    :bind (;; C-c bindings in `mode-specific-map'
+	   ("C-x b" . consult-buffer))                ;; orig. switch-to-buffer
+    )
 #+end_src
 
 * Visuals
@@ -400,7 +401,7 @@ refresh buffers if file changes on disk
     :init
     (savehist-mode))
   (global-auto-revert-mode 1)
-  
+
   (setq history-length 1000)
 #+end_src
 ** Theme
@@ -550,9 +551,9 @@ My custom functions
      "*Tidy Error Buffer*"))
 
   (defun kill-to-end-of-buffer ()
-  "Kill text from point to the end of the buffer."
-  (interactive)
-  (kill-region (point) (point-max)))
+    "Kill text from point to the end of the buffer."
+    (interactive)
+    (kill-region (point) (point-max)))
 #+end_src
 
 ** position
