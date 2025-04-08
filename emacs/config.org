@@ -16,6 +16,12 @@ Default :ensure t in all packages.
   (use-package use-package-ensure)
   (setq use-package-always-ensure t)
   (setq use-package-always-defer t)
+  (use-package undo-fu
+    :ensure t
+    :bind (("C-/" . undo-fu-only-undo)
+	   ("C-?" . undo-fu-only-undo)
+	   ("C-M-/" . undo-fu-only-redo)))
+
 #+end_src
 ** fullscreen
 
