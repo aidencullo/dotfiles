@@ -19,19 +19,6 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
-# aliases
-
-# alias suffixes
-alias -s git="git clone"
-
-# program (re)assignments
-alias commit1='echo 1 >> new_file && git add . && git commit -m "Add random file"'
-alias commit='commit1 && commit1 && commit1'
-alias hero1='/Users/aiden/Github/herogrow &&
-npm run dev'
-alias hero2='/Users/aiden/Github/back-herogrow &&
-npm run dev'
-
 # displaying execution time
 
 # If command execution time above min. time, plugins will not output time.
@@ -86,12 +73,8 @@ export PATH="$HOME/.pyenv/bin:$PATH"
 eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
 
-# bun completions
-[ -s "/Users/aiden/.bun/_bun" ] && source "/Users/aiden/.bun/_bun"
 
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
+
 
 # auto suggestions
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
