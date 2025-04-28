@@ -78,3 +78,11 @@ eval "$(pyenv init -)"
 
 # auto suggestions
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+alias commit="git add . && git commit -m 'update'"
+alias push="git push"
+alias pull="git pull"
+alias status="git status"
+alias branch="git branch"
+alias checkout="git checkout"
+alias merge="git merge"
