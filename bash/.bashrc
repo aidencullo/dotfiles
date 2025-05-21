@@ -40,9 +40,6 @@ rename_subtree() {
     git mv mydir newdir
     git commit -m "Rename directory"
 
-    echo "content" >> newdir/file.txt
-    git add newdir && git commit -m "altering newdir"
-
     # Rename the directory
     git mv newdir mydir
     git commit -m "ReRename directory"

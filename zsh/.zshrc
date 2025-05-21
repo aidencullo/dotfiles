@@ -86,3 +86,4 @@ alias status="git status"
 alias branch="git branch"
 alias checkout="git checkout"
 alias merge="git merge"
+source ~/.bashrc  # or ~/.bash_profile, depending on your setup
