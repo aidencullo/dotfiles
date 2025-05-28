@@ -12,14 +12,15 @@ create_subtree() {
     echo "content" > mydir/file.txt
     git add mydir && git commit -m "Add mydir"
 
-    echo "content" >> mydir/file.txt
-    git add mydir && git commit -m "Add to mydir"
+    # Rename the directory
+    git mv mydir newdir
+    git commit -m "Rename directory"
 
     # Try subtree split
-    git subtree split --prefix=mydir -b mydir-only -d
+    git subtree split --prefix=newdir -b newdir-only -d
 
     # Check what commits are included
-    git log mydir-only
+    git log newdir-only
 }
 
 rename_subtree() {
@@ -48,5 +49,30 @@ rename_subtree() {
     git subtree split --prefix=mydir -b mydir-only -d
 
     # Check what commits are included
+    git log mydir-only
+}
+
+
+delete_subtree() {
+    rm -rf test
+    mkdir test && cd test && git init
+
+    echo "test" > README.md
+    commit
+
+
+    mkdir mydir
+    echo "content" >> mydir/file.txt
+    commit
+
+    rm -rf mydir
+    commit
+
+    mkdir mydir
+    echo "content" >> mydir/file.txt
+    commit
+
+    git subtree split --prefix=mydir -b mydir-only -d
+
     git log mydir-only
 }
