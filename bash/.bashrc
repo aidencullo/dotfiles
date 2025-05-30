@@ -76,3 +76,40 @@ delete_subtree() {
 
     git log mydir-only
 }
+
+
+rename_subtree_and_commit() {
+    rm -rf test
+    mkdir test && cd test && git init
+
+    echo "test" > README.md
+    commit
+
+
+    mkdir mydir
+    echo "content" >> mydir/file.txt
+    commit
+
+    mv mydir newdir
+    commit
+
+    echo "content" >> newdir/file.txt
+    commit
+
+    echo "content" >> newdir/file.txt
+    commit
+
+    echo "content" >> newdir/file.txt
+    commit
+
+    echo "content" >> newdir/file.txt
+    commit
+
+    mv newdir mydir
+    commit
+
+    git subtree split --prefix=mydir -b mydir-only -d
+
+    git log mydir-only
+}
+
