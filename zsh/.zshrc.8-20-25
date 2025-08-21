@@ -110,3 +110,5 @@ export NVM_DIR="$HOME/.nvm"
 export PATH="$HOME/.pyenv/bin:$PATH"
 eval "$(pyenv init --path)"
 eval "$(pyenv virtualenv-init -)"
+source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
