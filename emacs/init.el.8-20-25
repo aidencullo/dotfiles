@@ -1,11 +1,9 @@
 ;; Simple dark theme
 (load-theme 'deeper-blue t)
 
-;; Enable line numbers
-(global-linum-mode t)
-
-;; Configure C-k to kill line including newline
+;; Kill whole line setting
 (setq kill-whole-line t)
+
 ;; Keep your existing fullscreen setting
 (toggle-frame-fullscreen)
 (custom-set-variables
