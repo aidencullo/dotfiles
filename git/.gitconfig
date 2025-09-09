@@ -32,9 +32,6 @@
 	st = status --ignored
 	sta = stash -u
 
-[commit]
-	gpgSign = true
-
 [core]
 	editor = emacs
 	excludesfile = /Users/aiden/.gitignore_global
@@ -42,12 +39,6 @@
 
 [fetch]
 	prune = true
-
-[gpg]
-	format = ssh
-
-[gpg "ssh"]
-	allowedSignersFile = /Users/aiden/.ssh/allowed_signers
 
 [init]
 	defaultBranch = main
@@ -67,4 +58,3 @@
 [user]
 	email = aidencullo@gmail.com
 	name = Aiden Cullo
-	signingkey = /Users/aiden/.ssh/id_ed25519.pub
