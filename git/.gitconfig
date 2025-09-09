@@ -1,60 +1,70 @@
-[user]
-	name = Aiden Cullo
-	email = aidencullo@gmail.com
-	signingkey = /Users/aiden/.ssh/id_ed25519.pub
-[core]
-	excludesfile = /Users/aiden/.gitignore_global
-	editor = emacs
-	pager = 
-[fetch]
-	prune = true
-[init]
-	defaultBranch = main
 [alias]
-	ac = !git A && git commit -m
-	rc = !git commit -am
 	A = add -A
-	p = push origin main
-	al = config --get-regexp ^alias
-	h = push origin HEAD
-	last = log -1 HEAD
-	st = status --ignored
-	co = checkout
-	ci = commit -m
-	lg = log --graph --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%an%C(reset)%C(bold yellow)%d%C(reset) %C(dim white)- %s%C(reset)' -n 10 --all
+	ac = !git A && git commit -m
+	acp = !git add . && git ci 'N/A' && git h
 	aal = config --global
-	sh = show --stat
-	df = diff
-	dfs = diff --stat
-	cl = clean -n
-	r = reset
-	clf = clean -f
-	f = fetch
 	ali = ! echo git config --global alias
-	cli = clean -ndx
-	clif = clean -fdx
+	al = config --get-regexp ^alias
 	b = branch
 	ba = branch -a
+	ci = commit -m
+	cl = clean -n
 	cld = clean -nd
 	cldf = clean -fd
+	clf = clean -f
+	cli = clean -ndx
+	clif = clean -fdx
 	clx = clean -nX
-	clxf = clean -fX
 	clxd = clean -ndX
+	clxf = clean -fX
 	clxdf = clean -fdX
-	acp = !git add . && git ci 'N/A' && git h
+	co = checkout
+	df = diff
+	dfs = diff --stat
+	f = fetch
+	h = push origin HEAD
+	last = log -1 HEAD
+	lg = log --graph --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%an%C(reset)%C(bold yellow)%d%C(reset) %C(dim white)- %s%C(reset)' -n 10 --all
+	p = push origin main
+	rc = !git commit -am
+	r = reset
+	sh = show --stat
+	st = status --ignored
 	sta = stash -u
-[push]
-	default = current
-[pager]
-	branch = false
-[safe]
-	directory = /home/runner/work/pipenv/pipenv
-	directory = /home/runner/work/pipenv/pipenv
+
 [commit]
 	gpgSign = true
+
+[core]
+	editor = emacs
+	excludesfile = /Users/aiden/.gitignore_global
+	pager = 
+
+[fetch]
+	prune = true
+
 [gpg]
 	format = ssh
+
 [gpg "ssh"]
 	allowedSignersFile = /Users/aiden/.ssh/allowed_signers
+
+[init]
+	defaultBranch = main
+
+[pager]
+	branch = false
+
+[push]
+	default = current
+
+[safe]
+	directory = /home/runner/work/pipenv/pipenv
+
 [tag]
 	gpgsign = true
+
+[user]
+	email = aidencullo@gmail.com
+	name = Aiden Cullo
+	signingkey = /Users/aiden/.ssh/id_ed25519.pub
