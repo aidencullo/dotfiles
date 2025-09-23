@@ -1,0 +1,605 @@
+#+TITLE: Aiden's GNU Emacs Config
+#+AUTHOR: Aiden Cullo
+#+DESCRIPTION: My personal Emacs config.
+#+STARTUP: overview
+
+
+
+* Startup
+
+Startup configs.
+** ensure
+
+Default :ensure t in all packages.
+
+#+begin_src emacs-lisp
+  (use-package use-package-ensure)
+  (setq use-package-always-ensure t)
+  (setq use-package-always-defer t)
+  (use-package undo-fu
+    :ensure t
+    :bind (("C-/" . undo-fu-only-undo)
+	   ("C-?" . undo-fu-only-undo)
+	   ("C-M-/" . undo-fu-only-redo)))
+
+#+end_src
+** fullscreen
+
+Fullscreen after startup.
+
+#+begin_src emacs-lisp
+  (add-hook 'after-init-hook 'toggle-frame-fullscreen)
+#+end_src
+* Comments
+
+Setup default comments.
+
+#+begin_src emacs-lisp
+  (defun my-set-default-comments ()
+    "Set default comment characters if not already set."
+    (unless comment-start
+      (setq comment-start "# "))
+    (unless comment-end
+      (setq comment-end "")))
+
+  (add-hook 'after-init-hook 'my-set-default-comments)
+#+end_src
+* Gui
+LET'S make GNU Emacs look a little better.
+
+** Disable Menubar, Toolbars and Scrollbars
+#+begin_src emacs-lisp
+  (menu-bar-mode -1)
+  (tool-bar-mode -1)
+  (scroll-bar-mode -1)
+#+end_src
+
+** Display Line Numbers and Truncated Lines
+#+begin_src emacs-lisp
+  (global-display-line-numbers-mode 1)
+  (global-visual-line-mode t)
+#+end_src
+
+* Packages
+Package configs.
+
+** custom
+#+begin_src emacs-lisp
+  (setq custom-file (concat user-emacs-directory "custom.el"))
+  (when (file-exists-p custom-file)
+    (load custom-file))
+#+end_src
+
+** archives
+#+begin_src emacs-lisp
+  (use-package package)
+  (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+#+end_src
+
+** straight.el
+#+begin_src emacs-lisp 
+  (defvar bootstrap-version)
+  (let ((bootstrap-file
+	 (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
+	(bootstrap-version 6))
+    (unless (file-exists-p bootstrap-file)
+      (with-current-buffer
+	  (url-retrieve-synchronously
+	   "https://raw.githubusercontent.com/radian-software/straight.el/develop/install.el"
+	   'silent 'inhibit-cookies)
+	(goto-char (point-max))
+	(eval-print-last-sexp)))
+    (load bootstrap-file nil 'nomessage))
+#+end_src
+
+* Marking
+** multiple-cursor
+#+begin_src emacs-lisp 
+  (use-package multiple-cursors
+    :bind (
+	   ("C->" . mc/mark-next-like-this)
+	   ("C-<" . mc/mark-previous-like-this)
+	   ("C-c C-<" . mc/mark-all-like-this)))
+#+end_src
+** expand-region
+#+begin_src emacs-lisp 
+  (use-package expand-region
+    :bind (
+	   ("C-=" . er/expand-region)
+	   ("C-+" . er/contract-region)))
+#+end_src
+
+* Minibuffer
+** vertico
+#+begin_src emacs-lisp 
+  (use-package vertico
+    :init
+    (vertico-mode)
+    :config
+    (with-eval-after-load 'rfn-eshadow
+      ;; This works with `file-name-shadow-mode' enabled.  When you are in
+      ;; a sub-directory and use, say, `find-file' to go to your home '~/'
+      ;; or root '/' directory, Vertico will clear the old path to keep
+      ;; only your current input.
+      (add-hook 'rfn-eshadow-update-overlay-hook #'vertico-directory-tidy)))
+
+  ;; Optional: Enhance minibuffer completion with orderless and marginalia
+  (use-package orderless
+    :ensure t
+    :custom
+    (completion-styles '(orderless)))
+#+end_src
+
+** marginalia
+#+begin_src emacs-lisp 
+  (use-package marginalia
+    :config
+    (marginalia-mode 1))
+#+end_src
+
+** keycast
+#+begin_src emacs-lisp
+  (use-package keycast
+    :config
+    (keycast-mode-line-mode 1))
+#+end_src
+
+* Shell
+** Shell variables
+#+begin_src emacs-lisp 
+  (use-package exec-path-from-shell)
+#+end_src
+
+** Spawn shell
+#+begin_src emacs-lisp 
+  (defun split-window-and-open-shell ()
+    "Split the window and open a shell in the new window."
+    (interactive)
+    (split-window-right)
+    (other-window 1)
+    (shell))
+  (global-set-key (kbd "C-c s") 'split-window-and-open-shell)
+#+end_src
+
+* Dired
+** dired-x
+#+begin_src emacs-lisp
+  (use-package dired-x
+    :ensure nil
+    :after dired
+    :init
+    (setq dired-omit-files "^\\.?#\\|^\\.$")
+    (setq dired-omit-files (concat dired-omit-files "\\|^\\.\\|^#.*#$\\|^.*cache.*$"))
+    (setq dired-omit-files (concat dired-omit-files "\\|node_modules"))
+    :config
+    (add-hook 'dired-mode-hook #'dired-omit-mode))
+
+  (use-package dired
+    :ensure nil
+    :hook
+    (dired-mode-hook . dired-omit-mode))
+#+end_src
+
+* Completion
+** copilot
+#+begin_src emacs-lisp
+  (use-package copilot
+    :straight (:host github
+		     :repo "copilot-emacs/copilot.el"
+		     :files ("dist" "*.el"))
+    :hook ((org-mode . copilot-mode)
+	   (prog-mode . copilot-mode)
+	   (dotenv-mode . copilot-mode)
+	   (text-mode . copilot-mode))
+    :config
+    (setq copilot-max-chars 100000000)
+    (setq copilot-indent-offset-warning-disable t)
+    :bind (:map copilot-mode-map
+		("C-<return>" . copilot-accept-completion)
+		("C-M-<return>" . copilot-accept-completion-by-word)))
+
+  (global-set-key (kbd "C-x c") 'copilot-mode)
+#+end_src
+
+** yassnippets
+#+begin_src emacs-lisp 
+  (use-package yasnippet
+    :config
+    (yas-reload-all)
+    (yas-global-mode))
+#+end_src
+
+** lorem-ipsum
+#+begin_src emacs-lisp 
+  (use-package lorem-ipsum
+    :bind (
+	   ("C-c C-l s" . lorem-ipsum-insert-sentences)
+	   ("C-c C-l p" . lorem-ipsum-insert-paragraphs)
+	   ("C-c C-l l" . lorem-ipsum-insert-list)))
+#+end_src
+
+** embark
+#+begin_src emacs-lisp 
+  (use-package marginalia
+    :ensure t
+    :config
+    (marginalia-mode))
+
+  (use-package embark
+    :ensure t
+
+    :bind
+    (("C-." . embark-act)         ;; pick some comfortable binding
+     ("C-;" . embark-dwim)        ;; good alternative: M-.
+     ("C-h B" . embark-bindings)) ;; alternative for `describe-bindings'
+
+    :init
+
+    ;; Optionally replace the key help with a completing-read interface
+    (setq prefix-help-command #'embark-prefix-help-command)
+
+    ;; Show the Embark target at point via Eldoc. You may adjust the
+    ;; Eldoc strategy, if you want to see the documentation from
+    ;; multiple providers. Beware that using this can be a little
+    ;; jarring since the message shown in the minibuffer can be more
+    ;; than one line, causing the modeline to move up and down:
+
+    ;; (add-hook 'eldoc-documentation-functions #'embark-eldoc-first-target)
+    ;; (setq eldoc-documentation-strategy #'eldoc-documentation-compose-eagerly)
+
+    :config
+
+    ;; Hide the mode line of the Embark live/completions buffers
+    (add-to-list 'display-buffer-alist
+		 '("\\`\\*Embark Collect \\(Live\\|Completions\\)\\*"
+		   nil
+		   (window-parameters (mode-line-format . none)))))
+
+  ;; Consult users will also want the embark-consult package.
+  (use-package embark-consult
+    :ensure t ; only need to install it, embark loads it after consult if found
+    :hook
+    (embark-collect-mode . consult-preview-at-point-mode))
+#+end_src
+
+* Programming Languages
+** magit
+#+begin_src emacs-lisp
+  (use-package magit
+    :bind ("C-x g" . magit-status))
+#+end_src
+
+** sql
+#+begin_src emacs-lisp
+  (use-package sql
+    :ensure nil
+    :mode ("\\.sql\\'" . sql-mode))
+#+end_src
+
+** paredit
+#+begin_src emacs-lisp
+  (use-package paredit)
+#+end_src
+
+** JavaScript
+#+begin_src emacs-lisp
+  (use-package js
+    :ensure nil
+    :mode (("\\.js\\'" . js-mode)
+	   ("\\.mjs\\'" . js-mode))
+  :init
+  (setq js-indent-level 2))
+
+  (use-package typescript-ts-mode
+    :mode (("\\.ts\\'" . typescript-ts-mode)
+	   ("\\.tsx\\'" . tsx-ts-mode)))
+
+  (use-package jtsx
+    :ensure t)
+
+  (use-package typescript-mode
+    :ensure t
+    :mode "\\.ts\\'")
+
+  (use-package tide
+    :ensure t
+    :after (typescript-mode flycheck)
+    :hook ((typescript-mode . tide-setup)
+	   (typescript-mode . tide-hl-identifier-mode)
+	   (before-save . tide-format-before-save)))
+
+  (use-package flycheck
+    :ensure t
+    :config
+    (global-flycheck-mode))
+
+  (use-package web-mode
+    :ensure t
+    :mode ("\\.tsx\\'" . web-mode)
+    :config
+    (add-hook 'web-mode-hook
+	      (lambda ()
+		(when (string-equal "tsx" (file-name-extension buffer-file-name))
+		  (setup-tide-mode)))))
+
+  (defun setup-tide-mode ()
+    (interactive)
+    (tide-setup)
+    (flycheck-mode +1)
+    (setq flycheck-check-syntax-automatically '(save mode-enabled))
+    (eldoc-mode +1)
+    (tide-hl-identifier-mode +1))
+
+
+#+end_src
+
+** vue
+#+begin_src emacs-lisp
+  (use-package vue-mode
+    :ensure t
+    :mode "\\.vue\\'"
+    :config
+    (setq mmm-submode-decoration-level 0) ;; Disable background highlight in submodes
+    (setq mmm-parse-when-idle t) ;; Parse submode regions when Emacs is idle
+  
+    ;; Indentation settings
+    (setq indent-tabs-mode nil) ;; Use spaces for indentation
+    (setq js-indent-level 2) ;; JavaScript indentation level
+    (setq css-indent-offset 2) ;; CSS indentation level
+
+    ;; Enable syntax highlighting in <script> and <style> blocks
+    (setq mmm-global-mode 'maybe)
+    (mmm-add-classes '((vue-js
+			:submode js-mode
+			:face mmm-code-submode-face
+			:front "<script[^>]*>"
+			:back "</script>")))
+    (mmm-add-classes '((vue-css
+			:submode css-mode
+			:face mmm-code-submode-face
+			:front "<style[^>]*>"
+			:back "</style>")))
+    (mmm-add-mode-ext-class 'vue-mode nil 'vue-js)
+    (mmm-add-mode-ext-class 'vue-mode nil 'vue-css))
+#+end_src
+
+** env
+#+begin_src emacs-lisp
+  (use-package dotenv-mode)
+#+end_src
+
+* Searching
+** editable grep buffer
+#+begin_src emacs-lisp 
+  (use-package wgrep)
+  (use-package grep
+    :config
+    (add-to-list 'grep-find-ignored-directories "node_modules")
+    (add-to-list 'grep-find-ignored-files "package-lock.json")
+    (add-to-list 'grep-find-ignored-files "pnpm-lock.yaml"))
+#+end_src
+
+** consult
+#+begin_src emacs-lisp
+  ;; Example configuration for Consult
+  (use-package consult
+    ;; Replace bindings. Lazily loaded due by `use-package'.
+    :bind (;; C-c bindings in `mode-specific-map'
+	   ("C-x b" . consult-buffer))                ;; orig. switch-to-buffer
+    )
+#+end_src
+
+* Visuals
+** rainbow-delimiters
+#+begin_src emacs-lisp
+  (use-package rainbow-delimiters
+    :hook (prog-mode . rainbow-delimiters-mode))
+#+end_src
+
+* Settings
+Set modes and global variables.
+
+** History
+save history in mini-buffer prompts
+refresh buffers if file changes on disk
+#+begin_src emacs-lisp
+  (use-package savehist
+    :init
+    (savehist-mode))
+  (global-auto-revert-mode 1)
+
+  (setq history-length 1000)
+#+end_src
+** Theme
+#+begin_src emacs-lisp
+  (load-theme 'modus-vivendi t)
+#+end_src
+
+** Keys
+#+begin_src emacs-lisp
+  (global-set-key (kbd "M-<backspace>") 'aiden/backward-kill-word-or-chars)
+  (global-set-key (kbd "C-c r") 'aiden/repeat-last-shell-command)
+  (global-set-key (kbd "C-S-o") 'open-next-line)
+  (global-set-key (kbd "C-c d") 'aiden/pytest)
+  (global-set-key (kbd "C-s-k") 'kill-to-end-of-buffer)
+#+end_src
+
+** Other
+#+begin_src emacs-lisp
+  ;; Display a counter showing the number of the current and the other
+  ;; matches.  Place it before the prompt, though it can be after it.
+  (setq isearch-lazy-count t)
+  (setq lazy-count-prefix-format "(%s/%s) ")
+  (setq lazy-count-suffix-format nil)
+
+  ;; Make regular Isearch interpret the empty space as a regular
+  ;; expression that matches any character between the words you give
+  ;; it.
+  (setq search-whitespace-regexp ".*?")
+
+  ;; stop asking before following symlink
+  (setq vc-follow-symlinks t)
+
+  ;; flash when bell rings
+  (setq visible-bell t)
+
+  ;; C-k kills entire line if at the beginning
+  (setq kill-whole-line t)
+
+  ;; for python inferior process
+  (setq python-shell-completion-native-disabled-interpreters
+	'("python3"))
+
+  ;; move file to trash on delete instead of permanent delete
+  (setq delete-by-moving-to-trash t)
+
+  ;; When there are two Dired buffers side-by-side make Emacs
+  ;; automatically suggest the other one as the target of copy or rename
+  ;; operations.  Remember that you can always use M-p and M-n in the
+  ;; minibuffer to cycle through the history, regardless of what this
+  ;; does.  (The "dwim" stands for "Do What I Mean".)
+  (setq dired-dwim-target t)
+
+  ;; save buffer when repeating last cmd
+
+  ;; mimic system shell in emacs
+  ;; useful for env variables
+  (when (memq window-system '(mac ns x))
+    (exec-path-from-shell-initialize))
+
+
+  ;; add custom functions to python mode
+  (eval-after-load "python"
+    '(progn
+       (define-key python-mode-map (kbd "C-c C-c") 'aiden/my-python-shell-run)
+       (define-key python-mode-map (kbd "C-c C-r") 'aiden/python-shell-rerun)))
+
+  (defun my-python-save-hook ()
+    "Function to run every time a Python file is saved."
+    (custom-replace-string))
+
+  (defun add-python-save-hook ()
+    "Add my-python-save-hook to the local after-save-hook."
+    (add-hook 'after-save-hook #'my-python-save-hook nil t))
+
+  ;; (add-hook 'python-mode-hook #'add-python-save-hook)
+
+
+#+end_src
+
+** Backup 
+We just won't make backups.
+
+#+begin_src emacs-lisp
+  (setq make-backup-files nil)
+#+end_src
+
+** symlinks
+Follow symlinks without asking if it's ok
+#+begin_src emacs-lisp
+  (setq vc-follow-symlinks t)
+#+end_src
+** errors
+Full debug on error
+#+begin_src emacs-lisp
+  (setq debug-on-error t)
+#+end_src
+
+* Functions
+My custom functions
+
+** general
+
+#+begin_src emacs-lisp  
+  (defun open-next-line (n)
+    (interactive "p")
+    (end-of-line)
+    (newline))
+
+  (defun aiden/backward-kill-word-or-chars ()
+    "Delete the character or word before point."
+    (interactive)
+    (if (looking-back "\\w" 1)
+	(backward-kill-word 1)
+      (aiden/backward-kill-all-char)))
+
+  (defun aiden/backward-kill-all-char ()
+    "Delete the character or word before point."
+    (interactive)
+    (while (not (looking-back "\\w" 1))
+      (backward-delete-char 1)))
+
+  (defun aiden/python-shell-rerun ()
+    (interactive)
+    (set-buffer python-target)
+    (aiden/my-python-shell-run))
+
+  (defun aiden/my-python-shell-run ()
+    "recompile python buffer and send to repl."
+    (interactive)
+    (progn
+      (python-shell-restart)
+      (sleep-for 0.5)
+      (python-shell-send-buffer))
+    (setq python-target (current-buffer)))
+
+  (defun aiden/repeat-last-shell-command (&rest r)
+    "Search and repeat last shell command."
+    (interactive)
+    (shell-command (cadr (assoc 'shell-command command-history))))
+
+  (defun aiden/pytest ()
+    "Runs pytest shell command and displays output in a buffer called *Tidy Error Buffer*"
+    (interactive)
+    (save-buffer)
+    (shell-command
+     "pytest"
+     "*Tidy Error Buffer*"))
+
+  (defun kill-to-end-of-buffer ()
+    "Kill text from point to the end of the buffer."
+    (interactive)
+    (kill-region (point) (point-max)))
+#+end_src
+
+** position
+#+begin_src emacs-lisp
+  (defun ff ()
+    "sample code to show region begin/end positions"
+    (interactive)
+    (message "begin at %s\nend at %s"
+	     (region-beginning)
+	     (region-end)))
+
+  (defun pt ()
+    "sample code to show region begin/end positions"
+    (interactive)
+    (message "point at %s"
+	     (point)))
+#+end_src
+
+** replace list
+#+begin_src emacs-lisp
+  (defun custom-replace-string ()
+    "Replace OLD with NEW in the current buffer."
+    (interactive)
+    (replace-string "List" "list" nil (point-min) (point-max)))
+#+end_src
+
+* Hooks
+
+Mode hooks.
+
+#+begin_src emacs-lisp
+  ;; dired
+  (add-hook 'dired-mode-hook #'dired-hide-details-mode)
+  (add-hook 'dired-mode-hook #'dired-omit-mode)
+
+  ;; paredit
+  (add-hook 'emacs-lisp-mode-hook       #'enable-paredit-mode)
+  ;; (add-hook 'eval-expression-minibuffer-setup-hook #'enable-paredit-mode)
+  (add-hook 'ielm-mode-hook             #'enable-paredit-mode)
+  (add-hook 'lisp-mode-hook             #'enable-paredit-mode)
+  (add-hook 'lisp-interaction-mode-hook #'enable-paredit-mode)
+  (add-hook 'scheme-mode-hook           #'enable-paredit-mode)
+#+end_src
