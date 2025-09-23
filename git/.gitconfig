@@ -1,7 +1,7 @@
 [alias]
 	A = add -A
 	ac = !git A && git commit -m
-	acp = !git add . && git ci 'N/A' && git h
+	acp = !git add . && git ci \"auto-pushed changes\" && git h
 	aal = config --global
 	ali = ! echo git config --global alias
 	al = config --get-regexp ^alias
