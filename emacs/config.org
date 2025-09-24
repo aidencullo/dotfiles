@@ -4,5 +4,6 @@
 
 * Basic Setup
 #+begin_src emacs-lisp
-;; Basic configuration will go here
+;; Load a dark theme
+(load-theme 'wombat t)
 #+end_src
