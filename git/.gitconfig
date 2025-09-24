@@ -31,6 +31,7 @@
 	sh = show --stat
 	st = status --ignored
 	sta = stash -u
+	count = rev-list --count HEAD
 
 [core]
 	editor = emacs
