@@ -32,6 +32,7 @@
 	st = status --ignored
 	sta = stash -u
 	count = rev-list --count HEAD
+	five = log --oneline -n 5
 
 [core]
 	editor = emacs
