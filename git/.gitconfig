@@ -1,7 +1,7 @@
 [alias]
 	A = add -A
 	ac = !git A && git commit -m
-	acp = !git add . && git ci \"auto-pushed changes\" && git h
+	acp = "!f(){ git add -A && git commit -m \"$1\" && git push; }; f"
 	aal = config --global
 	ali = ! echo git config --global alias
 	al = config --get-regexp ^alias
@@ -33,6 +33,7 @@
 	sta = stash -u
 	count = rev-list --count HEAD
 	five = log --oneline -n 5
+	acpp = !git add . && git commit -m \"auto-pushed changes\" && git push
 
 [core]
 	editor = emacs
