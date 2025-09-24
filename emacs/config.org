@@ -4,6 +4,7 @@
 
 * Basic Setup
 #+begin_src emacs-lisp
-;; Load a dark theme
-(load-theme 'wombat t)
+  ;; Load a dark theme
+  (load-theme 'wombat t)
+  (add-hook 'after-init-hook 'toggle-frame-fullscreen)
 #+end_src
