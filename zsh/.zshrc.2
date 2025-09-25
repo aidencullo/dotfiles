@@ -116,6 +116,5 @@ export PATH="$HOME/.pyenv/bin:$PATH"
 eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
 
-
-# controls how many trailing path components %~ shows (0 = full path).
-PROMPT_DIRTRIM=0
+# Force full path in prompt
+PROMPT='%d %# '  # %d = full directory, %# = prompt char
