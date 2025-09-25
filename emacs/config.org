@@ -8,17 +8,20 @@
   ;; Load a dark theme
   (load-theme 'wombat t)
   (add-hook 'after-init-hook 'toggle-frame-fullscreen)
-(require 'package)
-(setq package-archives '(("melpa" . "https://melpa.org/packages/")
-                         ("gnu" . "https://elpa.gnu.org/packages/")))
-(package-initialize)
-(unless (package-installed-p 'use-package)
-  (package-refresh-contents)
-  (package-install 'use-package))
-(require 'use-package)
+  (require 'package)
+  (setq package-archives '(("melpa" . "https://melpa.org/packages/")
+                           ("gnu" . "https://elpa.gnu.org/packages/")))
+  (package-initialize)
+  (unless (package-installed-p 'use-package)
+    (package-refresh-contents)
+    (package-install 'use-package))
+  (require 'use-package)
 
-(use-package magit
-  :ensure t
-  :bind ("C-x g" . magit-status))
+  (use-package magit
+    :ensure t
+    :bind ("C-x g" . magit-status))
+
+  (global-set-key (kbd "M-k") 'kill-paragraph)
+
 
 #+end_src
