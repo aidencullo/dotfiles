@@ -1,10 +1,22 @@
 #+TITLE: Aiden's GNU Emacs Config
 #+AUTHOR: Aiden Cullo
 #+DESCRIPTION: My personal Emacs config.
+#+STARTUP: overview
 
-* Basic Setup
+* Startup
+Configuration that should run during or immediately after Emacs startup.
+
+** Fullscreen on startup
+Make the initial frame fullscreen right after initialization completes.
 #+begin_src emacs-lisp
-  ;; Load a dark theme
-  (load-theme 'wombat t)
   (add-hook 'after-init-hook 'toggle-frame-fullscreen)
+#+end_src
+
+* Appearance
+Visual theming and UI aesthetics.
+
+** Theme
+Load a dark theme. Change the symbol to your preferred theme.
+#+begin_src emacs-lisp
+  (load-theme 'wombat t)
 #+end_src
