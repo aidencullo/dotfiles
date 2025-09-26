@@ -34,6 +34,7 @@
 	count = rev-list --count HEAD
 	five = log --oneline -n 5
 	acpp = !git add . && git commit -m \"auto-pushed changes\" && git push
+	graph = log --oneline --graph --all --decorate
 
 [core]
 	editor = emacs
