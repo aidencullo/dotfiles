@@ -1,3 +1,4 @@
+
 #+TITLE: Aiden's GNU Emacs Config
 
 #+AUTHOR: Aiden Cullo
@@ -23,6 +24,7 @@
 
   (global-set-key (kbd "M-k") 'kill-paragraph)
 
+(setq kill-whole-line t)
 (global-set-key (kbd "M-s-k") (lambda () (interactive) (kill-region (point) (point-max))))
 
 #+end_src
