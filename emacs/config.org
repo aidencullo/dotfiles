@@ -8,6 +8,10 @@
   (load-theme 'wombat t)
   ;; Start Emacs in fullscreen mode
   (add-hook 'after-init-hook 'toggle-frame-fullscreen)
+#+end_src
+
+* Package Management
+#+begin_src emacs-lisp
   ;; Enable package management
   (require 'package)
   ;; Add package archives for downloading new packages
@@ -22,18 +26,26 @@
     (package-install 'use-package))
   ;; Load 'use-package'
   (require 'use-package)
+#+end_src
 
+* Magit
+#+begin_src emacs-lisp
   ;; Configure the Magit package for Git integration
   (use-package magit
     :ensure t  ;; Ensure Magit is installed
     :bind ("C-x g" . magit-status)) ;; Bind 'C-x g' to show Magit status
+#+end_src
 
+* Keybindings
+#+begin_src emacs-lisp
   ;; Bind 'M-k' to kill the current paragraph
   (global-set-key (kbd "M-k") 'kill-paragraph)
-
-  ;; Make kill-line kill the whole line, not just from the cursor to the end
-  (setq kill-whole-line t)
   ;; Bind 'M-s-k' to a command that kills the entire buffer content
   (global-set-key (kbd "M-s-k") (lambda () (interactive) (kill-region (point) (point-max))))
+#+end_src
 
+* Editing
+#+begin_src emacs-lisp
+  ;; Make kill-line kill the whole line, not just from the cursor to the end
+  (setq kill-whole-line t)
 #+end_src
