@@ -1,30 +1,39 @@
-
 #+TITLE: Aiden's GNU Emacs Config
-
 #+AUTHOR: Aiden Cullo
 #+DESCRIPTION: My personal Emacs config.
 
 * Basic Setup
 #+begin_src emacs-lisp
-  ;; Load a dark theme
+  ;; Set a dark theme for Emacs
   (load-theme 'wombat t)
+  ;; Start Emacs in fullscreen mode
   (add-hook 'after-init-hook 'toggle-frame-fullscreen)
+  ;; Enable package management
   (require 'package)
+  ;; Add package archives for downloading new packages
   (setq package-archives '(("melpa" . "https://melpa.org/packages/")
                            ("gnu" . "https://elpa.gnu.org/packages/")))
+  ;; Initialize the package system
   (package-initialize)
+  ;; Install 'use-package' if it's not already installed.
+  ;; 'use-package' simplifies package configuration.
   (unless (package-installed-p 'use-package)
     (package-refresh-contents)
     (package-install 'use-package))
+  ;; Load 'use-package'
   (require 'use-package)
 
+  ;; Configure the Magit package for Git integration
   (use-package magit
-    :ensure t
-    :bind ("C-x g" . magit-status))
+    :ensure t  ;; Ensure Magit is installed
+    :bind ("C-x g" . magit-status)) ;; Bind 'C-x g' to show Magit status
 
+  ;; Bind 'M-k' to kill the current paragraph
   (global-set-key (kbd "M-k") 'kill-paragraph)
 
-(setq kill-whole-line t)
-(global-set-key (kbd "M-s-k") (lambda () (interactive) (kill-region (point) (point-max))))
+  ;; Make kill-line kill the whole line, not just from the cursor to the end
+  (setq kill-whole-line t)
+  ;; Bind 'M-s-k' to a command that kills the entire buffer content
+  (global-set-key (kbd "M-s-k") (lambda () (interactive) (kill-region (point) (point-max))))
 
 #+end_src
