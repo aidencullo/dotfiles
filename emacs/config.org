@@ -48,4 +48,11 @@
 #+begin_src emacs-lisp
   ;; Make kill-line kill the whole line, not just from the cursor to the end
   (setq kill-whole-line t)
+
+
+(use-package exec-path-from-shell
+  :ensure t
+  :config
+  (exec-path-from-shell-initialize))
+
 #+end_src
