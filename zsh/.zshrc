@@ -120,30 +120,30 @@ eval "$(pyenv init -)"
 export PATH="/Users/mike/.codeium/windsurf/bin:$PATH"
 
 remove_last() {
-  awk 'NR>1{print prev1} {prev1=$0}' "$1" > tmp && mv tmp "$1"
+    awk 'NR>1{print prev1} {prev1=$0}' "$1" > tmp && mv tmp "$1"
 }
 
 remove_last2() {
-  awk 'NR>2{print prev2} {prev2=prev1; prev1=$0}' "$1" > tmp && mv tmp "$1"
+    awk 'NR>2{print prev2} {prev2=prev1; prev1=$0}' "$1" > tmp && mv tmp "$1"
 }
 
 remove_last3() {
-  awk 'NR>3{print prev3} {prev3=prev2; prev2=prev1; prev1=$0}' "$1" > tmp && mv tmp "$1"
+    awk 'NR>3{print prev3} {prev3=prev2; prev2=prev1; prev1=$0}' "$1" > tmp && mv tmp "$1"
 }
 
 
 check_arg() {
-  if [ -z "$1" ]; then
-    echo "Error: no argument provided" >&2
-    return 1
-  fi
+    if [ -z "$1" ]; then
+	echo "Error: no argument provided" >&2
+	return 1
+    fi
 }
 
 isort_this() {
-  check_arg "$1" || return
-	mkdir "$1"
-	cp main.py "$1"
-	cd "$1"
-	cat main.py | isort - | tee "$1".py
-	cd ..
+    check_arg "$1" || return
+    mkdir "$1"
+    cp main.py "$1"
+    cd "$1"
+    cat main.py | isort - | tee "$1".py
+    cd ..
 }
