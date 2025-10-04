@@ -131,7 +131,16 @@ remove_last3() {
   awk 'NR>3{print prev3} {prev3=prev2; prev2=prev1; prev1=$0}' "$1" > tmp && mv tmp "$1"
 }
 
+
+check_arg() {
+  if [ -z "$1" ]; then
+    echo "Error: no argument provided" >&2
+    return 1
+  fi
+}
+
 isort_this() {
+  check_arg "$1" || return
 	mkdir "$1"
 	cp main.py "$1"
 	cd "$1"
