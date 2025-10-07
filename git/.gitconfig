@@ -1,5 +1,4 @@
 [alias]
-	A = add -A
 	ac = !git A && git commit -m
 	acp = "!f(){ git add -A && git commit -m \"$1\" && git push; }; f"
 	aal = config --global
@@ -8,30 +7,11 @@
 	b = branch
 	ba = branch -a
 	ci = commit -m
-	cl = clean -n
-	cld = clean -nd
-	cldf = clean -fd
-	clf = clean -f
-	cli = clean -ndx
-	clif = clean -fdx
-	clx = clean -nX
-	clxd = clean -ndX
-	clxf = clean -fX
-	clxdf = clean -fdX
-	co = checkout
-	df = diff
-	dfs = diff --stat
 	f = fetch
 	h = push origin HEAD
 	last = log -1 HEAD
 	graph = log --graph --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%an%C(reset)%C(bold yellow)%d%C(reset) %C(dim white)- %s%C(reset)' -n 10 --all
-	p = push origin main
-	rc = !git commit -am
-	r = reset
-	sh = show --stat
-	st = status --ignored
 	sta = stash -u
-	count = rev-list --count HEAD
 	five = log --oneline -n 5
 	acpp = !git add . && git commit -m \"auto-pushed changes\" && git push
 
