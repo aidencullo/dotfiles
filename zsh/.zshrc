@@ -155,3 +155,5 @@ isort_this() {
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 mblog() { cd ~/microblog && source venv/bin/activate && flask run; }
+mblog() { cd ~/microblog && source venv/bin/activate && flask run & open http://localhost:5000; }
+mblog() { cd ~/microblog && source venv/bin/activate && open http://localhost:5000 && flask run; }
