@@ -147,3 +147,11 @@ isort_this() {
     cat main.py | isort - | tee "$1".py
     cd ..
 }
+
+# bun completions
+[ -s "/Users/mike/.bun/_bun" ] && source "/Users/mike/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+mblog() { cd ~/microblog && source venv/bin/activate && flask run; }
