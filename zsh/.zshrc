@@ -68,9 +68,9 @@ ZSH_THEME="robbyrussell"
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse zsh-autosuggestions)
+# Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions)
+plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -102,58 +102,3 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-[ -f "/Users/mike/.ghcup/env" ] && . "/Users/mike/.ghcup/env" # ghcup-env
-# Created by `pipx` on 2025-09-10 15:17:57
-export PATH="$PATH:/Users/mike/.local/bin"
-
-# Pyenv setup
-export PATH="$HOME/.pyenv/bin:$PATH"
-eval "$(pyenv init --path)"
-eval "$(pyenv init -)"
-
-# Added by Windsurf
-export PATH="/Users/mike/.codeium/windsurf/bin:$PATH"
-
-remove_last() {
-    awk 'NR>1{print prev1} {prev1=$0}' "$1" > tmp && mv tmp "$1"
-}
-
-remove_last2() {
-    awk 'NR>2{print prev2} {prev2=prev1; prev1=$0}' "$1" > tmp && mv tmp "$1"
-}
-
-remove_last3() {
-    awk 'NR>3{print prev3} {prev3=prev2; prev2=prev1; prev1=$0}' "$1" > tmp && mv tmp "$1"
-}
-
-
-check_arg() {
-    if [ -z "$1" ]; then
-	echo "Error: no argument provided" >&2
-	return 1
-    fi
-}
-
-isort_this() {
-    check_arg "$1" || return
-    mkdir "$1"
-    cp main.py "$1"
-    cd "$1"
-    cat main.py | isort - | tee "$1".py
-    cd ..
-}
-
-# bun completions
-[ -s "/Users/mike/.bun/_bun" ] && source "/Users/mike/.bun/_bun"
-
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-mblog() { cd ~/microblog && source venv/bin/activate && flask run; }
-mblog() { cd ~/microblog && source venv/bin/activate && flask run & open http://localhost:5000; }
-mblog() { cd ~/microblog && source venv/bin/activate && open http://localhost:5000 && flask run; }
