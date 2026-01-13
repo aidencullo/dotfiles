@@ -102,3 +102,7 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias pip="python3 -m pip"
+alias python=python3
+alias pip="python3 -m pip"
+alias python=python3
