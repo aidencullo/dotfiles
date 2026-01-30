@@ -106,3 +106,21 @@ alias pip="python3 -m pip"
 alias python=python3
 alias pip="python3 -m pip"
 alias python=python3
+alias claude='claude --dangerously-skip-permissions'
+alias moltbot='clawdbot'
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
+eval "$(pyenv init -)"
+
+# Amp CLI
+export PATH="/Users/aidensroom/.amp/bin:$PATH"
+
+# Added by Antigravity
+export PATH="/Users/aidensroom/.antigravity/antigravity/bin:$PATH"
+
+# opencode
+export PATH=/Users/aidensroom/.opencode/bin:$PATH
+
+# Launch Claude on terminal open
+claude
