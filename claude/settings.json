@@ -1,0 +1,7 @@
+{
+  "statusLine": {
+    "type": "command",
+    "command": "bash /Users/aidensroom/.claude/statusline-command.sh"
+  },
+  "preferredBrowser": "gh browse"
+}
