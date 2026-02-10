@@ -124,3 +124,10 @@ export PATH=/Users/aidensroom/.opencode/bin:$PATH
 
 # Launch Claude on terminal open
 claude
+
+# bun completions
+[ -s "/Users/aidensroom/.bun/_bun" ] && source "/Users/aidensroom/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
