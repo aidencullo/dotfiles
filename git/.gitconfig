@@ -1,1 +1,27 @@
-/Users/aidensroom/.gitconfig
+[user]
+	name = aiden cullo
+	email = aidencullo@gmail.com
+[core]
+	pager = delta
+	editor = emacs
+[interactive]
+	diffFilter = delta --color-only
+[delta]
+	navigate = true
+	light = false
+	side-by-side = true
+[credential]
+	helper = store
+[credential "https://github.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential
+[credential "https://gitlab.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/glab auth git-credential
+[alias]
+	auto = "!f(){ git add -A && git commit -m \"${1:-auto}\" && git push; }; f"
+	acp = "!f() { git add -A && git commit -m \"$1\" && git push; }; f"
+	empty = commit --allow-empty -m \"empty commit\"
