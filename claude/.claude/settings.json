@@ -9,12 +9,14 @@
     "OTEL_EXPORTER_OTLP_METRICS_PROTOCOL": "http/protobuf",
     "OTEL_EXPORTER_OTLP_METRICS_ENDPOINT": "https://otlp.datadoghq.com/v1/metrics"
   },
+  "model": "opus",
   "statusLine": {
     "type": "command",
     "command": "bash /Users/aidensroom/.claude/statusline-command.sh"
   },
-  "preferredBrowser": "gh browse",
   "enabledPlugins": {
     "ralph-loop@claude-plugins-official": true
-  }
+  },
+  "preferredBrowser": "gh browse",
+  "skipDangerousModePermissionPrompt": true
 }
