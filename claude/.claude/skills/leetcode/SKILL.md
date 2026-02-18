@@ -16,7 +16,17 @@ When this skill is invoked:
 
 3. If the user provides a problem number as an argument (e.g., `/leetcode 42`):
    - Treat that as the current problem context for the session
-   - Automatically open the solution file in emacs: `emacs ~/leetcode/<problem_number>/solution.py &`
+   - Look up ONLY the method signature (name, parameters, return type) for the problem — do NOT read or implement the solution logic
+   - Create `~/leetcode/<problem_number>/solution.py` with the class and method signature and `pass` as the body:
+     ```python
+     class Solution:
+         def methodName(self, param: Type) -> ReturnType:
+             pass
+     ```
+   - Open it in emacs: `emacs ~/leetcode/<problem_number>/solution.py &`
+   - Push the stub immediately
+
+**IMPORTANT: Never implement the solution body. Only look up the method signature. Just create the stub and open it.**
 
 ## Examples
 
