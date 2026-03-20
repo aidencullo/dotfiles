@@ -122,6 +122,9 @@ export PATH="/Users/aidensroom/.antigravity/antigravity/bin:$PATH"
 # opencode
 export PATH=/Users/aidensroom/.opencode/bin:$PATH
 
+# Change to play directory on terminal open
+mkdir -p "$HOME/play" && cd "$HOME/play"
+
 # Launch Claude on terminal open
 claude
 
@@ -132,3 +135,6 @@ claude
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
+
+# OpenClaw Completion
+source "/Users/aidensroom/.openclaw/completions/openclaw.zsh"

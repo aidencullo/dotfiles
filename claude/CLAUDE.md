@@ -21,3 +21,8 @@
 ## Personal Website
 
 - Located at `~/aidencullo.com`
+
+## Dotfiles
+
+- Located at `~/dotfiles` (GitHub: https://github.com/aidencullo/dotfiles)
+- When backing up config files (e.g. CLAUDE.md), copy them to the appropriate folder in `~/dotfiles` and push to GitHub
