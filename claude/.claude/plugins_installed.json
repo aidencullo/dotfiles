@@ -1,0 +1,65 @@
+{
+  "version": 2,
+  "plugins": {
+    "ralph-loop@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/aidensroom/.claude/plugins/cache/claude-plugins-official/ralph-loop/unknown",
+        "version": "unknown",
+        "installedAt": "2026-02-05T23:04:27.306Z",
+        "lastUpdated": "2026-03-25T17:49:47.707Z",
+        "gitCommitSha": "236752ad9ab36029b648bfd94707944760242768"
+      }
+    ],
+    "frontend-design@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/aidensroom/.claude/plugins/cache/claude-plugins-official/frontend-design/unknown",
+        "version": "unknown",
+        "installedAt": "2026-03-17T02:19:23.982Z",
+        "lastUpdated": "2026-03-25T17:49:47.706Z",
+        "gitCommitSha": "78497c524da3762865d47377357c30af5b50d522"
+      }
+    ],
+    "superpowers@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/aidensroom/.claude/plugins/cache/claude-plugins-official/superpowers/5.0.6",
+        "version": "5.0.6",
+        "installedAt": "2026-03-20T17:49:08.097Z",
+        "lastUpdated": "2026-03-25T18:22:50.319Z",
+        "gitCommitSha": "8ea39819eed74fe2a0338e71789f06b30e953041"
+      }
+    ],
+    "telegram@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/aidensroom/.claude/plugins/cache/claude-plugins-official/telegram/0.0.4",
+        "version": "0.0.4",
+        "installedAt": "2026-03-23T21:31:37.531Z",
+        "lastUpdated": "2026-03-25T01:26:43.275Z",
+        "gitCommitSha": "15268f03d2f560b955584a283927ed175569678c"
+      }
+    ],
+    "discord@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/aidensroom/.claude/plugins/cache/claude-plugins-official/discord/0.0.4",
+        "version": "0.0.4",
+        "installedAt": "2026-03-23T21:31:37.918Z",
+        "lastUpdated": "2026-03-25T01:26:43.276Z",
+        "gitCommitSha": "15268f03d2f560b955584a283927ed175569678c"
+      }
+    ],
+    "slack@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/aidensroom/.claude/plugins/cache/claude-plugins-official/slack/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2026-03-23T21:31:38.809Z",
+        "lastUpdated": "2026-03-23T21:31:38.809Z",
+        "gitCommitSha": "7b9458950d38bb01ddb48b669f9fa89bcdfd98b8"
+      }
+    ]
+  }
+}

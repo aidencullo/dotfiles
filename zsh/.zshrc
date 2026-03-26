@@ -138,3 +138,7 @@ export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
 
 # OpenClaw Completion
 source "/Users/aidensroom/.openclaw/completions/openclaw.zsh"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
